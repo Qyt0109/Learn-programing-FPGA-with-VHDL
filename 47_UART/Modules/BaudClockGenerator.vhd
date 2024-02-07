@@ -50,7 +50,6 @@ BEGIN
                 ELSE
                     bit_counter <= 0;
                 END IF;
-                bit_counter <= 0;
             END IF;
         END IF;
     END PROCESS;
