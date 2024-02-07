@@ -21,7 +21,7 @@ BEGIN
     sync_pin <= shift_register(1);
     processSynchronize : PROCESS (rst, clk)
     BEGIN
-        IF rst THEN
+        IF rst = '1' THEN
             shift_register <= (OTHERS => IDLE_STATE);
         ELSIF rising_edge(clk) THEN
             shift_register(0) <= async_pin;

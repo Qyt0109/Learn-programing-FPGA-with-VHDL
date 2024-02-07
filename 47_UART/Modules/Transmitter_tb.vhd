@@ -56,14 +56,27 @@ BEGIN
     );
     processTest : PROCESS
     BEGIN
+        -- init - run 200 ns
         rst <= '1';
         tx_start <= '0';
         tx_data <= x"00";
         WAIT FOR 100 ns;
         rst <= '0';
         WAIT FOR 100 ns;
+
+        -- start transmiting 69h - run 250 us (200 to transmit, 50 padding)
         WAIT UNTIL rising_edge(clk);
         tx_data <= x"69";
+        tx_start <= '1';
+        WAIT UNTIL rising_edge(clk);
+        tx_data <= x"00";
+        tx_start <= '0';
+
+        -- wait until tx is ready
+        WAIT UNTIL rising_edge(tx_ready);
+        -- start transmiting afh - run 250 us (200 to transmit, 50 padding)
+        WAIT UNTIL rising_edge(clk);
+        tx_data <= x"AF";
         tx_start <= '1';
         WAIT UNTIL rising_edge(clk);
         tx_data <= x"00";

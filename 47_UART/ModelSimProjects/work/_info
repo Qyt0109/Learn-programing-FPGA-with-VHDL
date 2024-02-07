@@ -110,11 +110,11 @@ R12
 Artl
 R1
 R2
-Z27 DEx4 work 10 serialiser 0 22 47fKjkUL>NUW@Z8MVTY=12
+DEx4 work 10 serialiser 0 22 47fKjkUL>NUW@Z8MVTY=12
 l23
 L21
-Z28 VPSl65H9]A_RMjcgVBnJij2
-Z29 !s100 mkk?A`4B;n9_FnN;GdmZK3
+VPSl65H9]A_RMjcgVBnJij2
+!s100 mkk?A`4B;n9_FnN;GdmZK3
 R6
 32
 R23
@@ -126,12 +126,12 @@ R26
 R19
 R12
 Eserialiser_tb
-Z30 w1707298526
+Z27 w1707298526
 R1
 R2
 R3
-Z31 8//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Serialiser_tb.vhd
-Z32 F//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Serialiser_tb.vhd
+Z28 8//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Serialiser_tb.vhd
+Z29 F//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Serialiser_tb.vhd
 l0
 L4
 VYc08A9?G4VY`gR4k7fH920
@@ -140,9 +140,9 @@ R6
 32
 !s110 1707298529
 !i10b 1
-Z33 !s108 1707298529.000000
-Z34 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Serialiser_tb.vhd|
-Z35 !s107 //Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Serialiser_tb.vhd|
+Z30 !s108 1707298529.000000
+Z31 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Serialiser_tb.vhd|
+Z32 !s107 //Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Serialiser_tb.vhd|
 !i113 1
 R19
 R12
@@ -158,9 +158,243 @@ R6
 32
 R23
 !i10b 1
-R33
-R34
-R35
+R30
+R31
+R32
+!i113 1
+R19
+R12
+Eshiftregister
+Z33 w1707292002
+R1
+R2
+R3
+Z34 8//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/ShiftRegister.vhd
+Z35 F//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/ShiftRegister.vhd
+l0
+L4
+V[Tzd`Lg>5VM;4kD<?@@8T2
+!s100 K=m@iWE^^zhzY_`eeIH[H2
+R6
+32
+Z36 !s110 1707298779
+!i10b 1
+Z37 !s108 1707298779.000000
+Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/ShiftRegister.vhd|
+Z39 !s107 //Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/ShiftRegister.vhd|
+!i113 1
+R19
+R12
+Artl
+R1
+R2
+DEx4 work 13 shiftregister 0 22 [Tzd`Lg>5VM;4kD<?@@8T2
+l22
+L20
+V=F0Fe<Pf]V5cKYAY6GJFF1
+!s100 9TlWz51_0mG8X=8zz_Z]o1
+R6
+32
+R36
+!i10b 1
+R37
+R38
+R39
+!i113 1
+R19
+R12
+Eshiftregister_tb
+Z40 w1707298773
+R1
+R2
+R3
+Z41 8//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/ShiftRegister_tb.vhd
+Z42 F//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/ShiftRegister_tb.vhd
+l0
+L4
+VQUVDi@zF;SJi48KR5D4X92
+!s100 D^AX<KMajGh`NPIfghlmj3
+R6
+32
+R36
+!i10b 1
+R37
+Z43 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/ShiftRegister_tb.vhd|
+Z44 !s107 //Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/ShiftRegister_tb.vhd|
+!i113 1
+R19
+R12
+Artl
+R1
+R2
+DEx4 work 16 shiftregister_tb 0 22 QUVDi@zF;SJi48KR5D4X92
+l31
+L7
+VdTVfL=XzM=o]_Ej^zR9411
+!s100 2AI=VEXnE^@F_KJ]_J7@30
+R6
+32
+R36
+!i10b 1
+R37
+R43
+R44
+!i113 1
+R19
+R12
+Esynchronizer
+Z45 w1707303060
+R1
+R2
+R3
+Z46 8//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Synchronizer.vhd
+Z47 F//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Synchronizer.vhd
+l0
+L4
+VhRGkMn>AC>2B?M7dcX<8X0
+!s100 5[0n^M@eZW=IBRee3W=fS3
+R6
+32
+Z48 !s110 1707303347
+!i10b 1
+Z49 !s108 1707303347.000000
+Z50 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Synchronizer.vhd|
+Z51 !s107 //Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Synchronizer.vhd|
+!i113 1
+R19
+R12
+Artl
+R1
+R2
+DEx4 work 12 synchronizer 0 22 hRGkMn>AC>2B?M7dcX<8X0
+l20
+L18
+VlS3jXDbG`@kk:gXVNVb=k0
+!s100 >j`aU2Xb2?io]R;iQD[9R2
+R6
+32
+R48
+!i10b 1
+R49
+R50
+R51
+!i113 1
+R19
+R12
+Esynchronizer_tb
+Z52 w1707303735
+R1
+R2
+R3
+Z53 8//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Synchronizer_tb.vhd
+Z54 F//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Synchronizer_tb.vhd
+l0
+L4
+VTY>n[Yj@Cz=bJMOkaPcQ;1
+!s100 :GThI5F=oV?`SVzPY4klg1
+R6
+32
+Z55 !s110 1707303741
+!i10b 1
+Z56 !s108 1707303741.000000
+Z57 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Synchronizer_tb.vhd|
+Z58 !s107 //Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Synchronizer_tb.vhd|
+!i113 1
+R19
+R12
+Artl
+R1
+R2
+Z59 DEx4 work 15 synchronizer_tb 0 22 TY>n[Yj@Cz=bJMOkaPcQ;1
+l27
+L7
+VhXQem[G@_Fi=i06Jj19Ve0
+!s100 oC4@TMITj>Wi8aloUY2X22
+R6
+32
+R55
+!i10b 1
+R56
+R57
+R58
+!i113 1
+R19
+R12
+Etransmitter
+Z60 w1707244988
+R1
+R2
+R3
+Z61 8//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Transmitter.vhd
+Z62 F//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Transmitter.vhd
+l0
+L4
+VT=9clcPb0I9<DjnUh;;C42
+!s100 HXklm>EOOQZ[210E=aNAm3
+R6
+32
+Z63 !s110 1707299451
+!i10b 1
+Z64 !s108 1707299451.000000
+Z65 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Transmitter.vhd|
+Z66 !s107 //Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Transmitter.vhd|
+!i113 1
+R19
+R12
+Artl
+R1
+R2
+DEx4 work 11 transmitter 0 22 T=9clcPb0I9<DjnUh;;C42
+l62
+L22
+V@B]oAWjVdil]BnizV;6MA0
+!s100 KIDV2k8:37E`om4mgLhgT1
+R6
+32
+R63
+!i10b 1
+R64
+R65
+R66
+!i113 1
+R19
+R12
+Etransmitter_tb
+Z67 w1707299441
+R1
+R2
+R3
+Z68 8//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Transmitter_tb.vhd
+Z69 F//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Transmitter_tb.vhd
+l0
+L4
+VBmJh`P;;aQgFzEVMi@L`P3
+!s100 ]jHUK4U=13=zB_C]:FYZh2
+R6
+32
+R63
+!i10b 1
+R64
+Z70 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Transmitter_tb.vhd|
+Z71 !s107 //Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Transmitter_tb.vhd|
+!i113 1
+R19
+R12
+Artl
+R1
+R2
+DEx4 work 14 transmitter_tb 0 22 BmJh`P;;aQgFzEVMi@L`P3
+l39
+L12
+VKYkczzVdNQCZb3H2=MQSa1
+!s100 `6<STBjY5@aZ9]em9jj`J1
+R6
+32
+R63
+!i10b 1
+R64
+R70
+R71
 !i113 1
 R19
 R12

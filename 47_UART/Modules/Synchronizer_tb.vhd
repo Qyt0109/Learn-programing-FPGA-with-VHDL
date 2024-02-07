@@ -36,14 +36,26 @@ BEGIN
         async_pin => async_signal,
         sync_pin => sync_signal
     );
-    processTest:process
-    begin
-        -- init
+    processTest : PROCESS
+    BEGIN
+        -- init - run 200 ns
         rst <= '1';
         sync_signal <= '1';
-        wait for 100 ns;
+        WAIT FOR 100 ns;
         rst <= '0';
-        wait for 100 ns;
-        -- 
-    end process;
+        WAIT FOR 100 ns;
+        --  test synchronize async signal - run 100 ns
+        -- async signal which 3 ns after the clk
+        WAIT FOR 3 ns;
+        async_signal <= '0';
+        -- 3 clk circle after
+        FOR i IN 0 TO 2 LOOP
+            WAIT UNTIL rising_edge(clk);
+        END LOOP;
+        -- async signal which 8 ns after the clk
+        WAIT FOR 8 ns;
+        async_signal <= '1';
+
+        WAIT; -- 1 time process
+    END PROCESS;
 END ARCHITECTURE;

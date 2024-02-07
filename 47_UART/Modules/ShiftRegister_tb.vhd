@@ -44,7 +44,7 @@ BEGIN
     );
     processTest : PROCESS
     BEGIN
-        -- init
+        -- init - run 200 ns
         rst <= '1';
         shift_en <= '0';
         data_in <= '0';
@@ -52,7 +52,7 @@ BEGIN
         rst <= '0';
         WAIT FOR 100 ns;
 
-        -- 0C5h - 11000101b
+        -- Transmit 0C5h - 11000101b - run 100 us
         -- Transmit 05h - 0101 (LSB first)
         FOR i IN 0 TO 1 LOOP
             data_in <= '1';
