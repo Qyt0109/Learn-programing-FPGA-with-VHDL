@@ -32,11 +32,11 @@ Z12 tExplicit 1 CvgOpt 0
 Artl
 R1
 R2
-Z13 DEx4 work 18 baudclockgenerator 0 22 ZMlWUj`kgTRG><=z<V;Oe3
+DEx4 work 18 baudclockgenerator 0 22 ZMlWUj`kgTRG><=z<V;Oe3
 l27
 L22
-Z14 VaoCk]2UTEOD``H1?8^]a_0
-Z15 !s100 N5j<=i6=U=ZFE0EbK5ZMi1
+VaoCk]2UTEOD``H1?8^]a_0
+!s100 N5j<=i6=U=ZFE0EbK5ZMi1
 R6
 33
 R7
@@ -48,25 +48,25 @@ R10
 R11
 R12
 Ebaudclockgenerator_tb
-Z16 w1707298190
+Z13 w1707298190
 R1
 R2
 R3
-Z17 8//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/BaudClockGenerator_tb.vhd
-Z18 F//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/BaudClockGenerator_tb.vhd
+Z14 8//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/BaudClockGenerator_tb.vhd
+Z15 F//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/BaudClockGenerator_tb.vhd
 l0
 L4
 VAU5`dlZQMCd]kYmdhG1dQ2
 !s100 kX3_`^5LCU:]ooG`X6C[m0
 R6
 32
-Z19 !s110 1707298196
+Z16 !s110 1707298196
 !i10b 1
 R8
-Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/BaudClockGenerator_tb.vhd|
-Z21 !s107 //Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/BaudClockGenerator_tb.vhd|
+Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/BaudClockGenerator_tb.vhd|
+Z18 !s107 //Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/BaudClockGenerator_tb.vhd|
 !i113 1
-Z22 o-work work -2002 -explicit
+Z19 o-work work -2002 -explicit
 R12
 Artl
 R1
@@ -78,11 +78,89 @@ V8<@?D`FOE093Knhne<NBg1
 !s100 LN<knoAfBUdIUE;klA:JY2
 R6
 32
-R19
+R16
 !i10b 1
 R8
-R20
-R21
+R17
+R18
 !i113 1
-R22
+R19
+R12
+Eserialiser
+Z20 w1707221005
+R1
+R2
+R3
+Z21 8//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Serialiser.vhd
+Z22 F//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Serialiser.vhd
+l0
+L4
+V47fKjkUL>NUW@Z8MVTY=12
+!s100 lXWm7hH@2g<ofEaO9j]L<1
+R6
+32
+Z23 !s110 1707298530
+!i10b 1
+Z24 !s108 1707298530.000000
+Z25 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Serialiser.vhd|
+Z26 !s107 //Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Serialiser.vhd|
+!i113 1
+R19
+R12
+Artl
+R1
+R2
+Z27 DEx4 work 10 serialiser 0 22 47fKjkUL>NUW@Z8MVTY=12
+l23
+L21
+Z28 VPSl65H9]A_RMjcgVBnJij2
+Z29 !s100 mkk?A`4B;n9_FnN;GdmZK3
+R6
+32
+R23
+!i10b 1
+R24
+R25
+R26
+!i113 1
+R19
+R12
+Eserialiser_tb
+Z30 w1707298526
+R1
+R2
+R3
+Z31 8//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Serialiser_tb.vhd
+Z32 F//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Serialiser_tb.vhd
+l0
+L4
+VYc08A9?G4VY`gR4k7fH920
+!s100 L<O1TbD<1mi7>;RPfTR[f3
+R6
+32
+!s110 1707298529
+!i10b 1
+Z33 !s108 1707298529.000000
+Z34 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Serialiser_tb.vhd|
+Z35 !s107 //Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Serialiser_tb.vhd|
+!i113 1
+R19
+R12
+Artl
+R1
+R2
+DEx4 work 13 serialiser_tb 0 22 Yc08A9?G4VY`gR4k7fH920
+l36
+L11
+V2Q[5ELz=k86gL_OZ>6KjH1
+!s100 bFOP_K`jNo3fg[9UY@@fF1
+R6
+32
+R23
+!i10b 1
+R33
+R34
+R35
+!i113 1
+R19
 R12

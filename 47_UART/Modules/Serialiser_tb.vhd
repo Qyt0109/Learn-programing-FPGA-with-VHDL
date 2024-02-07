@@ -52,7 +52,7 @@ BEGIN
     -- Process
     processTest : PROCESS
     BEGIN
-        -- init
+        -- init - run 200 ns
         rst <= '1';
         shift_en <= '0';
         load <= '0';
@@ -61,7 +61,7 @@ BEGIN
         rst <= '0';
         WAIT FOR 100 ns;
 
-        -- load a data (69h)
+        -- load a data (69h) - run 100 us
         WAIT UNTIL rising_edge(clk);
         load <= '1';
         data_in <= x"69"; -- 0x01101001
