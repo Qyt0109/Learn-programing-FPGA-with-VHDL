@@ -1,10 +1,10 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 
-ENTITY Test_ShiftRegister IS
+ENTITY ShiftRegister_tb IS
 END ENTITY;
 
-ARCHITECTURE rtl OF Test_ShiftRegister IS
+ARCHITECTURE rtl OF ShiftRegister_tb IS
     -- Components
     COMPONENT ShiftRegister IS
         GENERIC (

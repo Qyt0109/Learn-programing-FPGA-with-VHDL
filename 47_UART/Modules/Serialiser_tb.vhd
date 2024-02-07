@@ -1,14 +1,14 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 
-ENTITY Test_Serialiser IS
+ENTITY Serialiser_tb IS
     GENERIC (
         DATA_WIDTH : INTEGER := 8;
         DEFAULT_STATE : STD_LOGIC := '1'
     );
 END ENTITY;
 
-ARCHITECTURE rtl OF Test_Serialiser IS
+ARCHITECTURE rtl OF Serialiser_tb IS
 
     COMPONENT Serialiser IS
         GENERIC (

@@ -1,15 +1,16 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 
-ENTITY Test_BaudClockGenerator IS
+ENTITY BaudClockGenerator_tb IS
 END ENTITY;
 
-ARCHITECTURE rtl OF Test_BaudClockGenerator IS
+ARCHITECTURE rtl OF BaudClockGenerator_tb IS
     COMPONENT BaudClockGenerator IS
         GENERIC (
             NUMBER_OF_CLOCKS : INTEGER;
             SYS_CLK_FREQ : INTEGER;
-            BAUD_RATE : INTEGER
+            BAUD_RATE : INTEGER;
+            IS_RX:boolean
         );
         PORT (
             -- input
@@ -45,7 +46,8 @@ BEGIN
     GENERIC MAP(
         NUMBER_OF_CLOCKS => 10,
         SYS_CLK_FREQ => 50000000,
-        BAUD_RATE => 115200
+        BAUD_RATE => 115200,
+        IS_RX => true
     )
     PORT MAP(
         -- input
@@ -59,18 +61,25 @@ BEGIN
 
     processTest : PROCESS
     BEGIN
-        -- reset
+        -- init - run 200 ns
         rst <= '1';
         start <= '0';
         WAIT FOR 100 ns; -- ns
         rst <= '0';
-        -- 
+        WAIT FOR 100 ns; -- ns
+        -- trigger start - run 100 us
         WAIT UNTIL rising_edge(clk);
         start <= '1';
         WAIT UNTIL rising_edge(clk);
         start <= '0';
-        
+        -- trigger start again - run 100 us
+        wait until rising_edge(ready);
+        WAIT UNTIL rising_edge(clk);
+        start <= '1';
+        WAIT UNTIL rising_edge(clk);
+        start <= '0';
+
+
         WAIT; -- 1 time process
     END PROCESS processTest;
-
 END ARCHITECTURE rtl;

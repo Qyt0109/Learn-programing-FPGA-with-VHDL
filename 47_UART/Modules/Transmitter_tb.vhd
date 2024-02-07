@@ -1,7 +1,7 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 
-ENTITY Test_Transmitter IS
+ENTITY Transmitter_tb IS
     GENERIC (
         DATA_BITS : INTEGER := 8;
         SYS_CLK_FREQ : INTEGER := 50000000;
@@ -9,7 +9,7 @@ ENTITY Test_Transmitter IS
     );
 END ENTITY;
 
-ARCHITECTURE rtl OF Test_Transmitter IS
+ARCHITECTURE rtl OF Transmitter_tb IS
     -- Components
     COMPONENT Transmitter IS
         GENERIC (

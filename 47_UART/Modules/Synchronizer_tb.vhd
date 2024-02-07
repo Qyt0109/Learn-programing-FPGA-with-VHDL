@@ -1,10 +1,10 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 
-ENTITY Test_Synchronizer IS
+ENTITY Synchronizer_tb IS
 END ENTITY;
 
-ARCHITECTURE rtl OF Test_Synchronizer IS
+ARCHITECTURE rtl OF Synchronizer_tb IS
     -- Components
     COMPONENT Synchronizer IS
         GENERIC (
