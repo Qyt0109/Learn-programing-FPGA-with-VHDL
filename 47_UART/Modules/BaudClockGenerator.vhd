@@ -3,10 +3,10 @@ USE ieee.std_logic_1164.ALL;
 
 ENTITY BaudClockGenerator IS
     GENERIC (
-        NUMBER_OF_CLOCKS : INTEGER := 10;
-        SYS_CLK_FREQ : INTEGER := 50000000;
-        BAUD_RATE : INTEGER := 115200;
-        IS_RX : BOOLEAN := true -- True if BaudClockGenerator is used in Rx module
+        NUMBER_OF_CLOCKS : INTEGER;
+        SYS_CLK_FREQ : INTEGER;
+        BAUD_RATE : INTEGER;
+        IS_RX : BOOLEAN -- True if BaudClockGenerator is used in Rx module
     );
     PORT (
         -- inputs
