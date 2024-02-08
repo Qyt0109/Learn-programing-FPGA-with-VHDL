@@ -3,8 +3,8 @@ USE ieee.std_logic_1164.ALL;
 
 ENTITY ShiftRegister IS
     GENERIC (
-        DATA_BITS : INTEGER := 8;
-        IS_RIGHT_SHIFT : BOOLEAN := true -- True if shift to the right
+        DATA_BITS : INTEGER;
+        IS_RIGHT_SHIFT : BOOLEAN -- True if shift to the right
     );
     PORT (
         -- inputs
