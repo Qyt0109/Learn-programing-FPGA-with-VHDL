@@ -3,17 +3,17 @@ USE ieee.std_logic_1164.ALL;
 
 ENTITY TopModule IS
     GENERIC (
-        DATA_BITS : INTEGER := 8;
-        SYS_CLK_FREQ : INTEGER := 50000000;
-        BAUD_RATE : INTEGER := 115200
+        DATA_BITS : INTEGER;
+        SYS_CLK_FREQ : INTEGER;
+        BAUD_RATE : INTEGER
     );
     PORT (
         -- inputs
         clk : IN STD_LOGIC;
         rst : IN STD_LOGIC;
-        tx_pin : IN STD_LOGIC;
+        rx_pin : IN STD_LOGIC;
         -- outputs
-        rx_pin : OUT STD_LOGIC
+        tx_pin : OUT STD_LOGIC
     );
 END ENTITY;
 
@@ -113,5 +113,4 @@ BEGIN
             END CASE;
         END IF;
     END PROCESS;
-
 END ARCHITECTURE;
