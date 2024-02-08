@@ -1,0 +1,510 @@
+Analysis & Synthesis report for TopModule
+Thu Feb  8 22:32:16 2024
+Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |TopModule|Receiver:Receiver_inst|fsm_state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |TopModule
+ 14. Parameter Settings for User Entity Instance: Transmitter:Transmitter_inst
+ 15. Parameter Settings for User Entity Instance: Transmitter:Transmitter_inst|Serialiser:Serialiser_inst
+ 16. Parameter Settings for User Entity Instance: Transmitter:Transmitter_inst|BaudClockGenerator:BaudClockGenerator_inst
+ 17. Parameter Settings for User Entity Instance: Receiver:Receiver_inst
+ 18. Parameter Settings for User Entity Instance: Receiver:Receiver_inst|Synchronizer:Synchronizer_inst
+ 19. Parameter Settings for User Entity Instance: Receiver:Receiver_inst|BaudClockGenerator:BaudClockGenerator_inst
+ 20. Parameter Settings for User Entity Instance: Receiver:Receiver_inst|ShiftRegister:ShiftRegister_inst
+ 21. Port Connectivity Checks: "Transmitter:Transmitter_inst|Serialiser:Serialiser_inst"
+ 22. Post-Synthesis Netlist Statistics for Top Partition
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Feb  8 22:32:16 2024          ;
+; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
+; Revision Name                      ; TopModule                                      ;
+; Top-level Entity Name              ; TopModule                                      ;
+; Family                             ; Cyclone IV E                                   ;
+; Total logic elements               ; 70                                             ;
+;     Total combinational functions  ; 61                                             ;
+;     Dedicated logic registers      ; 57                                             ;
+; Total registers                    ; 57                                             ;
+; Total pins                         ; 4                                              ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE6E22C8        ;                    ;
+; Top-level entity name                                            ; TopModule          ; TopModule          ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++-----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path  ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                           ; Library ;
++-----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------+---------+
+; ../Modules/Transmitter.vhd        ; yes             ; User VHDL File  ; //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Transmitter.vhd        ;         ;
+; ../Modules/TopModule.vhd          ; yes             ; User VHDL File  ; //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/TopModule.vhd          ;         ;
+; ../Modules/Synchronizer.vhd       ; yes             ; User VHDL File  ; //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Synchronizer.vhd       ;         ;
+; ../Modules/ShiftRegister.vhd      ; yes             ; User VHDL File  ; //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/ShiftRegister.vhd      ;         ;
+; ../Modules/Serialiser.vhd         ; yes             ; User VHDL File  ; //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Serialiser.vhd         ;         ;
+; ../Modules/Receiver.vhd           ; yes             ; User VHDL File  ; //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Receiver.vhd           ;         ;
+; ../Modules/BaudClockGenerator.vhd ; yes             ; User VHDL File  ; //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/BaudClockGenerator.vhd ;         ;
++-----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 70        ;
+;                                             ;           ;
+; Total combinational functions               ; 61        ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 16        ;
+;     -- 3 input functions                    ; 15        ;
+;     -- <=2 input functions                  ; 30        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 45        ;
+;     -- arithmetic mode                      ; 16        ;
+;                                             ;           ;
+; Total registers                             ; 57        ;
+;     -- Dedicated logic registers            ; 57        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 4         ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 57        ;
+; Total fan-out                               ; 391       ;
+; Average fan-out                             ; 3.10      ;
++---------------------------------------------+-----------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                    ;
++----------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+--------------------+--------------+
+; Compilation Hierarchy Node                         ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                ; Entity Name        ; Library Name ;
++----------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+--------------------+--------------+
+; |TopModule                                         ; 61 (2)              ; 57 (1)                    ; 0           ; 0            ; 0       ; 0         ; 4    ; 0            ; |TopModule                                                                         ; TopModule          ; work         ;
+;    |Receiver:Receiver_inst|                        ; 29 (6)              ; 32 (7)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TopModule|Receiver:Receiver_inst                                                  ; Receiver           ; work         ;
+;       |BaudClockGenerator:BaudClockGenerator_inst| ; 21 (21)             ; 15 (15)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TopModule|Receiver:Receiver_inst|BaudClockGenerator:BaudClockGenerator_inst       ; BaudClockGenerator ; work         ;
+;       |ShiftRegister:ShiftRegister_inst|           ; 1 (1)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TopModule|Receiver:Receiver_inst|ShiftRegister:ShiftRegister_inst                 ; ShiftRegister      ; work         ;
+;       |Synchronizer:Synchronizer_inst|             ; 1 (1)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TopModule|Receiver:Receiver_inst|Synchronizer:Synchronizer_inst                   ; Synchronizer       ; work         ;
+;    |Transmitter:Transmitter_inst|                  ; 30 (0)              ; 24 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TopModule|Transmitter:Transmitter_inst                                            ; Transmitter        ; work         ;
+;       |BaudClockGenerator:BaudClockGenerator_inst| ; 20 (20)             ; 15 (15)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TopModule|Transmitter:Transmitter_inst|BaudClockGenerator:BaudClockGenerator_inst ; BaudClockGenerator ; work         ;
+;       |Serialiser:Serialiser_inst|                 ; 10 (10)             ; 9 (9)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TopModule|Transmitter:Transmitter_inst|Serialiser:Serialiser_inst                 ; Serialiser         ; work         ;
++----------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------+--------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------+
+; State Machine - |TopModule|Receiver:Receiver_inst|fsm_state                 ;
++---------------------+----------------+---------------------+----------------+
+; Name                ; fsm_state.DONE ; fsm_state.RECEIVING ; fsm_state.IDLE ;
++---------------------+----------------+---------------------+----------------+
+; fsm_state.IDLE      ; 0              ; 0                   ; 0              ;
+; fsm_state.RECEIVING ; 0              ; 1                   ; 1              ;
+; fsm_state.DONE      ; 1              ; 0                   ; 1              ;
++---------------------+----------------+---------------------+----------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                 ;
++---------------------------------------------------------------------------+----------------------------------------+
+; Register name                                                             ; Reason for Removal                     ;
++---------------------------------------------------------------------------+----------------------------------------+
+; tx_start                                                                  ; Merged with fsm_state                  ;
+; Transmitter:Transmitter_inst|Serialiser:Serialiser_inst|shift_register[9] ; Stuck at VCC due to stuck port data_in ;
+; Total Number of Removed Registers = 2                                     ;                                        ;
++---------------------------------------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 57    ;
+; Number of registers using Synchronous Clear  ; 10    ;
+; Number of registers using Synchronous Load   ; 9     ;
+; Number of registers using Asynchronous Clear ; 57    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 24    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                            ;
++-------------------------------------------------------------------------------+---------+
+; Inverted Register                                                             ; Fan out ;
++-------------------------------------------------------------------------------+---------+
+; Transmitter:Transmitter_inst|Serialiser:Serialiser_inst|shift_register[0]     ; 2       ;
+; Transmitter:Transmitter_inst|Serialiser:Serialiser_inst|shift_register[1]     ; 1       ;
+; Transmitter:Transmitter_inst|Serialiser:Serialiser_inst|shift_register[2]     ; 1       ;
+; Transmitter:Transmitter_inst|BaudClockGenerator:BaudClockGenerator_inst|ready ; 2       ;
+; Transmitter:Transmitter_inst|Serialiser:Serialiser_inst|shift_register[3]     ; 1       ;
+; Transmitter:Transmitter_inst|Serialiser:Serialiser_inst|shift_register[4]     ; 1       ;
+; Receiver:Receiver_inst|BaudClockGenerator:BaudClockGenerator_inst|ready       ; 4       ;
+; Transmitter:Transmitter_inst|Serialiser:Serialiser_inst|shift_register[5]     ; 1       ;
+; Transmitter:Transmitter_inst|Serialiser:Serialiser_inst|shift_register[6]     ; 1       ;
+; Receiver:Receiver_inst|Synchronizer:Synchronizer_inst|shift_register[1]       ; 3       ;
+; Receiver:Receiver_inst|synced_rx_pin_delay                                    ; 1       ;
+; Transmitter:Transmitter_inst|Serialiser:Serialiser_inst|shift_register[7]     ; 1       ;
+; Receiver:Receiver_inst|Synchronizer:Synchronizer_inst|shift_register[0]       ; 1       ;
+; Transmitter:Transmitter_inst|Serialiser:Serialiser_inst|shift_register[8]     ; 1       ;
+; Total number of inverted registers = 14                                       ;         ;
++-------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TopModule|Transmitter:Transmitter_inst|BaudClockGenerator:BaudClockGenerator_inst|clk_left[0]    ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |TopModule|Transmitter:Transmitter_inst|BaudClockGenerator:BaudClockGenerator_inst|bit_counter[0] ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TopModule|Receiver:Receiver_inst|BaudClockGenerator:BaudClockGenerator_inst|clk_left[3]          ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; Yes        ; |TopModule|Receiver:Receiver_inst|BaudClockGenerator:BaudClockGenerator_inst|bit_counter[7]       ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |TopModule|Transmitter:Transmitter_inst|Serialiser:Serialiser_inst|shift_register[3]              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |TopModule ;
++----------------+----------+-----------------------------------------------+
+; Parameter Name ; Value    ; Type                                          ;
++----------------+----------+-----------------------------------------------+
+; DATA_BITS      ; 8        ; Signed Integer                                ;
+; SYS_CLK_FREQ   ; 50000000 ; Signed Integer                                ;
+; BAUD_RATE      ; 115200   ; Signed Integer                                ;
++----------------+----------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Transmitter:Transmitter_inst ;
++----------------+----------+-----------------------------------------------+
+; Parameter Name ; Value    ; Type                                          ;
++----------------+----------+-----------------------------------------------+
+; data_bits      ; 8        ; Signed Integer                                ;
+; sys_clk_freq   ; 50000000 ; Signed Integer                                ;
+; baud_rate      ; 115200   ; Signed Integer                                ;
++----------------+----------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Transmitter:Transmitter_inst|Serialiser:Serialiser_inst ;
++----------------+-------+-----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                        ;
++----------------+-------+-----------------------------------------------------------------------------+
+; data_width     ; 10    ; Signed Integer                                                              ;
+; default_state  ; '1'   ; Enumerated                                                                  ;
++----------------+-------+-----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Transmitter:Transmitter_inst|BaudClockGenerator:BaudClockGenerator_inst ;
++------------------+----------+----------------------------------------------------------------------------------------+
+; Parameter Name   ; Value    ; Type                                                                                   ;
++------------------+----------+----------------------------------------------------------------------------------------+
+; number_of_clocks ; 10       ; Signed Integer                                                                         ;
+; sys_clk_freq     ; 50000000 ; Signed Integer                                                                         ;
+; baud_rate        ; 115200   ; Signed Integer                                                                         ;
+; is_rx            ; false    ; Enumerated                                                                             ;
++------------------+----------+----------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Receiver:Receiver_inst ;
++----------------+----------+-----------------------------------------+
+; Parameter Name ; Value    ; Type                                    ;
++----------------+----------+-----------------------------------------+
+; DATA_WIDTH     ; 8        ; Signed Integer                          ;
+; SYS_CLK_FREQ   ; 50000000 ; Signed Integer                          ;
+; BAUD_RATE      ; 115200   ; Signed Integer                          ;
++----------------+----------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Receiver:Receiver_inst|Synchronizer:Synchronizer_inst ;
++----------------+-------+---------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                      ;
++----------------+-------+---------------------------------------------------------------------------+
+; idle_state     ; '1'   ; Enumerated                                                                ;
++----------------+-------+---------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Receiver:Receiver_inst|BaudClockGenerator:BaudClockGenerator_inst ;
++------------------+----------+----------------------------------------------------------------------------------+
+; Parameter Name   ; Value    ; Type                                                                             ;
++------------------+----------+----------------------------------------------------------------------------------+
+; number_of_clocks ; 9        ; Signed Integer                                                                   ;
+; sys_clk_freq     ; 50000000 ; Signed Integer                                                                   ;
+; baud_rate        ; 115200   ; Signed Integer                                                                   ;
+; is_rx            ; true     ; Enumerated                                                                       ;
++------------------+----------+----------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Receiver:Receiver_inst|ShiftRegister:ShiftRegister_inst ;
++----------------+-------+-----------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                        ;
++----------------+-------+-----------------------------------------------------------------------------+
+; data_bits      ; 8     ; Signed Integer                                                              ;
+; is_right_shift ; true  ; Enumerated                                                                  ;
++----------------+-------+-----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Transmitter:Transmitter_inst|Serialiser:Serialiser_inst" ;
++------------+-------+----------+-----------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                             ;
++------------+-------+----------+-----------------------------------------------------+
+; data_in[9] ; Input ; Info     ; Stuck at VCC                                        ;
+; data_in[0] ; Input ; Info     ; Stuck at GND                                        ;
++------------+-------+----------+-----------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 4                           ;
+; cycloneiii_ff         ; 57                          ;
+;     CLR               ; 14                          ;
+;     CLR SCLR          ; 10                          ;
+;     CLR SLD           ; 9                           ;
+;     ENA CLR           ; 24                          ;
+; cycloneiii_lcell_comb ; 62                          ;
+;     arith             ; 16                          ;
+;         2 data inputs ; 16                          ;
+;     normal            ; 46                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 9                           ;
+;         3 data inputs ; 15                          ;
+;         4 data inputs ; 16                          ;
+;                       ;                             ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 1.41                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+    Info: Processing started: Thu Feb  8 22:31:56 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off UART -c TopModule
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/fpga_vhdl/47_uart/modules/transmitter.vhd
+    Info (12022): Found design unit 1: Transmitter-rtl File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Transmitter.vhd Line: 22
+    Info (12023): Found entity 1: Transmitter File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Transmitter.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/fpga_vhdl/47_uart/modules/topmodule.vhd
+    Info (12022): Found design unit 1: TopModule-rtl File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/TopModule.vhd Line: 20
+    Info (12023): Found entity 1: TopModule File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/TopModule.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/fpga_vhdl/47_uart/modules/synchronizer.vhd
+    Info (12022): Found design unit 1: Synchronizer-rtl File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Synchronizer.vhd Line: 18
+    Info (12023): Found entity 1: Synchronizer File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Synchronizer.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/fpga_vhdl/47_uart/modules/shiftregister.vhd
+    Info (12022): Found design unit 1: ShiftRegister-rtl File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/ShiftRegister.vhd Line: 20
+    Info (12023): Found entity 1: ShiftRegister File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/ShiftRegister.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/fpga_vhdl/47_uart/modules/serialiser.vhd
+    Info (12022): Found design unit 1: Serialiser-rtl File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Serialiser.vhd Line: 21
+    Info (12023): Found entity 1: Serialiser File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Serialiser.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/fpga_vhdl/47_uart/modules/receiver.vhd
+    Info (12022): Found design unit 1: Receiver-rtl File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Receiver.vhd Line: 22
+    Info (12023): Found entity 1: Receiver File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Receiver.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/fpga_vhdl/47_uart/modules/baudclockgenerator.vhd
+    Info (12022): Found design unit 1: BaudClockGenerator-rtl File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/BaudClockGenerator.vhd Line: 22
+    Info (12023): Found entity 1: BaudClockGenerator File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/BaudClockGenerator.vhd Line: 4
+Info (12127): Elaborating entity "TopModule" for the top level hierarchy
+Info (12128): Elaborating entity "Transmitter" for hierarchy "Transmitter:Transmitter_inst" File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/TopModule.vhd Line: 64
+Info (12128): Elaborating entity "Serialiser" for hierarchy "Transmitter:Transmitter_inst|Serialiser:Serialiser_inst" File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Transmitter.vhd Line: 64
+Info (12128): Elaborating entity "BaudClockGenerator" for hierarchy "Transmitter:Transmitter_inst|BaudClockGenerator:BaudClockGenerator_inst" File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Transmitter.vhd Line: 77
+Info (12128): Elaborating entity "Receiver" for hierarchy "Receiver:Receiver_inst" File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/TopModule.vhd Line: 80
+Info (12128): Elaborating entity "Synchronizer" for hierarchy "Receiver:Receiver_inst|Synchronizer:Synchronizer_inst" File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Receiver.vhd Line: 83
+Info (12128): Elaborating entity "BaudClockGenerator" for hierarchy "Receiver:Receiver_inst|BaudClockGenerator:BaudClockGenerator_inst" File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Receiver.vhd Line: 96
+Info (12128): Elaborating entity "ShiftRegister" for hierarchy "Receiver:Receiver_inst|ShiftRegister:ShiftRegister_inst" File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Receiver.vhd Line: 113
+Info (13000): Registers with preset signals will power-up high File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/47_UART/Modules/Serialiser.vhd Line: 27
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 74 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 1 output pins
+    Info (21061): Implemented 70 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 13292 megabytes
+    Info: Processing ended: Thu Feb  8 22:32:16 2024
+    Info: Elapsed time: 00:00:20
+    Info: Total CPU time (on all processors): 00:00:43
+
+

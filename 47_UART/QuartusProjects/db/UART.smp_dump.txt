@@ -1,0 +1,6 @@
+
+State Machine - |TopModule|Receiver:Receiver_inst|fsm_state
+Name fsm_state.DONE fsm_state.RECEIVING fsm_state.IDLE 
+fsm_state.IDLE 0 0 0 
+fsm_state.RECEIVING 0 1 1 
+fsm_state.DONE 1 0 1 

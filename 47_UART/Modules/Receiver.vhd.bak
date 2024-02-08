@@ -3,9 +3,9 @@ USE ieee.std_logic_1164.ALL;
 
 ENTITY Receiver IS
     GENERIC (
-        DATA_WIDTH : INTEGER := 8;
-        SYS_CLK_FREQ : INTEGER := 50000000;
-        BAUD_RATE : INTEGER := 115200
+        DATA_WIDTH : INTEGER;
+        SYS_CLK_FREQ : INTEGER;
+        BAUD_RATE : INTEGER
     );
     PORT (
         -- inputs

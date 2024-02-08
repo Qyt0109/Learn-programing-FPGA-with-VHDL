@@ -1,0 +1,2603 @@
+// Copyright (C) 2023  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details, at
+// https://fpgasoftware.intel.com/eula.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus Prime"
+// VERSION "Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition"
+
+// DATE "02/08/2024 22:32:34"
+
+// 
+// Device: Altera EP4CE6E22C8 Package TQFP144
+// 
+
+// 
+// This Verilog file should be used for Questa Intel FPGA (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module TopModule (
+	clk,
+	rst,
+	rx_pin,
+	tx_pin);
+input 	clk;
+input 	rst;
+input 	rx_pin;
+output 	tx_pin;
+
+// Design Ports Information
+// tx_pin	=>  Location: PIN_125,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// clk	=>  Location: PIN_23,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// rst	=>  Location: PIN_24,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// rx_pin	=>  Location: PIN_133,	 I/O Standard: 2.5 V,	 Current Strength: Default
+
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+wire \tx_pin~output_o ;
+wire \clk~input_o ;
+wire \clk~inputclkctrl_outclk ;
+wire \rx_pin~input_o ;
+wire \Receiver_inst|Synchronizer_inst|shift_register[0]~0_combout ;
+wire \rst~input_o ;
+wire \rst~inputclkctrl_outclk ;
+wire \Receiver_inst|Synchronizer_inst|shift_register[1]~feeder_combout ;
+wire \Receiver_inst|synced_rx_pin_delay~feeder_combout ;
+wire \Receiver_inst|synced_rx_pin_delay~q ;
+wire \Receiver_inst|processDetectStart~0_combout ;
+wire \Receiver_inst|is_started~q ;
+wire \Receiver_inst|Selector0~0_combout ;
+wire \Receiver_inst|start~q ;
+wire \Receiver_inst|BaudClockGenerator_inst|clk_left~4_combout ;
+wire \Receiver_inst|BaudClockGenerator_inst|bit_counter[0]~9_combout ;
+wire \Receiver_inst|BaudClockGenerator_inst|Equal0~0_combout ;
+wire \Receiver_inst|BaudClockGenerator_inst|Equal0~1_combout ;
+wire \Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~11_combout ;
+wire \Receiver_inst|BaudClockGenerator_inst|bit_counter[0]~10 ;
+wire \Receiver_inst|BaudClockGenerator_inst|bit_counter[1]~12_combout ;
+wire \~GND~combout ;
+wire \Receiver_inst|BaudClockGenerator_inst|bit_counter[1]~13 ;
+wire \Receiver_inst|BaudClockGenerator_inst|bit_counter[2]~14_combout ;
+wire \Receiver_inst|BaudClockGenerator_inst|bit_counter[2]~15 ;
+wire \Receiver_inst|BaudClockGenerator_inst|bit_counter[3]~16_combout ;
+wire \Receiver_inst|BaudClockGenerator_inst|bit_counter[3]~17 ;
+wire \Receiver_inst|BaudClockGenerator_inst|bit_counter[4]~18_combout ;
+wire \Receiver_inst|BaudClockGenerator_inst|bit_counter[4]~19 ;
+wire \Receiver_inst|BaudClockGenerator_inst|bit_counter[5]~20_combout ;
+wire \Receiver_inst|BaudClockGenerator_inst|bit_counter[5]~21 ;
+wire \Receiver_inst|BaudClockGenerator_inst|bit_counter[6]~22_combout ;
+wire \Receiver_inst|BaudClockGenerator_inst|bit_counter[6]~23 ;
+wire \Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~24_combout ;
+wire \Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~25 ;
+wire \Receiver_inst|BaudClockGenerator_inst|bit_counter[8]~26_combout ;
+wire \Receiver_inst|BaudClockGenerator_inst|baud_clk~0_combout ;
+wire \Receiver_inst|BaudClockGenerator_inst|baud_clk~q ;
+wire \Receiver_inst|BaudClockGenerator_inst|clk_left[3]~1_combout ;
+wire \Receiver_inst|BaudClockGenerator_inst|clk_left~3_combout ;
+wire \Receiver_inst|BaudClockGenerator_inst|clk_left~2_combout ;
+wire \Receiver_inst|BaudClockGenerator_inst|Add1~0_combout ;
+wire \Receiver_inst|BaudClockGenerator_inst|clk_left~0_combout ;
+wire \Receiver_inst|BaudClockGenerator_inst|LessThan0~0_combout ;
+wire \Receiver_inst|BaudClockGenerator_inst|ready~0_combout ;
+wire \Receiver_inst|BaudClockGenerator_inst|ready~q ;
+wire \Receiver_inst|Selector1~0_combout ;
+wire \Receiver_inst|fsm_state.IDLE~q ;
+wire \Receiver_inst|Selector2~0_combout ;
+wire \Receiver_inst|fsm_state.RECEIVING~q ;
+wire \Receiver_inst|Selector3~0_combout ;
+wire \Receiver_inst|fsm_state.DONE~q ;
+wire \Receiver_inst|rx_data_ready~0_combout ;
+wire \Receiver_inst|rx_data_ready~q ;
+wire \Transmitter_inst|BaudClockGenerator_inst|clk_left~3_combout ;
+wire \Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~9_combout ;
+wire \Transmitter_inst|BaudClockGenerator_inst|Equal0~0_combout ;
+wire \Transmitter_inst|BaudClockGenerator_inst|Equal0~1_combout ;
+wire \Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~11_combout ;
+wire \Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~10 ;
+wire \Transmitter_inst|BaudClockGenerator_inst|bit_counter[1]~12_combout ;
+wire \Transmitter_inst|BaudClockGenerator_inst|bit_counter[1]~13 ;
+wire \Transmitter_inst|BaudClockGenerator_inst|bit_counter[2]~14_combout ;
+wire \Transmitter_inst|BaudClockGenerator_inst|bit_counter[2]~15 ;
+wire \Transmitter_inst|BaudClockGenerator_inst|bit_counter[3]~16_combout ;
+wire \Transmitter_inst|BaudClockGenerator_inst|bit_counter[3]~17 ;
+wire \Transmitter_inst|BaudClockGenerator_inst|bit_counter[4]~18_combout ;
+wire \Transmitter_inst|BaudClockGenerator_inst|bit_counter[4]~19 ;
+wire \Transmitter_inst|BaudClockGenerator_inst|bit_counter[5]~20_combout ;
+wire \Transmitter_inst|BaudClockGenerator_inst|bit_counter[5]~21 ;
+wire \Transmitter_inst|BaudClockGenerator_inst|bit_counter[6]~22_combout ;
+wire \Transmitter_inst|BaudClockGenerator_inst|bit_counter[6]~23 ;
+wire \Transmitter_inst|BaudClockGenerator_inst|bit_counter[7]~24_combout ;
+wire \Transmitter_inst|BaudClockGenerator_inst|bit_counter[7]~25 ;
+wire \Transmitter_inst|BaudClockGenerator_inst|bit_counter[8]~26_combout ;
+wire \Transmitter_inst|BaudClockGenerator_inst|baud_clk~0_combout ;
+wire \Transmitter_inst|BaudClockGenerator_inst|baud_clk~q ;
+wire \Transmitter_inst|Serialiser_inst|shift_register[3]~2_combout ;
+wire \Transmitter_inst|BaudClockGenerator_inst|clk_left~2_combout ;
+wire \Transmitter_inst|BaudClockGenerator_inst|clk_left~1_combout ;
+wire \Transmitter_inst|BaudClockGenerator_inst|Add1~0_combout ;
+wire \Transmitter_inst|BaudClockGenerator_inst|clk_left~0_combout ;
+wire \Transmitter_inst|BaudClockGenerator_inst|LessThan0~0_combout ;
+wire \Transmitter_inst|BaudClockGenerator_inst|ready~0_combout ;
+wire \Transmitter_inst|BaudClockGenerator_inst|ready~q ;
+wire \tx_start~0_combout ;
+wire \fsm_state~q ;
+wire \Receiver_inst|ShiftRegister_inst|shift_register[7]~0_combout ;
+wire \Receiver_inst|ShiftRegister_inst|shift_register[6]~feeder_combout ;
+wire \Receiver_inst|ShiftRegister_inst|shift_register[5]~feeder_combout ;
+wire \Receiver_inst|ShiftRegister_inst|shift_register[4]~feeder_combout ;
+wire \Receiver_inst|ShiftRegister_inst|shift_register[3]~feeder_combout ;
+wire \Receiver_inst|ShiftRegister_inst|shift_register[2]~feeder_combout ;
+wire \Receiver_inst|ShiftRegister_inst|shift_register[1]~feeder_combout ;
+wire \Transmitter_inst|Serialiser_inst|shift_register~9_combout ;
+wire \Transmitter_inst|Serialiser_inst|shift_register~8_combout ;
+wire \Transmitter_inst|Serialiser_inst|shift_register~7_combout ;
+wire \Transmitter_inst|Serialiser_inst|shift_register~6_combout ;
+wire \Transmitter_inst|Serialiser_inst|shift_register~5_combout ;
+wire \Transmitter_inst|Serialiser_inst|shift_register~4_combout ;
+wire \Transmitter_inst|Serialiser_inst|shift_register~3_combout ;
+wire \Receiver_inst|ShiftRegister_inst|shift_register[0]~feeder_combout ;
+wire \Transmitter_inst|Serialiser_inst|shift_register~1_combout ;
+wire \Transmitter_inst|Serialiser_inst|shift_register~0_combout ;
+wire [1:0] \Receiver_inst|Synchronizer_inst|shift_register ;
+wire [8:0] \Transmitter_inst|BaudClockGenerator_inst|bit_counter ;
+wire [9:0] \Transmitter_inst|Serialiser_inst|shift_register ;
+wire [8:0] \Receiver_inst|BaudClockGenerator_inst|bit_counter ;
+wire [3:0] \Transmitter_inst|BaudClockGenerator_inst|clk_left ;
+wire [7:0] \Receiver_inst|ShiftRegister_inst|shift_register ;
+wire [3:0] \Receiver_inst|BaudClockGenerator_inst|clk_left ;
+
+
+hard_block auto_generated_inst(
+	.devpor(devpor),
+	.devclrn(devclrn),
+	.devoe(devoe));
+
+// Location: IOOBUF_X18_Y24_N23
+cycloneive_io_obuf \tx_pin~output (
+	.i(!\Transmitter_inst|Serialiser_inst|shift_register [0]),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\tx_pin~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \tx_pin~output .bus_hold = "false";
+defparam \tx_pin~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y11_N8
+cycloneive_io_ibuf \clk~input (
+	.i(clk),
+	.ibar(gnd),
+	.o(\clk~input_o ));
+// synopsys translate_off
+defparam \clk~input .bus_hold = "false";
+defparam \clk~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: CLKCTRL_G2
+cycloneive_clkctrl \clk~inputclkctrl (
+	.ena(vcc),
+	.inclk({vcc,vcc,vcc,\clk~input_o }),
+	.clkselect(2'b00),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.outclk(\clk~inputclkctrl_outclk ));
+// synopsys translate_off
+defparam \clk~inputclkctrl .clock_type = "global clock";
+defparam \clk~inputclkctrl .ena_register_mode = "none";
+// synopsys translate_on
+
+// Location: IOIBUF_X13_Y24_N22
+cycloneive_io_ibuf \rx_pin~input (
+	.i(rx_pin),
+	.ibar(gnd),
+	.o(\rx_pin~input_o ));
+// synopsys translate_off
+defparam \rx_pin~input .bus_hold = "false";
+defparam \rx_pin~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y21_N0
+cycloneive_lcell_comb \Receiver_inst|Synchronizer_inst|shift_register[0]~0 (
+// Equation(s):
+// \Receiver_inst|Synchronizer_inst|shift_register[0]~0_combout  = !\rx_pin~input_o 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\rx_pin~input_o ),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\Receiver_inst|Synchronizer_inst|shift_register[0]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|Synchronizer_inst|shift_register[0]~0 .lut_mask = 16'h0F0F;
+defparam \Receiver_inst|Synchronizer_inst|shift_register[0]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X0_Y11_N15
+cycloneive_io_ibuf \rst~input (
+	.i(rst),
+	.ibar(gnd),
+	.o(\rst~input_o ));
+// synopsys translate_off
+defparam \rst~input .bus_hold = "false";
+defparam \rst~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: CLKCTRL_G4
+cycloneive_clkctrl \rst~inputclkctrl (
+	.ena(vcc),
+	.inclk({vcc,vcc,vcc,\rst~input_o }),
+	.clkselect(2'b00),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.outclk(\rst~inputclkctrl_outclk ));
+// synopsys translate_off
+defparam \rst~inputclkctrl .clock_type = "global clock";
+defparam \rst~inputclkctrl .ena_register_mode = "none";
+// synopsys translate_on
+
+// Location: FF_X14_Y21_N1
+dffeas \Receiver_inst|Synchronizer_inst|shift_register[0] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|Synchronizer_inst|shift_register[0]~0_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|Synchronizer_inst|shift_register [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|Synchronizer_inst|shift_register[0] .is_wysiwyg = "true";
+defparam \Receiver_inst|Synchronizer_inst|shift_register[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y21_N24
+cycloneive_lcell_comb \Receiver_inst|Synchronizer_inst|shift_register[1]~feeder (
+// Equation(s):
+// \Receiver_inst|Synchronizer_inst|shift_register[1]~feeder_combout  = \Receiver_inst|Synchronizer_inst|shift_register [0]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\Receiver_inst|Synchronizer_inst|shift_register [0]),
+	.cin(gnd),
+	.combout(\Receiver_inst|Synchronizer_inst|shift_register[1]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|Synchronizer_inst|shift_register[1]~feeder .lut_mask = 16'hFF00;
+defparam \Receiver_inst|Synchronizer_inst|shift_register[1]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X14_Y21_N25
+dffeas \Receiver_inst|Synchronizer_inst|shift_register[1] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|Synchronizer_inst|shift_register[1]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|Synchronizer_inst|shift_register [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|Synchronizer_inst|shift_register[1] .is_wysiwyg = "true";
+defparam \Receiver_inst|Synchronizer_inst|shift_register[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y21_N22
+cycloneive_lcell_comb \Receiver_inst|synced_rx_pin_delay~feeder (
+// Equation(s):
+// \Receiver_inst|synced_rx_pin_delay~feeder_combout  = \Receiver_inst|Synchronizer_inst|shift_register [1]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\Receiver_inst|Synchronizer_inst|shift_register [1]),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\Receiver_inst|synced_rx_pin_delay~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|synced_rx_pin_delay~feeder .lut_mask = 16'hF0F0;
+defparam \Receiver_inst|synced_rx_pin_delay~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X14_Y21_N23
+dffeas \Receiver_inst|synced_rx_pin_delay (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|synced_rx_pin_delay~feeder_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|synced_rx_pin_delay~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|synced_rx_pin_delay .is_wysiwyg = "true";
+defparam \Receiver_inst|synced_rx_pin_delay .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y21_N10
+cycloneive_lcell_comb \Receiver_inst|processDetectStart~0 (
+// Equation(s):
+// \Receiver_inst|processDetectStart~0_combout  = (\Receiver_inst|Synchronizer_inst|shift_register [1] & !\Receiver_inst|synced_rx_pin_delay~q )
+
+	.dataa(\Receiver_inst|Synchronizer_inst|shift_register [1]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\Receiver_inst|synced_rx_pin_delay~q ),
+	.cin(gnd),
+	.combout(\Receiver_inst|processDetectStart~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|processDetectStart~0 .lut_mask = 16'h00AA;
+defparam \Receiver_inst|processDetectStart~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X14_Y21_N11
+dffeas \Receiver_inst|is_started (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|processDetectStart~0_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|is_started~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|is_started .is_wysiwyg = "true";
+defparam \Receiver_inst|is_started .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y21_N18
+cycloneive_lcell_comb \Receiver_inst|Selector0~0 (
+// Equation(s):
+// \Receiver_inst|Selector0~0_combout  = (\Receiver_inst|is_started~q  & (((\Receiver_inst|start~q  & \Receiver_inst|fsm_state.DONE~q )) # (!\Receiver_inst|fsm_state.IDLE~q ))) # (!\Receiver_inst|is_started~q  & (((\Receiver_inst|start~q  & 
+// \Receiver_inst|fsm_state.DONE~q ))))
+
+	.dataa(\Receiver_inst|is_started~q ),
+	.datab(\Receiver_inst|fsm_state.IDLE~q ),
+	.datac(\Receiver_inst|start~q ),
+	.datad(\Receiver_inst|fsm_state.DONE~q ),
+	.cin(gnd),
+	.combout(\Receiver_inst|Selector0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|Selector0~0 .lut_mask = 16'hF222;
+defparam \Receiver_inst|Selector0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X14_Y21_N19
+dffeas \Receiver_inst|start (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|Selector0~0_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|start~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|start .is_wysiwyg = "true";
+defparam \Receiver_inst|start .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y21_N8
+cycloneive_lcell_comb \Receiver_inst|BaudClockGenerator_inst|clk_left~4 (
+// Equation(s):
+// \Receiver_inst|BaudClockGenerator_inst|clk_left~4_combout  = (\Receiver_inst|start~q ) # (!\Receiver_inst|BaudClockGenerator_inst|clk_left [0])
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\Receiver_inst|BaudClockGenerator_inst|clk_left [0]),
+	.datad(\Receiver_inst|start~q ),
+	.cin(gnd),
+	.combout(\Receiver_inst|BaudClockGenerator_inst|clk_left~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|clk_left~4 .lut_mask = 16'hFF0F;
+defparam \Receiver_inst|BaudClockGenerator_inst|clk_left~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y21_N10
+cycloneive_lcell_comb \Receiver_inst|BaudClockGenerator_inst|bit_counter[0]~9 (
+// Equation(s):
+// \Receiver_inst|BaudClockGenerator_inst|bit_counter[0]~9_combout  = \Receiver_inst|BaudClockGenerator_inst|bit_counter [0] $ (VCC)
+// \Receiver_inst|BaudClockGenerator_inst|bit_counter[0]~10  = CARRY(\Receiver_inst|BaudClockGenerator_inst|bit_counter [0])
+
+	.dataa(\Receiver_inst|BaudClockGenerator_inst|bit_counter [0]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(gnd),
+	.combout(\Receiver_inst|BaudClockGenerator_inst|bit_counter[0]~9_combout ),
+	.cout(\Receiver_inst|BaudClockGenerator_inst|bit_counter[0]~10 ));
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[0]~9 .lut_mask = 16'h55AA;
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[0]~9 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y21_N4
+cycloneive_lcell_comb \Receiver_inst|BaudClockGenerator_inst|Equal0~0 (
+// Equation(s):
+// \Receiver_inst|BaudClockGenerator_inst|Equal0~0_combout  = ((\Receiver_inst|BaudClockGenerator_inst|bit_counter [2]) # ((\Receiver_inst|BaudClockGenerator_inst|bit_counter [0]) # (\Receiver_inst|BaudClockGenerator_inst|bit_counter [3]))) # 
+// (!\Receiver_inst|BaudClockGenerator_inst|bit_counter [1])
+
+	.dataa(\Receiver_inst|BaudClockGenerator_inst|bit_counter [1]),
+	.datab(\Receiver_inst|BaudClockGenerator_inst|bit_counter [2]),
+	.datac(\Receiver_inst|BaudClockGenerator_inst|bit_counter [0]),
+	.datad(\Receiver_inst|BaudClockGenerator_inst|bit_counter [3]),
+	.cin(gnd),
+	.combout(\Receiver_inst|BaudClockGenerator_inst|Equal0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|Equal0~0 .lut_mask = 16'hFFFD;
+defparam \Receiver_inst|BaudClockGenerator_inst|Equal0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y21_N30
+cycloneive_lcell_comb \Receiver_inst|BaudClockGenerator_inst|Equal0~1 (
+// Equation(s):
+// \Receiver_inst|BaudClockGenerator_inst|Equal0~1_combout  = (\Receiver_inst|BaudClockGenerator_inst|bit_counter [6]) # (((!\Receiver_inst|BaudClockGenerator_inst|bit_counter [7]) # (!\Receiver_inst|BaudClockGenerator_inst|bit_counter [5])) # 
+// (!\Receiver_inst|BaudClockGenerator_inst|bit_counter [4]))
+
+	.dataa(\Receiver_inst|BaudClockGenerator_inst|bit_counter [6]),
+	.datab(\Receiver_inst|BaudClockGenerator_inst|bit_counter [4]),
+	.datac(\Receiver_inst|BaudClockGenerator_inst|bit_counter [5]),
+	.datad(\Receiver_inst|BaudClockGenerator_inst|bit_counter [7]),
+	.cin(gnd),
+	.combout(\Receiver_inst|BaudClockGenerator_inst|Equal0~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|Equal0~1 .lut_mask = 16'hBFFF;
+defparam \Receiver_inst|BaudClockGenerator_inst|Equal0~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y21_N2
+cycloneive_lcell_comb \Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~11 (
+// Equation(s):
+// \Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~11_combout  = (\Receiver_inst|BaudClockGenerator_inst|LessThan0~0_combout ) # ((\Receiver_inst|BaudClockGenerator_inst|bit_counter [8] & (!\Receiver_inst|BaudClockGenerator_inst|Equal0~0_combout  & 
+// !\Receiver_inst|BaudClockGenerator_inst|Equal0~1_combout )))
+
+	.dataa(\Receiver_inst|BaudClockGenerator_inst|bit_counter [8]),
+	.datab(\Receiver_inst|BaudClockGenerator_inst|Equal0~0_combout ),
+	.datac(\Receiver_inst|BaudClockGenerator_inst|Equal0~1_combout ),
+	.datad(\Receiver_inst|BaudClockGenerator_inst|LessThan0~0_combout ),
+	.cin(gnd),
+	.combout(\Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~11_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~11 .lut_mask = 16'hFF02;
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~11 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X13_Y21_N11
+dffeas \Receiver_inst|BaudClockGenerator_inst|bit_counter[0] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|BaudClockGenerator_inst|bit_counter[0]~9_combout ),
+	.asdata(\Receiver_inst|BaudClockGenerator_inst|LessThan0~0_combout ),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~11_combout ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|BaudClockGenerator_inst|bit_counter [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[0] .is_wysiwyg = "true";
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y21_N12
+cycloneive_lcell_comb \Receiver_inst|BaudClockGenerator_inst|bit_counter[1]~12 (
+// Equation(s):
+// \Receiver_inst|BaudClockGenerator_inst|bit_counter[1]~12_combout  = (\Receiver_inst|BaudClockGenerator_inst|bit_counter [1] & (!\Receiver_inst|BaudClockGenerator_inst|bit_counter[0]~10 )) # (!\Receiver_inst|BaudClockGenerator_inst|bit_counter [1] & 
+// ((\Receiver_inst|BaudClockGenerator_inst|bit_counter[0]~10 ) # (GND)))
+// \Receiver_inst|BaudClockGenerator_inst|bit_counter[1]~13  = CARRY((!\Receiver_inst|BaudClockGenerator_inst|bit_counter[0]~10 ) # (!\Receiver_inst|BaudClockGenerator_inst|bit_counter [1]))
+
+	.dataa(\Receiver_inst|BaudClockGenerator_inst|bit_counter [1]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Receiver_inst|BaudClockGenerator_inst|bit_counter[0]~10 ),
+	.combout(\Receiver_inst|BaudClockGenerator_inst|bit_counter[1]~12_combout ),
+	.cout(\Receiver_inst|BaudClockGenerator_inst|bit_counter[1]~13 ));
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[1]~12 .lut_mask = 16'h5A5F;
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[1]~12 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X12_Y21_N16
+cycloneive_lcell_comb \~GND (
+// Equation(s):
+// \~GND~combout  = GND
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\~GND~combout ),
+	.cout());
+// synopsys translate_off
+defparam \~GND .lut_mask = 16'h0000;
+defparam \~GND .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X13_Y21_N13
+dffeas \Receiver_inst|BaudClockGenerator_inst|bit_counter[1] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|BaudClockGenerator_inst|bit_counter[1]~12_combout ),
+	.asdata(\~GND~combout ),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~11_combout ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|BaudClockGenerator_inst|bit_counter [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[1] .is_wysiwyg = "true";
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y21_N14
+cycloneive_lcell_comb \Receiver_inst|BaudClockGenerator_inst|bit_counter[2]~14 (
+// Equation(s):
+// \Receiver_inst|BaudClockGenerator_inst|bit_counter[2]~14_combout  = (\Receiver_inst|BaudClockGenerator_inst|bit_counter [2] & (\Receiver_inst|BaudClockGenerator_inst|bit_counter[1]~13  $ (GND))) # (!\Receiver_inst|BaudClockGenerator_inst|bit_counter [2] & 
+// (!\Receiver_inst|BaudClockGenerator_inst|bit_counter[1]~13  & VCC))
+// \Receiver_inst|BaudClockGenerator_inst|bit_counter[2]~15  = CARRY((\Receiver_inst|BaudClockGenerator_inst|bit_counter [2] & !\Receiver_inst|BaudClockGenerator_inst|bit_counter[1]~13 ))
+
+	.dataa(gnd),
+	.datab(\Receiver_inst|BaudClockGenerator_inst|bit_counter [2]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Receiver_inst|BaudClockGenerator_inst|bit_counter[1]~13 ),
+	.combout(\Receiver_inst|BaudClockGenerator_inst|bit_counter[2]~14_combout ),
+	.cout(\Receiver_inst|BaudClockGenerator_inst|bit_counter[2]~15 ));
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[2]~14 .lut_mask = 16'hC30C;
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[2]~14 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X13_Y21_N15
+dffeas \Receiver_inst|BaudClockGenerator_inst|bit_counter[2] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|BaudClockGenerator_inst|bit_counter[2]~14_combout ),
+	.asdata(\~GND~combout ),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~11_combout ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|BaudClockGenerator_inst|bit_counter [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[2] .is_wysiwyg = "true";
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y21_N16
+cycloneive_lcell_comb \Receiver_inst|BaudClockGenerator_inst|bit_counter[3]~16 (
+// Equation(s):
+// \Receiver_inst|BaudClockGenerator_inst|bit_counter[3]~16_combout  = (\Receiver_inst|BaudClockGenerator_inst|bit_counter [3] & (!\Receiver_inst|BaudClockGenerator_inst|bit_counter[2]~15 )) # (!\Receiver_inst|BaudClockGenerator_inst|bit_counter [3] & 
+// ((\Receiver_inst|BaudClockGenerator_inst|bit_counter[2]~15 ) # (GND)))
+// \Receiver_inst|BaudClockGenerator_inst|bit_counter[3]~17  = CARRY((!\Receiver_inst|BaudClockGenerator_inst|bit_counter[2]~15 ) # (!\Receiver_inst|BaudClockGenerator_inst|bit_counter [3]))
+
+	.dataa(gnd),
+	.datab(\Receiver_inst|BaudClockGenerator_inst|bit_counter [3]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Receiver_inst|BaudClockGenerator_inst|bit_counter[2]~15 ),
+	.combout(\Receiver_inst|BaudClockGenerator_inst|bit_counter[3]~16_combout ),
+	.cout(\Receiver_inst|BaudClockGenerator_inst|bit_counter[3]~17 ));
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[3]~16 .lut_mask = 16'h3C3F;
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[3]~16 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X13_Y21_N17
+dffeas \Receiver_inst|BaudClockGenerator_inst|bit_counter[3] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|BaudClockGenerator_inst|bit_counter[3]~16_combout ),
+	.asdata(\Receiver_inst|BaudClockGenerator_inst|LessThan0~0_combout ),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~11_combout ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|BaudClockGenerator_inst|bit_counter [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[3] .is_wysiwyg = "true";
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y21_N18
+cycloneive_lcell_comb \Receiver_inst|BaudClockGenerator_inst|bit_counter[4]~18 (
+// Equation(s):
+// \Receiver_inst|BaudClockGenerator_inst|bit_counter[4]~18_combout  = (\Receiver_inst|BaudClockGenerator_inst|bit_counter [4] & (\Receiver_inst|BaudClockGenerator_inst|bit_counter[3]~17  $ (GND))) # (!\Receiver_inst|BaudClockGenerator_inst|bit_counter [4] & 
+// (!\Receiver_inst|BaudClockGenerator_inst|bit_counter[3]~17  & VCC))
+// \Receiver_inst|BaudClockGenerator_inst|bit_counter[4]~19  = CARRY((\Receiver_inst|BaudClockGenerator_inst|bit_counter [4] & !\Receiver_inst|BaudClockGenerator_inst|bit_counter[3]~17 ))
+
+	.dataa(gnd),
+	.datab(\Receiver_inst|BaudClockGenerator_inst|bit_counter [4]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Receiver_inst|BaudClockGenerator_inst|bit_counter[3]~17 ),
+	.combout(\Receiver_inst|BaudClockGenerator_inst|bit_counter[4]~18_combout ),
+	.cout(\Receiver_inst|BaudClockGenerator_inst|bit_counter[4]~19 ));
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[4]~18 .lut_mask = 16'hC30C;
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[4]~18 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X13_Y21_N19
+dffeas \Receiver_inst|BaudClockGenerator_inst|bit_counter[4] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|BaudClockGenerator_inst|bit_counter[4]~18_combout ),
+	.asdata(\Receiver_inst|BaudClockGenerator_inst|LessThan0~0_combout ),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~11_combout ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|BaudClockGenerator_inst|bit_counter [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[4] .is_wysiwyg = "true";
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y21_N20
+cycloneive_lcell_comb \Receiver_inst|BaudClockGenerator_inst|bit_counter[5]~20 (
+// Equation(s):
+// \Receiver_inst|BaudClockGenerator_inst|bit_counter[5]~20_combout  = (\Receiver_inst|BaudClockGenerator_inst|bit_counter [5] & (!\Receiver_inst|BaudClockGenerator_inst|bit_counter[4]~19 )) # (!\Receiver_inst|BaudClockGenerator_inst|bit_counter [5] & 
+// ((\Receiver_inst|BaudClockGenerator_inst|bit_counter[4]~19 ) # (GND)))
+// \Receiver_inst|BaudClockGenerator_inst|bit_counter[5]~21  = CARRY((!\Receiver_inst|BaudClockGenerator_inst|bit_counter[4]~19 ) # (!\Receiver_inst|BaudClockGenerator_inst|bit_counter [5]))
+
+	.dataa(gnd),
+	.datab(\Receiver_inst|BaudClockGenerator_inst|bit_counter [5]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Receiver_inst|BaudClockGenerator_inst|bit_counter[4]~19 ),
+	.combout(\Receiver_inst|BaudClockGenerator_inst|bit_counter[5]~20_combout ),
+	.cout(\Receiver_inst|BaudClockGenerator_inst|bit_counter[5]~21 ));
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[5]~20 .lut_mask = 16'h3C3F;
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[5]~20 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X13_Y21_N21
+dffeas \Receiver_inst|BaudClockGenerator_inst|bit_counter[5] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|BaudClockGenerator_inst|bit_counter[5]~20_combout ),
+	.asdata(\~GND~combout ),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~11_combout ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|BaudClockGenerator_inst|bit_counter [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[5] .is_wysiwyg = "true";
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y21_N22
+cycloneive_lcell_comb \Receiver_inst|BaudClockGenerator_inst|bit_counter[6]~22 (
+// Equation(s):
+// \Receiver_inst|BaudClockGenerator_inst|bit_counter[6]~22_combout  = (\Receiver_inst|BaudClockGenerator_inst|bit_counter [6] & (\Receiver_inst|BaudClockGenerator_inst|bit_counter[5]~21  $ (GND))) # (!\Receiver_inst|BaudClockGenerator_inst|bit_counter [6] & 
+// (!\Receiver_inst|BaudClockGenerator_inst|bit_counter[5]~21  & VCC))
+// \Receiver_inst|BaudClockGenerator_inst|bit_counter[6]~23  = CARRY((\Receiver_inst|BaudClockGenerator_inst|bit_counter [6] & !\Receiver_inst|BaudClockGenerator_inst|bit_counter[5]~21 ))
+
+	.dataa(\Receiver_inst|BaudClockGenerator_inst|bit_counter [6]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Receiver_inst|BaudClockGenerator_inst|bit_counter[5]~21 ),
+	.combout(\Receiver_inst|BaudClockGenerator_inst|bit_counter[6]~22_combout ),
+	.cout(\Receiver_inst|BaudClockGenerator_inst|bit_counter[6]~23 ));
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[6]~22 .lut_mask = 16'hA50A;
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[6]~22 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X13_Y21_N23
+dffeas \Receiver_inst|BaudClockGenerator_inst|bit_counter[6] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|BaudClockGenerator_inst|bit_counter[6]~22_combout ),
+	.asdata(\Receiver_inst|BaudClockGenerator_inst|LessThan0~0_combout ),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~11_combout ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|BaudClockGenerator_inst|bit_counter [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[6] .is_wysiwyg = "true";
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y21_N24
+cycloneive_lcell_comb \Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~24 (
+// Equation(s):
+// \Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~24_combout  = (\Receiver_inst|BaudClockGenerator_inst|bit_counter [7] & (!\Receiver_inst|BaudClockGenerator_inst|bit_counter[6]~23 )) # (!\Receiver_inst|BaudClockGenerator_inst|bit_counter [7] & 
+// ((\Receiver_inst|BaudClockGenerator_inst|bit_counter[6]~23 ) # (GND)))
+// \Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~25  = CARRY((!\Receiver_inst|BaudClockGenerator_inst|bit_counter[6]~23 ) # (!\Receiver_inst|BaudClockGenerator_inst|bit_counter [7]))
+
+	.dataa(gnd),
+	.datab(\Receiver_inst|BaudClockGenerator_inst|bit_counter [7]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Receiver_inst|BaudClockGenerator_inst|bit_counter[6]~23 ),
+	.combout(\Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~24_combout ),
+	.cout(\Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~25 ));
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~24 .lut_mask = 16'h3C3F;
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~24 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X13_Y21_N25
+dffeas \Receiver_inst|BaudClockGenerator_inst|bit_counter[7] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~24_combout ),
+	.asdata(\Receiver_inst|BaudClockGenerator_inst|LessThan0~0_combout ),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~11_combout ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|BaudClockGenerator_inst|bit_counter [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[7] .is_wysiwyg = "true";
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y21_N26
+cycloneive_lcell_comb \Receiver_inst|BaudClockGenerator_inst|bit_counter[8]~26 (
+// Equation(s):
+// \Receiver_inst|BaudClockGenerator_inst|bit_counter[8]~26_combout  = \Receiver_inst|BaudClockGenerator_inst|bit_counter [8] $ (!\Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~25 )
+
+	.dataa(\Receiver_inst|BaudClockGenerator_inst|bit_counter [8]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(\Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~25 ),
+	.combout(\Receiver_inst|BaudClockGenerator_inst|bit_counter[8]~26_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[8]~26 .lut_mask = 16'hA5A5;
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[8]~26 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X13_Y21_N27
+dffeas \Receiver_inst|BaudClockGenerator_inst|bit_counter[8] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|BaudClockGenerator_inst|bit_counter[8]~26_combout ),
+	.asdata(\~GND~combout ),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(\Receiver_inst|BaudClockGenerator_inst|bit_counter[7]~11_combout ),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|BaudClockGenerator_inst|bit_counter [8]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[8] .is_wysiwyg = "true";
+defparam \Receiver_inst|BaudClockGenerator_inst|bit_counter[8] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y21_N8
+cycloneive_lcell_comb \Receiver_inst|BaudClockGenerator_inst|baud_clk~0 (
+// Equation(s):
+// \Receiver_inst|BaudClockGenerator_inst|baud_clk~0_combout  = (\Receiver_inst|BaudClockGenerator_inst|bit_counter [8] & (!\Receiver_inst|BaudClockGenerator_inst|Equal0~0_combout  & (!\Receiver_inst|BaudClockGenerator_inst|Equal0~1_combout  & 
+// !\Receiver_inst|BaudClockGenerator_inst|LessThan0~0_combout )))
+
+	.dataa(\Receiver_inst|BaudClockGenerator_inst|bit_counter [8]),
+	.datab(\Receiver_inst|BaudClockGenerator_inst|Equal0~0_combout ),
+	.datac(\Receiver_inst|BaudClockGenerator_inst|Equal0~1_combout ),
+	.datad(\Receiver_inst|BaudClockGenerator_inst|LessThan0~0_combout ),
+	.cin(gnd),
+	.combout(\Receiver_inst|BaudClockGenerator_inst|baud_clk~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|baud_clk~0 .lut_mask = 16'h0002;
+defparam \Receiver_inst|BaudClockGenerator_inst|baud_clk~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X14_Y21_N9
+dffeas \Receiver_inst|BaudClockGenerator_inst|baud_clk (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|BaudClockGenerator_inst|baud_clk~0_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|BaudClockGenerator_inst|baud_clk~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|baud_clk .is_wysiwyg = "true";
+defparam \Receiver_inst|BaudClockGenerator_inst|baud_clk .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y21_N30
+cycloneive_lcell_comb \Receiver_inst|BaudClockGenerator_inst|clk_left[3]~1 (
+// Equation(s):
+// \Receiver_inst|BaudClockGenerator_inst|clk_left[3]~1_combout  = (\Receiver_inst|BaudClockGenerator_inst|baud_clk~q ) # (\Receiver_inst|start~q )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\Receiver_inst|BaudClockGenerator_inst|baud_clk~q ),
+	.datad(\Receiver_inst|start~q ),
+	.cin(gnd),
+	.combout(\Receiver_inst|BaudClockGenerator_inst|clk_left[3]~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|clk_left[3]~1 .lut_mask = 16'hFFF0;
+defparam \Receiver_inst|BaudClockGenerator_inst|clk_left[3]~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X13_Y21_N9
+dffeas \Receiver_inst|BaudClockGenerator_inst|clk_left[0] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|BaudClockGenerator_inst|clk_left~4_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\Receiver_inst|BaudClockGenerator_inst|clk_left[3]~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|BaudClockGenerator_inst|clk_left [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|clk_left[0] .is_wysiwyg = "true";
+defparam \Receiver_inst|BaudClockGenerator_inst|clk_left[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y21_N6
+cycloneive_lcell_comb \Receiver_inst|BaudClockGenerator_inst|clk_left~3 (
+// Equation(s):
+// \Receiver_inst|BaudClockGenerator_inst|clk_left~3_combout  = (!\Receiver_inst|start~q  & (\Receiver_inst|BaudClockGenerator_inst|clk_left [0] $ (!\Receiver_inst|BaudClockGenerator_inst|clk_left [1])))
+
+	.dataa(gnd),
+	.datab(\Receiver_inst|BaudClockGenerator_inst|clk_left [0]),
+	.datac(\Receiver_inst|BaudClockGenerator_inst|clk_left [1]),
+	.datad(\Receiver_inst|start~q ),
+	.cin(gnd),
+	.combout(\Receiver_inst|BaudClockGenerator_inst|clk_left~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|clk_left~3 .lut_mask = 16'h00C3;
+defparam \Receiver_inst|BaudClockGenerator_inst|clk_left~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X13_Y21_N7
+dffeas \Receiver_inst|BaudClockGenerator_inst|clk_left[1] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|BaudClockGenerator_inst|clk_left~3_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\Receiver_inst|BaudClockGenerator_inst|clk_left[3]~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|BaudClockGenerator_inst|clk_left [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|clk_left[1] .is_wysiwyg = "true";
+defparam \Receiver_inst|BaudClockGenerator_inst|clk_left[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y21_N0
+cycloneive_lcell_comb \Receiver_inst|BaudClockGenerator_inst|clk_left~2 (
+// Equation(s):
+// \Receiver_inst|BaudClockGenerator_inst|clk_left~2_combout  = (!\Receiver_inst|start~q  & (\Receiver_inst|BaudClockGenerator_inst|clk_left [2] $ (((!\Receiver_inst|BaudClockGenerator_inst|clk_left [1] & !\Receiver_inst|BaudClockGenerator_inst|clk_left 
+// [0])))))
+
+	.dataa(\Receiver_inst|BaudClockGenerator_inst|clk_left [1]),
+	.datab(\Receiver_inst|BaudClockGenerator_inst|clk_left [0]),
+	.datac(\Receiver_inst|BaudClockGenerator_inst|clk_left [2]),
+	.datad(\Receiver_inst|start~q ),
+	.cin(gnd),
+	.combout(\Receiver_inst|BaudClockGenerator_inst|clk_left~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|clk_left~2 .lut_mask = 16'h00E1;
+defparam \Receiver_inst|BaudClockGenerator_inst|clk_left~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X13_Y21_N1
+dffeas \Receiver_inst|BaudClockGenerator_inst|clk_left[2] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|BaudClockGenerator_inst|clk_left~2_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\Receiver_inst|BaudClockGenerator_inst|clk_left[3]~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|BaudClockGenerator_inst|clk_left [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|clk_left[2] .is_wysiwyg = "true";
+defparam \Receiver_inst|BaudClockGenerator_inst|clk_left[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y21_N16
+cycloneive_lcell_comb \Receiver_inst|BaudClockGenerator_inst|Add1~0 (
+// Equation(s):
+// \Receiver_inst|BaudClockGenerator_inst|Add1~0_combout  = \Receiver_inst|BaudClockGenerator_inst|clk_left [3] $ (((\Receiver_inst|BaudClockGenerator_inst|clk_left [0]) # ((\Receiver_inst|BaudClockGenerator_inst|clk_left [2]) # 
+// (\Receiver_inst|BaudClockGenerator_inst|clk_left [1]))))
+
+	.dataa(\Receiver_inst|BaudClockGenerator_inst|clk_left [0]),
+	.datab(\Receiver_inst|BaudClockGenerator_inst|clk_left [3]),
+	.datac(\Receiver_inst|BaudClockGenerator_inst|clk_left [2]),
+	.datad(\Receiver_inst|BaudClockGenerator_inst|clk_left [1]),
+	.cin(gnd),
+	.combout(\Receiver_inst|BaudClockGenerator_inst|Add1~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|Add1~0 .lut_mask = 16'h3336;
+defparam \Receiver_inst|BaudClockGenerator_inst|Add1~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y21_N28
+cycloneive_lcell_comb \Receiver_inst|BaudClockGenerator_inst|clk_left~0 (
+// Equation(s):
+// \Receiver_inst|BaudClockGenerator_inst|clk_left~0_combout  = (\Receiver_inst|start~q ) # (!\Receiver_inst|BaudClockGenerator_inst|Add1~0_combout )
+
+	.dataa(gnd),
+	.datab(\Receiver_inst|start~q ),
+	.datac(gnd),
+	.datad(\Receiver_inst|BaudClockGenerator_inst|Add1~0_combout ),
+	.cin(gnd),
+	.combout(\Receiver_inst|BaudClockGenerator_inst|clk_left~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|clk_left~0 .lut_mask = 16'hCCFF;
+defparam \Receiver_inst|BaudClockGenerator_inst|clk_left~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X14_Y21_N29
+dffeas \Receiver_inst|BaudClockGenerator_inst|clk_left[3] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|BaudClockGenerator_inst|clk_left~0_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\Receiver_inst|BaudClockGenerator_inst|clk_left[3]~1_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|BaudClockGenerator_inst|clk_left [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|clk_left[3] .is_wysiwyg = "true";
+defparam \Receiver_inst|BaudClockGenerator_inst|clk_left[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X13_Y21_N28
+cycloneive_lcell_comb \Receiver_inst|BaudClockGenerator_inst|LessThan0~0 (
+// Equation(s):
+// \Receiver_inst|BaudClockGenerator_inst|LessThan0~0_combout  = (!\Receiver_inst|BaudClockGenerator_inst|clk_left [1] & (!\Receiver_inst|BaudClockGenerator_inst|clk_left [2] & (!\Receiver_inst|BaudClockGenerator_inst|clk_left [0] & 
+// !\Receiver_inst|BaudClockGenerator_inst|clk_left [3])))
+
+	.dataa(\Receiver_inst|BaudClockGenerator_inst|clk_left [1]),
+	.datab(\Receiver_inst|BaudClockGenerator_inst|clk_left [2]),
+	.datac(\Receiver_inst|BaudClockGenerator_inst|clk_left [0]),
+	.datad(\Receiver_inst|BaudClockGenerator_inst|clk_left [3]),
+	.cin(gnd),
+	.combout(\Receiver_inst|BaudClockGenerator_inst|LessThan0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|LessThan0~0 .lut_mask = 16'h0001;
+defparam \Receiver_inst|BaudClockGenerator_inst|LessThan0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y21_N12
+cycloneive_lcell_comb \Receiver_inst|BaudClockGenerator_inst|ready~0 (
+// Equation(s):
+// \Receiver_inst|BaudClockGenerator_inst|ready~0_combout  = (\Receiver_inst|start~q ) # ((\Receiver_inst|BaudClockGenerator_inst|ready~q  & !\Receiver_inst|BaudClockGenerator_inst|LessThan0~0_combout ))
+
+	.dataa(gnd),
+	.datab(\Receiver_inst|start~q ),
+	.datac(\Receiver_inst|BaudClockGenerator_inst|ready~q ),
+	.datad(\Receiver_inst|BaudClockGenerator_inst|LessThan0~0_combout ),
+	.cin(gnd),
+	.combout(\Receiver_inst|BaudClockGenerator_inst|ready~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|ready~0 .lut_mask = 16'hCCFC;
+defparam \Receiver_inst|BaudClockGenerator_inst|ready~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X14_Y21_N13
+dffeas \Receiver_inst|BaudClockGenerator_inst|ready (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|BaudClockGenerator_inst|ready~0_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|BaudClockGenerator_inst|ready~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|BaudClockGenerator_inst|ready .is_wysiwyg = "true";
+defparam \Receiver_inst|BaudClockGenerator_inst|ready .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y21_N20
+cycloneive_lcell_comb \Receiver_inst|Selector1~0 (
+// Equation(s):
+// \Receiver_inst|Selector1~0_combout  = (!\Receiver_inst|fsm_state.DONE~q  & ((\Receiver_inst|fsm_state.IDLE~q ) # (\Receiver_inst|BaudClockGenerator_inst|ready~q )))
+
+	.dataa(\Receiver_inst|fsm_state.DONE~q ),
+	.datab(gnd),
+	.datac(\Receiver_inst|fsm_state.IDLE~q ),
+	.datad(\Receiver_inst|BaudClockGenerator_inst|ready~q ),
+	.cin(gnd),
+	.combout(\Receiver_inst|Selector1~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|Selector1~0 .lut_mask = 16'h5550;
+defparam \Receiver_inst|Selector1~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X14_Y21_N21
+dffeas \Receiver_inst|fsm_state.IDLE (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|Selector1~0_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|fsm_state.IDLE~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|fsm_state.IDLE .is_wysiwyg = "true";
+defparam \Receiver_inst|fsm_state.IDLE .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y21_N26
+cycloneive_lcell_comb \Receiver_inst|Selector2~0 (
+// Equation(s):
+// \Receiver_inst|Selector2~0_combout  = (\Receiver_inst|BaudClockGenerator_inst|ready~q  & ((\Receiver_inst|fsm_state.RECEIVING~q ) # (!\Receiver_inst|fsm_state.IDLE~q )))
+
+	.dataa(gnd),
+	.datab(\Receiver_inst|fsm_state.IDLE~q ),
+	.datac(\Receiver_inst|fsm_state.RECEIVING~q ),
+	.datad(\Receiver_inst|BaudClockGenerator_inst|ready~q ),
+	.cin(gnd),
+	.combout(\Receiver_inst|Selector2~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|Selector2~0 .lut_mask = 16'hF300;
+defparam \Receiver_inst|Selector2~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X14_Y21_N27
+dffeas \Receiver_inst|fsm_state.RECEIVING (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|Selector2~0_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|fsm_state.RECEIVING~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|fsm_state.RECEIVING .is_wysiwyg = "true";
+defparam \Receiver_inst|fsm_state.RECEIVING .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X14_Y21_N6
+cycloneive_lcell_comb \Receiver_inst|Selector3~0 (
+// Equation(s):
+// \Receiver_inst|Selector3~0_combout  = (\Receiver_inst|fsm_state.RECEIVING~q  & !\Receiver_inst|BaudClockGenerator_inst|ready~q )
+
+	.dataa(gnd),
+	.datab(\Receiver_inst|fsm_state.RECEIVING~q ),
+	.datac(gnd),
+	.datad(\Receiver_inst|BaudClockGenerator_inst|ready~q ),
+	.cin(gnd),
+	.combout(\Receiver_inst|Selector3~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|Selector3~0 .lut_mask = 16'h00CC;
+defparam \Receiver_inst|Selector3~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X14_Y21_N7
+dffeas \Receiver_inst|fsm_state.DONE (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|Selector3~0_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|fsm_state.DONE~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|fsm_state.DONE .is_wysiwyg = "true";
+defparam \Receiver_inst|fsm_state.DONE .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y21_N22
+cycloneive_lcell_comb \Receiver_inst|rx_data_ready~0 (
+// Equation(s):
+// \Receiver_inst|rx_data_ready~0_combout  = (\Receiver_inst|fsm_state.DONE~q ) # ((!\fsm_state~q  & \Receiver_inst|rx_data_ready~q ))
+
+	.dataa(gnd),
+	.datab(\fsm_state~q ),
+	.datac(\Receiver_inst|rx_data_ready~q ),
+	.datad(\Receiver_inst|fsm_state.DONE~q ),
+	.cin(gnd),
+	.combout(\Receiver_inst|rx_data_ready~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|rx_data_ready~0 .lut_mask = 16'hFF30;
+defparam \Receiver_inst|rx_data_ready~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X19_Y21_N23
+dffeas \Receiver_inst|rx_data_ready (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|rx_data_ready~0_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|rx_data_ready~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|rx_data_ready .is_wysiwyg = "true";
+defparam \Receiver_inst|rx_data_ready .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y21_N18
+cycloneive_lcell_comb \Transmitter_inst|BaudClockGenerator_inst|clk_left~3 (
+// Equation(s):
+// \Transmitter_inst|BaudClockGenerator_inst|clk_left~3_combout  = (!\Transmitter_inst|BaudClockGenerator_inst|clk_left [0] & !\fsm_state~q )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\Transmitter_inst|BaudClockGenerator_inst|clk_left [0]),
+	.datad(\fsm_state~q ),
+	.cin(gnd),
+	.combout(\Transmitter_inst|BaudClockGenerator_inst|clk_left~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|clk_left~3 .lut_mask = 16'h000F;
+defparam \Transmitter_inst|BaudClockGenerator_inst|clk_left~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y21_N10
+cycloneive_lcell_comb \Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~9 (
+// Equation(s):
+// \Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~9_combout  = \Transmitter_inst|BaudClockGenerator_inst|bit_counter [0] $ (VCC)
+// \Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~10  = CARRY(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [0])
+
+	.dataa(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [0]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(gnd),
+	.combout(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~9_combout ),
+	.cout(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~10 ));
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~9 .lut_mask = 16'h55AA;
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~9 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y21_N2
+cycloneive_lcell_comb \Transmitter_inst|BaudClockGenerator_inst|Equal0~0 (
+// Equation(s):
+// \Transmitter_inst|BaudClockGenerator_inst|Equal0~0_combout  = (\Transmitter_inst|BaudClockGenerator_inst|bit_counter [0]) # ((\Transmitter_inst|BaudClockGenerator_inst|bit_counter [3]) # ((\Transmitter_inst|BaudClockGenerator_inst|bit_counter [2]) # 
+// (!\Transmitter_inst|BaudClockGenerator_inst|bit_counter [1])))
+
+	.dataa(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [0]),
+	.datab(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [3]),
+	.datac(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [2]),
+	.datad(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [1]),
+	.cin(gnd),
+	.combout(\Transmitter_inst|BaudClockGenerator_inst|Equal0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|Equal0~0 .lut_mask = 16'hFEFF;
+defparam \Transmitter_inst|BaudClockGenerator_inst|Equal0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y21_N8
+cycloneive_lcell_comb \Transmitter_inst|BaudClockGenerator_inst|Equal0~1 (
+// Equation(s):
+// \Transmitter_inst|BaudClockGenerator_inst|Equal0~1_combout  = (\Transmitter_inst|BaudClockGenerator_inst|bit_counter [6]) # (((!\Transmitter_inst|BaudClockGenerator_inst|bit_counter [7]) # (!\Transmitter_inst|BaudClockGenerator_inst|bit_counter [5])) # 
+// (!\Transmitter_inst|BaudClockGenerator_inst|bit_counter [4]))
+
+	.dataa(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [6]),
+	.datab(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [4]),
+	.datac(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [5]),
+	.datad(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [7]),
+	.cin(gnd),
+	.combout(\Transmitter_inst|BaudClockGenerator_inst|Equal0~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|Equal0~1 .lut_mask = 16'hBFFF;
+defparam \Transmitter_inst|BaudClockGenerator_inst|Equal0~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y21_N0
+cycloneive_lcell_comb \Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~11 (
+// Equation(s):
+// \Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~11_combout  = ((\Transmitter_inst|BaudClockGenerator_inst|bit_counter [8] & (!\Transmitter_inst|BaudClockGenerator_inst|Equal0~0_combout  & 
+// !\Transmitter_inst|BaudClockGenerator_inst|Equal0~1_combout ))) # (!\Transmitter_inst|BaudClockGenerator_inst|LessThan0~0_combout )
+
+	.dataa(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [8]),
+	.datab(\Transmitter_inst|BaudClockGenerator_inst|Equal0~0_combout ),
+	.datac(\Transmitter_inst|BaudClockGenerator_inst|Equal0~1_combout ),
+	.datad(\Transmitter_inst|BaudClockGenerator_inst|LessThan0~0_combout ),
+	.cin(gnd),
+	.combout(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~11_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~11 .lut_mask = 16'h02FF;
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~11 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X18_Y21_N11
+dffeas \Transmitter_inst|BaudClockGenerator_inst|bit_counter[0] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~9_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~11_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[0] .is_wysiwyg = "true";
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y21_N12
+cycloneive_lcell_comb \Transmitter_inst|BaudClockGenerator_inst|bit_counter[1]~12 (
+// Equation(s):
+// \Transmitter_inst|BaudClockGenerator_inst|bit_counter[1]~12_combout  = (\Transmitter_inst|BaudClockGenerator_inst|bit_counter [1] & (!\Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~10 )) # (!\Transmitter_inst|BaudClockGenerator_inst|bit_counter 
+// [1] & ((\Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~10 ) # (GND)))
+// \Transmitter_inst|BaudClockGenerator_inst|bit_counter[1]~13  = CARRY((!\Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~10 ) # (!\Transmitter_inst|BaudClockGenerator_inst|bit_counter [1]))
+
+	.dataa(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [1]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~10 ),
+	.combout(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[1]~12_combout ),
+	.cout(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[1]~13 ));
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[1]~12 .lut_mask = 16'h5A5F;
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[1]~12 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X18_Y21_N13
+dffeas \Transmitter_inst|BaudClockGenerator_inst|bit_counter[1] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[1]~12_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~11_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[1] .is_wysiwyg = "true";
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y21_N14
+cycloneive_lcell_comb \Transmitter_inst|BaudClockGenerator_inst|bit_counter[2]~14 (
+// Equation(s):
+// \Transmitter_inst|BaudClockGenerator_inst|bit_counter[2]~14_combout  = (\Transmitter_inst|BaudClockGenerator_inst|bit_counter [2] & (\Transmitter_inst|BaudClockGenerator_inst|bit_counter[1]~13  $ (GND))) # 
+// (!\Transmitter_inst|BaudClockGenerator_inst|bit_counter [2] & (!\Transmitter_inst|BaudClockGenerator_inst|bit_counter[1]~13  & VCC))
+// \Transmitter_inst|BaudClockGenerator_inst|bit_counter[2]~15  = CARRY((\Transmitter_inst|BaudClockGenerator_inst|bit_counter [2] & !\Transmitter_inst|BaudClockGenerator_inst|bit_counter[1]~13 ))
+
+	.dataa(gnd),
+	.datab(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [2]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[1]~13 ),
+	.combout(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[2]~14_combout ),
+	.cout(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[2]~15 ));
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[2]~14 .lut_mask = 16'hC30C;
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[2]~14 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X18_Y21_N15
+dffeas \Transmitter_inst|BaudClockGenerator_inst|bit_counter[2] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[2]~14_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~11_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[2] .is_wysiwyg = "true";
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y21_N16
+cycloneive_lcell_comb \Transmitter_inst|BaudClockGenerator_inst|bit_counter[3]~16 (
+// Equation(s):
+// \Transmitter_inst|BaudClockGenerator_inst|bit_counter[3]~16_combout  = (\Transmitter_inst|BaudClockGenerator_inst|bit_counter [3] & (!\Transmitter_inst|BaudClockGenerator_inst|bit_counter[2]~15 )) # (!\Transmitter_inst|BaudClockGenerator_inst|bit_counter 
+// [3] & ((\Transmitter_inst|BaudClockGenerator_inst|bit_counter[2]~15 ) # (GND)))
+// \Transmitter_inst|BaudClockGenerator_inst|bit_counter[3]~17  = CARRY((!\Transmitter_inst|BaudClockGenerator_inst|bit_counter[2]~15 ) # (!\Transmitter_inst|BaudClockGenerator_inst|bit_counter [3]))
+
+	.dataa(gnd),
+	.datab(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [3]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[2]~15 ),
+	.combout(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[3]~16_combout ),
+	.cout(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[3]~17 ));
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[3]~16 .lut_mask = 16'h3C3F;
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[3]~16 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X18_Y21_N17
+dffeas \Transmitter_inst|BaudClockGenerator_inst|bit_counter[3] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[3]~16_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~11_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[3] .is_wysiwyg = "true";
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y21_N18
+cycloneive_lcell_comb \Transmitter_inst|BaudClockGenerator_inst|bit_counter[4]~18 (
+// Equation(s):
+// \Transmitter_inst|BaudClockGenerator_inst|bit_counter[4]~18_combout  = (\Transmitter_inst|BaudClockGenerator_inst|bit_counter [4] & (\Transmitter_inst|BaudClockGenerator_inst|bit_counter[3]~17  $ (GND))) # 
+// (!\Transmitter_inst|BaudClockGenerator_inst|bit_counter [4] & (!\Transmitter_inst|BaudClockGenerator_inst|bit_counter[3]~17  & VCC))
+// \Transmitter_inst|BaudClockGenerator_inst|bit_counter[4]~19  = CARRY((\Transmitter_inst|BaudClockGenerator_inst|bit_counter [4] & !\Transmitter_inst|BaudClockGenerator_inst|bit_counter[3]~17 ))
+
+	.dataa(gnd),
+	.datab(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [4]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[3]~17 ),
+	.combout(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[4]~18_combout ),
+	.cout(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[4]~19 ));
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[4]~18 .lut_mask = 16'hC30C;
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[4]~18 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X18_Y21_N19
+dffeas \Transmitter_inst|BaudClockGenerator_inst|bit_counter[4] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[4]~18_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~11_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[4] .is_wysiwyg = "true";
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y21_N20
+cycloneive_lcell_comb \Transmitter_inst|BaudClockGenerator_inst|bit_counter[5]~20 (
+// Equation(s):
+// \Transmitter_inst|BaudClockGenerator_inst|bit_counter[5]~20_combout  = (\Transmitter_inst|BaudClockGenerator_inst|bit_counter [5] & (!\Transmitter_inst|BaudClockGenerator_inst|bit_counter[4]~19 )) # (!\Transmitter_inst|BaudClockGenerator_inst|bit_counter 
+// [5] & ((\Transmitter_inst|BaudClockGenerator_inst|bit_counter[4]~19 ) # (GND)))
+// \Transmitter_inst|BaudClockGenerator_inst|bit_counter[5]~21  = CARRY((!\Transmitter_inst|BaudClockGenerator_inst|bit_counter[4]~19 ) # (!\Transmitter_inst|BaudClockGenerator_inst|bit_counter [5]))
+
+	.dataa(gnd),
+	.datab(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [5]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[4]~19 ),
+	.combout(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[5]~20_combout ),
+	.cout(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[5]~21 ));
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[5]~20 .lut_mask = 16'h3C3F;
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[5]~20 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X18_Y21_N21
+dffeas \Transmitter_inst|BaudClockGenerator_inst|bit_counter[5] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[5]~20_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~11_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[5] .is_wysiwyg = "true";
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y21_N22
+cycloneive_lcell_comb \Transmitter_inst|BaudClockGenerator_inst|bit_counter[6]~22 (
+// Equation(s):
+// \Transmitter_inst|BaudClockGenerator_inst|bit_counter[6]~22_combout  = (\Transmitter_inst|BaudClockGenerator_inst|bit_counter [6] & (\Transmitter_inst|BaudClockGenerator_inst|bit_counter[5]~21  $ (GND))) # 
+// (!\Transmitter_inst|BaudClockGenerator_inst|bit_counter [6] & (!\Transmitter_inst|BaudClockGenerator_inst|bit_counter[5]~21  & VCC))
+// \Transmitter_inst|BaudClockGenerator_inst|bit_counter[6]~23  = CARRY((\Transmitter_inst|BaudClockGenerator_inst|bit_counter [6] & !\Transmitter_inst|BaudClockGenerator_inst|bit_counter[5]~21 ))
+
+	.dataa(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [6]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[5]~21 ),
+	.combout(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[6]~22_combout ),
+	.cout(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[6]~23 ));
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[6]~22 .lut_mask = 16'hA50A;
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[6]~22 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X18_Y21_N23
+dffeas \Transmitter_inst|BaudClockGenerator_inst|bit_counter[6] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[6]~22_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~11_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[6] .is_wysiwyg = "true";
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y21_N24
+cycloneive_lcell_comb \Transmitter_inst|BaudClockGenerator_inst|bit_counter[7]~24 (
+// Equation(s):
+// \Transmitter_inst|BaudClockGenerator_inst|bit_counter[7]~24_combout  = (\Transmitter_inst|BaudClockGenerator_inst|bit_counter [7] & (!\Transmitter_inst|BaudClockGenerator_inst|bit_counter[6]~23 )) # (!\Transmitter_inst|BaudClockGenerator_inst|bit_counter 
+// [7] & ((\Transmitter_inst|BaudClockGenerator_inst|bit_counter[6]~23 ) # (GND)))
+// \Transmitter_inst|BaudClockGenerator_inst|bit_counter[7]~25  = CARRY((!\Transmitter_inst|BaudClockGenerator_inst|bit_counter[6]~23 ) # (!\Transmitter_inst|BaudClockGenerator_inst|bit_counter [7]))
+
+	.dataa(gnd),
+	.datab(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [7]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[6]~23 ),
+	.combout(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[7]~24_combout ),
+	.cout(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[7]~25 ));
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[7]~24 .lut_mask = 16'h3C3F;
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[7]~24 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X18_Y21_N25
+dffeas \Transmitter_inst|BaudClockGenerator_inst|bit_counter[7] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[7]~24_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~11_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[7] .is_wysiwyg = "true";
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y21_N26
+cycloneive_lcell_comb \Transmitter_inst|BaudClockGenerator_inst|bit_counter[8]~26 (
+// Equation(s):
+// \Transmitter_inst|BaudClockGenerator_inst|bit_counter[8]~26_combout  = \Transmitter_inst|BaudClockGenerator_inst|bit_counter [8] $ (!\Transmitter_inst|BaudClockGenerator_inst|bit_counter[7]~25 )
+
+	.dataa(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [8]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[7]~25 ),
+	.combout(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[8]~26_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[8]~26 .lut_mask = 16'hA5A5;
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[8]~26 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X18_Y21_N27
+dffeas \Transmitter_inst|BaudClockGenerator_inst|bit_counter[8] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[8]~26_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(\Transmitter_inst|BaudClockGenerator_inst|bit_counter[0]~11_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [8]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[8] .is_wysiwyg = "true";
+defparam \Transmitter_inst|BaudClockGenerator_inst|bit_counter[8] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y21_N4
+cycloneive_lcell_comb \Transmitter_inst|BaudClockGenerator_inst|baud_clk~0 (
+// Equation(s):
+// \Transmitter_inst|BaudClockGenerator_inst|baud_clk~0_combout  = (\Transmitter_inst|BaudClockGenerator_inst|bit_counter [8] & (!\Transmitter_inst|BaudClockGenerator_inst|Equal0~0_combout  & (!\Transmitter_inst|BaudClockGenerator_inst|Equal0~1_combout  & 
+// \Transmitter_inst|BaudClockGenerator_inst|LessThan0~0_combout )))
+
+	.dataa(\Transmitter_inst|BaudClockGenerator_inst|bit_counter [8]),
+	.datab(\Transmitter_inst|BaudClockGenerator_inst|Equal0~0_combout ),
+	.datac(\Transmitter_inst|BaudClockGenerator_inst|Equal0~1_combout ),
+	.datad(\Transmitter_inst|BaudClockGenerator_inst|LessThan0~0_combout ),
+	.cin(gnd),
+	.combout(\Transmitter_inst|BaudClockGenerator_inst|baud_clk~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|baud_clk~0 .lut_mask = 16'h0200;
+defparam \Transmitter_inst|BaudClockGenerator_inst|baud_clk~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X18_Y21_N5
+dffeas \Transmitter_inst|BaudClockGenerator_inst|baud_clk (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Transmitter_inst|BaudClockGenerator_inst|baud_clk~0_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Transmitter_inst|BaudClockGenerator_inst|baud_clk~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|baud_clk .is_wysiwyg = "true";
+defparam \Transmitter_inst|BaudClockGenerator_inst|baud_clk .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y21_N6
+cycloneive_lcell_comb \Transmitter_inst|Serialiser_inst|shift_register[3]~2 (
+// Equation(s):
+// \Transmitter_inst|Serialiser_inst|shift_register[3]~2_combout  = (\Transmitter_inst|BaudClockGenerator_inst|baud_clk~q ) # (\fsm_state~q )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\Transmitter_inst|BaudClockGenerator_inst|baud_clk~q ),
+	.datad(\fsm_state~q ),
+	.cin(gnd),
+	.combout(\Transmitter_inst|Serialiser_inst|shift_register[3]~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Transmitter_inst|Serialiser_inst|shift_register[3]~2 .lut_mask = 16'hFFF0;
+defparam \Transmitter_inst|Serialiser_inst|shift_register[3]~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X19_Y21_N19
+dffeas \Transmitter_inst|BaudClockGenerator_inst|clk_left[0] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Transmitter_inst|BaudClockGenerator_inst|clk_left~3_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\Transmitter_inst|Serialiser_inst|shift_register[3]~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Transmitter_inst|BaudClockGenerator_inst|clk_left [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|clk_left[0] .is_wysiwyg = "true";
+defparam \Transmitter_inst|BaudClockGenerator_inst|clk_left[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y21_N12
+cycloneive_lcell_comb \Transmitter_inst|BaudClockGenerator_inst|clk_left~2 (
+// Equation(s):
+// \Transmitter_inst|BaudClockGenerator_inst|clk_left~2_combout  = (\fsm_state~q ) # (\Transmitter_inst|BaudClockGenerator_inst|clk_left [1] $ (!\Transmitter_inst|BaudClockGenerator_inst|clk_left [0]))
+
+	.dataa(gnd),
+	.datab(\fsm_state~q ),
+	.datac(\Transmitter_inst|BaudClockGenerator_inst|clk_left [1]),
+	.datad(\Transmitter_inst|BaudClockGenerator_inst|clk_left [0]),
+	.cin(gnd),
+	.combout(\Transmitter_inst|BaudClockGenerator_inst|clk_left~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|clk_left~2 .lut_mask = 16'hFCCF;
+defparam \Transmitter_inst|BaudClockGenerator_inst|clk_left~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X19_Y21_N13
+dffeas \Transmitter_inst|BaudClockGenerator_inst|clk_left[1] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Transmitter_inst|BaudClockGenerator_inst|clk_left~2_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\Transmitter_inst|Serialiser_inst|shift_register[3]~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Transmitter_inst|BaudClockGenerator_inst|clk_left [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|clk_left[1] .is_wysiwyg = "true";
+defparam \Transmitter_inst|BaudClockGenerator_inst|clk_left[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y21_N30
+cycloneive_lcell_comb \Transmitter_inst|BaudClockGenerator_inst|clk_left~1 (
+// Equation(s):
+// \Transmitter_inst|BaudClockGenerator_inst|clk_left~1_combout  = (!\fsm_state~q  & (\Transmitter_inst|BaudClockGenerator_inst|clk_left [2] $ (((!\Transmitter_inst|BaudClockGenerator_inst|clk_left [0] & !\Transmitter_inst|BaudClockGenerator_inst|clk_left 
+// [1])))))
+
+	.dataa(\Transmitter_inst|BaudClockGenerator_inst|clk_left [0]),
+	.datab(\Transmitter_inst|BaudClockGenerator_inst|clk_left [1]),
+	.datac(\Transmitter_inst|BaudClockGenerator_inst|clk_left [2]),
+	.datad(\fsm_state~q ),
+	.cin(gnd),
+	.combout(\Transmitter_inst|BaudClockGenerator_inst|clk_left~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|clk_left~1 .lut_mask = 16'h00E1;
+defparam \Transmitter_inst|BaudClockGenerator_inst|clk_left~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X19_Y21_N31
+dffeas \Transmitter_inst|BaudClockGenerator_inst|clk_left[2] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Transmitter_inst|BaudClockGenerator_inst|clk_left~1_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\Transmitter_inst|Serialiser_inst|shift_register[3]~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Transmitter_inst|BaudClockGenerator_inst|clk_left [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|clk_left[2] .is_wysiwyg = "true";
+defparam \Transmitter_inst|BaudClockGenerator_inst|clk_left[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y21_N2
+cycloneive_lcell_comb \Transmitter_inst|BaudClockGenerator_inst|Add1~0 (
+// Equation(s):
+// \Transmitter_inst|BaudClockGenerator_inst|Add1~0_combout  = \Transmitter_inst|BaudClockGenerator_inst|clk_left [3] $ (((\Transmitter_inst|BaudClockGenerator_inst|clk_left [1]) # ((\Transmitter_inst|BaudClockGenerator_inst|clk_left [2]) # 
+// (\Transmitter_inst|BaudClockGenerator_inst|clk_left [0]))))
+
+	.dataa(\Transmitter_inst|BaudClockGenerator_inst|clk_left [3]),
+	.datab(\Transmitter_inst|BaudClockGenerator_inst|clk_left [1]),
+	.datac(\Transmitter_inst|BaudClockGenerator_inst|clk_left [2]),
+	.datad(\Transmitter_inst|BaudClockGenerator_inst|clk_left [0]),
+	.cin(gnd),
+	.combout(\Transmitter_inst|BaudClockGenerator_inst|Add1~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|Add1~0 .lut_mask = 16'h5556;
+defparam \Transmitter_inst|BaudClockGenerator_inst|Add1~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y21_N8
+cycloneive_lcell_comb \Transmitter_inst|BaudClockGenerator_inst|clk_left~0 (
+// Equation(s):
+// \Transmitter_inst|BaudClockGenerator_inst|clk_left~0_combout  = (\fsm_state~q ) # (!\Transmitter_inst|BaudClockGenerator_inst|Add1~0_combout )
+
+	.dataa(gnd),
+	.datab(\fsm_state~q ),
+	.datac(gnd),
+	.datad(\Transmitter_inst|BaudClockGenerator_inst|Add1~0_combout ),
+	.cin(gnd),
+	.combout(\Transmitter_inst|BaudClockGenerator_inst|clk_left~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|clk_left~0 .lut_mask = 16'hCCFF;
+defparam \Transmitter_inst|BaudClockGenerator_inst|clk_left~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X19_Y21_N9
+dffeas \Transmitter_inst|BaudClockGenerator_inst|clk_left[3] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Transmitter_inst|BaudClockGenerator_inst|clk_left~0_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\Transmitter_inst|Serialiser_inst|shift_register[3]~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Transmitter_inst|BaudClockGenerator_inst|clk_left [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|clk_left[3] .is_wysiwyg = "true";
+defparam \Transmitter_inst|BaudClockGenerator_inst|clk_left[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y21_N24
+cycloneive_lcell_comb \Transmitter_inst|BaudClockGenerator_inst|LessThan0~0 (
+// Equation(s):
+// \Transmitter_inst|BaudClockGenerator_inst|LessThan0~0_combout  = (\Transmitter_inst|BaudClockGenerator_inst|clk_left [1]) # ((\Transmitter_inst|BaudClockGenerator_inst|clk_left [3]) # ((\Transmitter_inst|BaudClockGenerator_inst|clk_left [2]) # 
+// (\Transmitter_inst|BaudClockGenerator_inst|clk_left [0])))
+
+	.dataa(\Transmitter_inst|BaudClockGenerator_inst|clk_left [1]),
+	.datab(\Transmitter_inst|BaudClockGenerator_inst|clk_left [3]),
+	.datac(\Transmitter_inst|BaudClockGenerator_inst|clk_left [2]),
+	.datad(\Transmitter_inst|BaudClockGenerator_inst|clk_left [0]),
+	.cin(gnd),
+	.combout(\Transmitter_inst|BaudClockGenerator_inst|LessThan0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|LessThan0~0 .lut_mask = 16'hFFFE;
+defparam \Transmitter_inst|BaudClockGenerator_inst|LessThan0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y21_N20
+cycloneive_lcell_comb \Transmitter_inst|BaudClockGenerator_inst|ready~0 (
+// Equation(s):
+// \Transmitter_inst|BaudClockGenerator_inst|ready~0_combout  = (\fsm_state~q ) # ((\Transmitter_inst|BaudClockGenerator_inst|ready~q  & \Transmitter_inst|BaudClockGenerator_inst|LessThan0~0_combout ))
+
+	.dataa(gnd),
+	.datab(\fsm_state~q ),
+	.datac(\Transmitter_inst|BaudClockGenerator_inst|ready~q ),
+	.datad(\Transmitter_inst|BaudClockGenerator_inst|LessThan0~0_combout ),
+	.cin(gnd),
+	.combout(\Transmitter_inst|BaudClockGenerator_inst|ready~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|ready~0 .lut_mask = 16'hFCCC;
+defparam \Transmitter_inst|BaudClockGenerator_inst|ready~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X19_Y21_N21
+dffeas \Transmitter_inst|BaudClockGenerator_inst|ready (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Transmitter_inst|BaudClockGenerator_inst|ready~0_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Transmitter_inst|BaudClockGenerator_inst|ready~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Transmitter_inst|BaudClockGenerator_inst|ready .is_wysiwyg = "true";
+defparam \Transmitter_inst|BaudClockGenerator_inst|ready .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y21_N28
+cycloneive_lcell_comb \tx_start~0 (
+// Equation(s):
+// \tx_start~0_combout  = (\fsm_state~q ) # ((\Receiver_inst|rx_data_ready~q  & !\Transmitter_inst|BaudClockGenerator_inst|ready~q ))
+
+	.dataa(\Receiver_inst|rx_data_ready~q ),
+	.datab(gnd),
+	.datac(\fsm_state~q ),
+	.datad(\Transmitter_inst|BaudClockGenerator_inst|ready~q ),
+	.cin(gnd),
+	.combout(\tx_start~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \tx_start~0 .lut_mask = 16'hF0FA;
+defparam \tx_start~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X19_Y21_N29
+dffeas fsm_state(
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\tx_start~0_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(\fsm_state~q ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\fsm_state~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam fsm_state.is_wysiwyg = "true";
+defparam fsm_state.power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N6
+cycloneive_lcell_comb \Receiver_inst|ShiftRegister_inst|shift_register[7]~0 (
+// Equation(s):
+// \Receiver_inst|ShiftRegister_inst|shift_register[7]~0_combout  = !\Receiver_inst|Synchronizer_inst|shift_register [1]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\Receiver_inst|Synchronizer_inst|shift_register [1]),
+	.cin(gnd),
+	.combout(\Receiver_inst|ShiftRegister_inst|shift_register[7]~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[7]~0 .lut_mask = 16'h00FF;
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[7]~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X17_Y21_N7
+dffeas \Receiver_inst|ShiftRegister_inst|shift_register[7] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|ShiftRegister_inst|shift_register[7]~0_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\Receiver_inst|BaudClockGenerator_inst|baud_clk~q ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|ShiftRegister_inst|shift_register [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[7] .is_wysiwyg = "true";
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N24
+cycloneive_lcell_comb \Receiver_inst|ShiftRegister_inst|shift_register[6]~feeder (
+// Equation(s):
+// \Receiver_inst|ShiftRegister_inst|shift_register[6]~feeder_combout  = \Receiver_inst|ShiftRegister_inst|shift_register [7]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\Receiver_inst|ShiftRegister_inst|shift_register [7]),
+	.cin(gnd),
+	.combout(\Receiver_inst|ShiftRegister_inst|shift_register[6]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[6]~feeder .lut_mask = 16'hFF00;
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[6]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X17_Y21_N25
+dffeas \Receiver_inst|ShiftRegister_inst|shift_register[6] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|ShiftRegister_inst|shift_register[6]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\Receiver_inst|BaudClockGenerator_inst|baud_clk~q ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|ShiftRegister_inst|shift_register [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[6] .is_wysiwyg = "true";
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N12
+cycloneive_lcell_comb \Receiver_inst|ShiftRegister_inst|shift_register[5]~feeder (
+// Equation(s):
+// \Receiver_inst|ShiftRegister_inst|shift_register[5]~feeder_combout  = \Receiver_inst|ShiftRegister_inst|shift_register [6]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\Receiver_inst|ShiftRegister_inst|shift_register [6]),
+	.cin(gnd),
+	.combout(\Receiver_inst|ShiftRegister_inst|shift_register[5]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[5]~feeder .lut_mask = 16'hFF00;
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[5]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X17_Y21_N13
+dffeas \Receiver_inst|ShiftRegister_inst|shift_register[5] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|ShiftRegister_inst|shift_register[5]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\Receiver_inst|BaudClockGenerator_inst|baud_clk~q ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|ShiftRegister_inst|shift_register [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[5] .is_wysiwyg = "true";
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N10
+cycloneive_lcell_comb \Receiver_inst|ShiftRegister_inst|shift_register[4]~feeder (
+// Equation(s):
+// \Receiver_inst|ShiftRegister_inst|shift_register[4]~feeder_combout  = \Receiver_inst|ShiftRegister_inst|shift_register [5]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\Receiver_inst|ShiftRegister_inst|shift_register [5]),
+	.cin(gnd),
+	.combout(\Receiver_inst|ShiftRegister_inst|shift_register[4]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[4]~feeder .lut_mask = 16'hFF00;
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[4]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X17_Y21_N11
+dffeas \Receiver_inst|ShiftRegister_inst|shift_register[4] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|ShiftRegister_inst|shift_register[4]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\Receiver_inst|BaudClockGenerator_inst|baud_clk~q ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|ShiftRegister_inst|shift_register [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[4] .is_wysiwyg = "true";
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N14
+cycloneive_lcell_comb \Receiver_inst|ShiftRegister_inst|shift_register[3]~feeder (
+// Equation(s):
+// \Receiver_inst|ShiftRegister_inst|shift_register[3]~feeder_combout  = \Receiver_inst|ShiftRegister_inst|shift_register [4]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\Receiver_inst|ShiftRegister_inst|shift_register [4]),
+	.cin(gnd),
+	.combout(\Receiver_inst|ShiftRegister_inst|shift_register[3]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[3]~feeder .lut_mask = 16'hFF00;
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[3]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X17_Y21_N15
+dffeas \Receiver_inst|ShiftRegister_inst|shift_register[3] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|ShiftRegister_inst|shift_register[3]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\Receiver_inst|BaudClockGenerator_inst|baud_clk~q ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|ShiftRegister_inst|shift_register [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[3] .is_wysiwyg = "true";
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N22
+cycloneive_lcell_comb \Receiver_inst|ShiftRegister_inst|shift_register[2]~feeder (
+// Equation(s):
+// \Receiver_inst|ShiftRegister_inst|shift_register[2]~feeder_combout  = \Receiver_inst|ShiftRegister_inst|shift_register [3]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\Receiver_inst|ShiftRegister_inst|shift_register [3]),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\Receiver_inst|ShiftRegister_inst|shift_register[2]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[2]~feeder .lut_mask = 16'hF0F0;
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[2]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X17_Y21_N23
+dffeas \Receiver_inst|ShiftRegister_inst|shift_register[2] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|ShiftRegister_inst|shift_register[2]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\Receiver_inst|BaudClockGenerator_inst|baud_clk~q ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|ShiftRegister_inst|shift_register [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[2] .is_wysiwyg = "true";
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N26
+cycloneive_lcell_comb \Receiver_inst|ShiftRegister_inst|shift_register[1]~feeder (
+// Equation(s):
+// \Receiver_inst|ShiftRegister_inst|shift_register[1]~feeder_combout  = \Receiver_inst|ShiftRegister_inst|shift_register [2]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\Receiver_inst|ShiftRegister_inst|shift_register [2]),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\Receiver_inst|ShiftRegister_inst|shift_register[1]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[1]~feeder .lut_mask = 16'hF0F0;
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[1]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X17_Y21_N27
+dffeas \Receiver_inst|ShiftRegister_inst|shift_register[1] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|ShiftRegister_inst|shift_register[1]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\Receiver_inst|BaudClockGenerator_inst|baud_clk~q ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|ShiftRegister_inst|shift_register [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[1] .is_wysiwyg = "true";
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y21_N30
+cycloneive_lcell_comb \Transmitter_inst|Serialiser_inst|shift_register~9 (
+// Equation(s):
+// \Transmitter_inst|Serialiser_inst|shift_register~9_combout  = (!\Receiver_inst|ShiftRegister_inst|shift_register [7] & \fsm_state~q )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\Receiver_inst|ShiftRegister_inst|shift_register [7]),
+	.datad(\fsm_state~q ),
+	.cin(gnd),
+	.combout(\Transmitter_inst|Serialiser_inst|shift_register~9_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Transmitter_inst|Serialiser_inst|shift_register~9 .lut_mask = 16'h0F00;
+defparam \Transmitter_inst|Serialiser_inst|shift_register~9 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X18_Y21_N31
+dffeas \Transmitter_inst|Serialiser_inst|shift_register[8] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Transmitter_inst|Serialiser_inst|shift_register~9_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\Transmitter_inst|Serialiser_inst|shift_register[3]~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Transmitter_inst|Serialiser_inst|shift_register [8]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Transmitter_inst|Serialiser_inst|shift_register[8] .is_wysiwyg = "true";
+defparam \Transmitter_inst|Serialiser_inst|shift_register[8] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N18
+cycloneive_lcell_comb \Transmitter_inst|Serialiser_inst|shift_register~8 (
+// Equation(s):
+// \Transmitter_inst|Serialiser_inst|shift_register~8_combout  = (\fsm_state~q  & (!\Receiver_inst|ShiftRegister_inst|shift_register [6])) # (!\fsm_state~q  & ((\Transmitter_inst|Serialiser_inst|shift_register [8])))
+
+	.dataa(gnd),
+	.datab(\Receiver_inst|ShiftRegister_inst|shift_register [6]),
+	.datac(\Transmitter_inst|Serialiser_inst|shift_register [8]),
+	.datad(\fsm_state~q ),
+	.cin(gnd),
+	.combout(\Transmitter_inst|Serialiser_inst|shift_register~8_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Transmitter_inst|Serialiser_inst|shift_register~8 .lut_mask = 16'h33F0;
+defparam \Transmitter_inst|Serialiser_inst|shift_register~8 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X17_Y21_N19
+dffeas \Transmitter_inst|Serialiser_inst|shift_register[7] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Transmitter_inst|Serialiser_inst|shift_register~8_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\Transmitter_inst|Serialiser_inst|shift_register[3]~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Transmitter_inst|Serialiser_inst|shift_register [7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Transmitter_inst|Serialiser_inst|shift_register[7] .is_wysiwyg = "true";
+defparam \Transmitter_inst|Serialiser_inst|shift_register[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X18_Y21_N28
+cycloneive_lcell_comb \Transmitter_inst|Serialiser_inst|shift_register~7 (
+// Equation(s):
+// \Transmitter_inst|Serialiser_inst|shift_register~7_combout  = (\fsm_state~q  & (!\Receiver_inst|ShiftRegister_inst|shift_register [5])) # (!\fsm_state~q  & ((\Transmitter_inst|Serialiser_inst|shift_register [7])))
+
+	.dataa(\Receiver_inst|ShiftRegister_inst|shift_register [5]),
+	.datab(\Transmitter_inst|Serialiser_inst|shift_register [7]),
+	.datac(gnd),
+	.datad(\fsm_state~q ),
+	.cin(gnd),
+	.combout(\Transmitter_inst|Serialiser_inst|shift_register~7_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Transmitter_inst|Serialiser_inst|shift_register~7 .lut_mask = 16'h55CC;
+defparam \Transmitter_inst|Serialiser_inst|shift_register~7 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X18_Y21_N29
+dffeas \Transmitter_inst|Serialiser_inst|shift_register[6] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Transmitter_inst|Serialiser_inst|shift_register~7_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\Transmitter_inst|Serialiser_inst|shift_register[3]~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Transmitter_inst|Serialiser_inst|shift_register [6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Transmitter_inst|Serialiser_inst|shift_register[6] .is_wysiwyg = "true";
+defparam \Transmitter_inst|Serialiser_inst|shift_register[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N8
+cycloneive_lcell_comb \Transmitter_inst|Serialiser_inst|shift_register~6 (
+// Equation(s):
+// \Transmitter_inst|Serialiser_inst|shift_register~6_combout  = (\fsm_state~q  & (!\Receiver_inst|ShiftRegister_inst|shift_register [4])) # (!\fsm_state~q  & ((\Transmitter_inst|Serialiser_inst|shift_register [6])))
+
+	.dataa(\Receiver_inst|ShiftRegister_inst|shift_register [4]),
+	.datab(\Transmitter_inst|Serialiser_inst|shift_register [6]),
+	.datac(gnd),
+	.datad(\fsm_state~q ),
+	.cin(gnd),
+	.combout(\Transmitter_inst|Serialiser_inst|shift_register~6_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Transmitter_inst|Serialiser_inst|shift_register~6 .lut_mask = 16'h55CC;
+defparam \Transmitter_inst|Serialiser_inst|shift_register~6 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X17_Y21_N9
+dffeas \Transmitter_inst|Serialiser_inst|shift_register[5] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Transmitter_inst|Serialiser_inst|shift_register~6_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\Transmitter_inst|Serialiser_inst|shift_register[3]~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Transmitter_inst|Serialiser_inst|shift_register [5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Transmitter_inst|Serialiser_inst|shift_register[5] .is_wysiwyg = "true";
+defparam \Transmitter_inst|Serialiser_inst|shift_register[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N16
+cycloneive_lcell_comb \Transmitter_inst|Serialiser_inst|shift_register~5 (
+// Equation(s):
+// \Transmitter_inst|Serialiser_inst|shift_register~5_combout  = (\fsm_state~q  & (!\Receiver_inst|ShiftRegister_inst|shift_register [3])) # (!\fsm_state~q  & ((\Transmitter_inst|Serialiser_inst|shift_register [5])))
+
+	.dataa(gnd),
+	.datab(\Receiver_inst|ShiftRegister_inst|shift_register [3]),
+	.datac(\Transmitter_inst|Serialiser_inst|shift_register [5]),
+	.datad(\fsm_state~q ),
+	.cin(gnd),
+	.combout(\Transmitter_inst|Serialiser_inst|shift_register~5_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Transmitter_inst|Serialiser_inst|shift_register~5 .lut_mask = 16'h33F0;
+defparam \Transmitter_inst|Serialiser_inst|shift_register~5 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X17_Y21_N17
+dffeas \Transmitter_inst|Serialiser_inst|shift_register[4] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Transmitter_inst|Serialiser_inst|shift_register~5_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\Transmitter_inst|Serialiser_inst|shift_register[3]~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Transmitter_inst|Serialiser_inst|shift_register [4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Transmitter_inst|Serialiser_inst|shift_register[4] .is_wysiwyg = "true";
+defparam \Transmitter_inst|Serialiser_inst|shift_register[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N4
+cycloneive_lcell_comb \Transmitter_inst|Serialiser_inst|shift_register~4 (
+// Equation(s):
+// \Transmitter_inst|Serialiser_inst|shift_register~4_combout  = (\fsm_state~q  & (!\Receiver_inst|ShiftRegister_inst|shift_register [2])) # (!\fsm_state~q  & ((\Transmitter_inst|Serialiser_inst|shift_register [4])))
+
+	.dataa(\Receiver_inst|ShiftRegister_inst|shift_register [2]),
+	.datab(\Transmitter_inst|Serialiser_inst|shift_register [4]),
+	.datac(gnd),
+	.datad(\fsm_state~q ),
+	.cin(gnd),
+	.combout(\Transmitter_inst|Serialiser_inst|shift_register~4_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Transmitter_inst|Serialiser_inst|shift_register~4 .lut_mask = 16'h55CC;
+defparam \Transmitter_inst|Serialiser_inst|shift_register~4 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X17_Y21_N5
+dffeas \Transmitter_inst|Serialiser_inst|shift_register[3] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Transmitter_inst|Serialiser_inst|shift_register~4_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\Transmitter_inst|Serialiser_inst|shift_register[3]~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Transmitter_inst|Serialiser_inst|shift_register [3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Transmitter_inst|Serialiser_inst|shift_register[3] .is_wysiwyg = "true";
+defparam \Transmitter_inst|Serialiser_inst|shift_register[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N28
+cycloneive_lcell_comb \Transmitter_inst|Serialiser_inst|shift_register~3 (
+// Equation(s):
+// \Transmitter_inst|Serialiser_inst|shift_register~3_combout  = (\fsm_state~q  & (!\Receiver_inst|ShiftRegister_inst|shift_register [1])) # (!\fsm_state~q  & ((\Transmitter_inst|Serialiser_inst|shift_register [3])))
+
+	.dataa(\Receiver_inst|ShiftRegister_inst|shift_register [1]),
+	.datab(\Transmitter_inst|Serialiser_inst|shift_register [3]),
+	.datac(gnd),
+	.datad(\fsm_state~q ),
+	.cin(gnd),
+	.combout(\Transmitter_inst|Serialiser_inst|shift_register~3_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Transmitter_inst|Serialiser_inst|shift_register~3 .lut_mask = 16'h55CC;
+defparam \Transmitter_inst|Serialiser_inst|shift_register~3 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X17_Y21_N29
+dffeas \Transmitter_inst|Serialiser_inst|shift_register[2] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Transmitter_inst|Serialiser_inst|shift_register~3_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\Transmitter_inst|Serialiser_inst|shift_register[3]~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Transmitter_inst|Serialiser_inst|shift_register [2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Transmitter_inst|Serialiser_inst|shift_register[2] .is_wysiwyg = "true";
+defparam \Transmitter_inst|Serialiser_inst|shift_register[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N30
+cycloneive_lcell_comb \Receiver_inst|ShiftRegister_inst|shift_register[0]~feeder (
+// Equation(s):
+// \Receiver_inst|ShiftRegister_inst|shift_register[0]~feeder_combout  = \Receiver_inst|ShiftRegister_inst|shift_register [1]
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\Receiver_inst|ShiftRegister_inst|shift_register [1]),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\Receiver_inst|ShiftRegister_inst|shift_register[0]~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[0]~feeder .lut_mask = 16'hF0F0;
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[0]~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X17_Y21_N31
+dffeas \Receiver_inst|ShiftRegister_inst|shift_register[0] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Receiver_inst|ShiftRegister_inst|shift_register[0]~feeder_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\Receiver_inst|BaudClockGenerator_inst|baud_clk~q ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Receiver_inst|ShiftRegister_inst|shift_register [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[0] .is_wysiwyg = "true";
+defparam \Receiver_inst|ShiftRegister_inst|shift_register[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X17_Y21_N0
+cycloneive_lcell_comb \Transmitter_inst|Serialiser_inst|shift_register~1 (
+// Equation(s):
+// \Transmitter_inst|Serialiser_inst|shift_register~1_combout  = (\fsm_state~q  & ((!\Receiver_inst|ShiftRegister_inst|shift_register [0]))) # (!\fsm_state~q  & (\Transmitter_inst|Serialiser_inst|shift_register [2]))
+
+	.dataa(gnd),
+	.datab(\Transmitter_inst|Serialiser_inst|shift_register [2]),
+	.datac(\Receiver_inst|ShiftRegister_inst|shift_register [0]),
+	.datad(\fsm_state~q ),
+	.cin(gnd),
+	.combout(\Transmitter_inst|Serialiser_inst|shift_register~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Transmitter_inst|Serialiser_inst|shift_register~1 .lut_mask = 16'h0FCC;
+defparam \Transmitter_inst|Serialiser_inst|shift_register~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X17_Y21_N1
+dffeas \Transmitter_inst|Serialiser_inst|shift_register[1] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Transmitter_inst|Serialiser_inst|shift_register~1_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\Transmitter_inst|Serialiser_inst|shift_register[3]~2_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Transmitter_inst|Serialiser_inst|shift_register [1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Transmitter_inst|Serialiser_inst|shift_register[1] .is_wysiwyg = "true";
+defparam \Transmitter_inst|Serialiser_inst|shift_register[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X19_Y21_N26
+cycloneive_lcell_comb \Transmitter_inst|Serialiser_inst|shift_register~0 (
+// Equation(s):
+// \Transmitter_inst|Serialiser_inst|shift_register~0_combout  = (\fsm_state~q ) # ((\Transmitter_inst|BaudClockGenerator_inst|baud_clk~q  & ((\Transmitter_inst|Serialiser_inst|shift_register [1]))) # (!\Transmitter_inst|BaudClockGenerator_inst|baud_clk~q  & 
+// (\Transmitter_inst|Serialiser_inst|shift_register [0])))
+
+	.dataa(\fsm_state~q ),
+	.datab(\Transmitter_inst|BaudClockGenerator_inst|baud_clk~q ),
+	.datac(\Transmitter_inst|Serialiser_inst|shift_register [0]),
+	.datad(\Transmitter_inst|Serialiser_inst|shift_register [1]),
+	.cin(gnd),
+	.combout(\Transmitter_inst|Serialiser_inst|shift_register~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \Transmitter_inst|Serialiser_inst|shift_register~0 .lut_mask = 16'hFEBA;
+defparam \Transmitter_inst|Serialiser_inst|shift_register~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X19_Y21_N27
+dffeas \Transmitter_inst|Serialiser_inst|shift_register[0] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\Transmitter_inst|Serialiser_inst|shift_register~0_combout ),
+	.asdata(vcc),
+	.clrn(!\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\Transmitter_inst|Serialiser_inst|shift_register [0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \Transmitter_inst|Serialiser_inst|shift_register[0] .is_wysiwyg = "true";
+defparam \Transmitter_inst|Serialiser_inst|shift_register[0] .power_up = "low";
+// synopsys translate_on
+
+assign tx_pin = \tx_pin~output_o ;
+
+endmodule
+
+module hard_block (
+
+	devpor,
+	devclrn,
+	devoe);
+
+// Design Ports Information
+// ~ALTERA_ASDO_DATA1~	=>  Location: PIN_6,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_FLASH_nCE_nCSO~	=>  Location: PIN_8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_DCLK~	=>  Location: PIN_12,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_DATA0~	=>  Location: PIN_13,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_nCEO~	=>  Location: PIN_101,	 I/O Standard: 2.5 V,	 Current Strength: 8mA
+
+input 	devpor;
+input 	devclrn;
+input 	devoe;
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+wire \~ALTERA_ASDO_DATA1~~padout ;
+wire \~ALTERA_FLASH_nCE_nCSO~~padout ;
+wire \~ALTERA_DATA0~~padout ;
+wire \~ALTERA_ASDO_DATA1~~ibuf_o ;
+wire \~ALTERA_FLASH_nCE_nCSO~~ibuf_o ;
+wire \~ALTERA_DATA0~~ibuf_o ;
+
+
+endmodule

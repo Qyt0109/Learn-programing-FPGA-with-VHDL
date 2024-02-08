@@ -3,8 +3,8 @@ USE ieee.std_logic_1164.ALL;
 
 ENTITY Serialiser IS
     GENERIC (
-        DATA_WIDTH : INTEGER := 8;
-        DEFAULT_STATE : STD_LOGIC := '1'
+        DATA_WIDTH : INTEGER;
+        DEFAULT_STATE : STD_LOGIC
     );
     PORT (
         -- inputs

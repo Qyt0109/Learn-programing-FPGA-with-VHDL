@@ -1,0 +1,241 @@
+|TopModule
+clk => Transmitter:Transmitter_inst.clk
+clk => tx_start.CLK
+clk => fsm_state.CLK
+clk => Receiver:Receiver_inst.clk
+rst => Transmitter:Transmitter_inst.rst
+rst => tx_start.ACLR
+rst => fsm_state.ACLR
+rst => Receiver:Receiver_inst.rst
+rx_pin => Receiver:Receiver_inst.rx_pin
+tx_pin << Transmitter:Transmitter_inst.tx_pin
+
+
+|TopModule|Transmitter:Transmitter_inst
+clk => Serialiser:Serialiser_inst.clk
+clk => BaudClockGenerator:BaudClockGenerator_inst.clk
+rst => Serialiser:Serialiser_inst.rst
+rst => BaudClockGenerator:BaudClockGenerator_inst.rst
+tx_start => Serialiser:Serialiser_inst.load
+tx_start => BaudClockGenerator:BaudClockGenerator_inst.start
+tx_data[0] => Serialiser:Serialiser_inst.data_in[1]
+tx_data[1] => Serialiser:Serialiser_inst.data_in[2]
+tx_data[2] => Serialiser:Serialiser_inst.data_in[3]
+tx_data[3] => Serialiser:Serialiser_inst.data_in[4]
+tx_data[4] => Serialiser:Serialiser_inst.data_in[5]
+tx_data[5] => Serialiser:Serialiser_inst.data_in[6]
+tx_data[6] => Serialiser:Serialiser_inst.data_in[7]
+tx_data[7] => Serialiser:Serialiser_inst.data_in[8]
+tx_ready <= BaudClockGenerator:BaudClockGenerator_inst.ready
+tx_pin <= Serialiser:Serialiser_inst.data_out
+
+
+|TopModule|Transmitter:Transmitter_inst|Serialiser:Serialiser_inst
+clk => shift_register[0].CLK
+clk => shift_register[1].CLK
+clk => shift_register[2].CLK
+clk => shift_register[3].CLK
+clk => shift_register[4].CLK
+clk => shift_register[5].CLK
+clk => shift_register[6].CLK
+clk => shift_register[7].CLK
+clk => shift_register[8].CLK
+clk => shift_register[9].CLK
+rst => shift_register[0].PRESET
+rst => shift_register[1].PRESET
+rst => shift_register[2].PRESET
+rst => shift_register[3].PRESET
+rst => shift_register[4].PRESET
+rst => shift_register[5].PRESET
+rst => shift_register[6].PRESET
+rst => shift_register[7].PRESET
+rst => shift_register[8].PRESET
+rst => shift_register[9].PRESET
+shift_en => shift_register.OUTPUTSELECT
+shift_en => shift_register.OUTPUTSELECT
+shift_en => shift_register.OUTPUTSELECT
+shift_en => shift_register.OUTPUTSELECT
+shift_en => shift_register.OUTPUTSELECT
+shift_en => shift_register.OUTPUTSELECT
+shift_en => shift_register.OUTPUTSELECT
+shift_en => shift_register.OUTPUTSELECT
+shift_en => shift_register.OUTPUTSELECT
+shift_en => shift_register.OUTPUTSELECT
+load => shift_register.OUTPUTSELECT
+load => shift_register.OUTPUTSELECT
+load => shift_register.OUTPUTSELECT
+load => shift_register.OUTPUTSELECT
+load => shift_register.OUTPUTSELECT
+load => shift_register.OUTPUTSELECT
+load => shift_register.OUTPUTSELECT
+load => shift_register.OUTPUTSELECT
+load => shift_register.OUTPUTSELECT
+load => shift_register.OUTPUTSELECT
+data_in[0] => shift_register.DATAB
+data_in[1] => shift_register.DATAB
+data_in[2] => shift_register.DATAB
+data_in[3] => shift_register.DATAB
+data_in[4] => shift_register.DATAB
+data_in[5] => shift_register.DATAB
+data_in[6] => shift_register.DATAB
+data_in[7] => shift_register.DATAB
+data_in[8] => shift_register.DATAB
+data_in[9] => shift_register.DATAB
+data_out <= shift_register[0].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopModule|Transmitter:Transmitter_inst|BaudClockGenerator:BaudClockGenerator_inst
+clk => ready~reg0.CLK
+clk => clk_left[0].CLK
+clk => clk_left[1].CLK
+clk => clk_left[2].CLK
+clk => clk_left[3].CLK
+clk => bit_counter[0].CLK
+clk => bit_counter[1].CLK
+clk => bit_counter[2].CLK
+clk => bit_counter[3].CLK
+clk => bit_counter[4].CLK
+clk => bit_counter[5].CLK
+clk => bit_counter[6].CLK
+clk => bit_counter[7].CLK
+clk => bit_counter[8].CLK
+clk => baud_clk~reg0.CLK
+rst => ready~reg0.PRESET
+rst => clk_left[0].ACLR
+rst => clk_left[1].ACLR
+rst => clk_left[2].ACLR
+rst => clk_left[3].ACLR
+rst => bit_counter[0].ACLR
+rst => bit_counter[1].ACLR
+rst => bit_counter[2].ACLR
+rst => bit_counter[3].ACLR
+rst => bit_counter[4].ACLR
+rst => bit_counter[5].ACLR
+rst => bit_counter[6].ACLR
+rst => bit_counter[7].ACLR
+rst => bit_counter[8].ACLR
+rst => baud_clk~reg0.ACLR
+start => clk_left.OUTPUTSELECT
+start => clk_left.OUTPUTSELECT
+start => clk_left.OUTPUTSELECT
+start => clk_left.OUTPUTSELECT
+start => ready.OUTPUTSELECT
+baud_clk <= baud_clk~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ready <= ready~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopModule|Receiver:Receiver_inst
+clk => Synchronizer:Synchronizer_inst.clk
+clk => rx_data_ready~reg0.CLK
+clk => start.CLK
+clk => synced_rx_pin_delay.CLK
+clk => is_started.CLK
+clk => BaudClockGenerator:BaudClockGenerator_inst.clk
+clk => ShiftRegister:ShiftRegister_inst.clk
+clk => fsm_state~4.DATAIN
+rst => Synchronizer:Synchronizer_inst.rst
+rst => rx_data_ready~reg0.ACLR
+rst => start.ACLR
+rst => synced_rx_pin_delay.PRESET
+rst => is_started.ACLR
+rst => BaudClockGenerator:BaudClockGenerator_inst.rst
+rst => ShiftRegister:ShiftRegister_inst.rst
+rst => fsm_state~6.DATAIN
+rx_pin => Synchronizer:Synchronizer_inst.async_pin
+clear_rx_data_ready => rx_data_ready.OUTPUTSELECT
+rx_data_ready <= rx_data_ready~reg0.DB_MAX_OUTPUT_PORT_TYPE
+rx_data[0] <= ShiftRegister:ShiftRegister_inst.data_out[0]
+rx_data[1] <= ShiftRegister:ShiftRegister_inst.data_out[1]
+rx_data[2] <= ShiftRegister:ShiftRegister_inst.data_out[2]
+rx_data[3] <= ShiftRegister:ShiftRegister_inst.data_out[3]
+rx_data[4] <= ShiftRegister:ShiftRegister_inst.data_out[4]
+rx_data[5] <= ShiftRegister:ShiftRegister_inst.data_out[5]
+rx_data[6] <= ShiftRegister:ShiftRegister_inst.data_out[6]
+rx_data[7] <= ShiftRegister:ShiftRegister_inst.data_out[7]
+
+
+|TopModule|Receiver:Receiver_inst|Synchronizer:Synchronizer_inst
+clk => shift_register[0].CLK
+clk => shift_register[1].CLK
+rst => shift_register[0].PRESET
+rst => shift_register[1].PRESET
+async_pin => shift_register[0].DATAIN
+sync_pin <= shift_register[1].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopModule|Receiver:Receiver_inst|BaudClockGenerator:BaudClockGenerator_inst
+clk => ready~reg0.CLK
+clk => clk_left[0].CLK
+clk => clk_left[1].CLK
+clk => clk_left[2].CLK
+clk => clk_left[3].CLK
+clk => bit_counter[0].CLK
+clk => bit_counter[1].CLK
+clk => bit_counter[2].CLK
+clk => bit_counter[3].CLK
+clk => bit_counter[4].CLK
+clk => bit_counter[5].CLK
+clk => bit_counter[6].CLK
+clk => bit_counter[7].CLK
+clk => bit_counter[8].CLK
+clk => baud_clk~reg0.CLK
+rst => ready~reg0.PRESET
+rst => clk_left[0].ACLR
+rst => clk_left[1].ACLR
+rst => clk_left[2].ACLR
+rst => clk_left[3].ACLR
+rst => bit_counter[0].ACLR
+rst => bit_counter[1].ACLR
+rst => bit_counter[2].ACLR
+rst => bit_counter[3].ACLR
+rst => bit_counter[4].ACLR
+rst => bit_counter[5].ACLR
+rst => bit_counter[6].ACLR
+rst => bit_counter[7].ACLR
+rst => bit_counter[8].ACLR
+rst => baud_clk~reg0.ACLR
+start => clk_left.OUTPUTSELECT
+start => clk_left.OUTPUTSELECT
+start => clk_left.OUTPUTSELECT
+start => clk_left.OUTPUTSELECT
+start => ready.OUTPUTSELECT
+baud_clk <= baud_clk~reg0.DB_MAX_OUTPUT_PORT_TYPE
+ready <= ready~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopModule|Receiver:Receiver_inst|ShiftRegister:ShiftRegister_inst
+clk => shift_register[0].CLK
+clk => shift_register[1].CLK
+clk => shift_register[2].CLK
+clk => shift_register[3].CLK
+clk => shift_register[4].CLK
+clk => shift_register[5].CLK
+clk => shift_register[6].CLK
+clk => shift_register[7].CLK
+rst => shift_register[0].ACLR
+rst => shift_register[1].ACLR
+rst => shift_register[2].ACLR
+rst => shift_register[3].ACLR
+rst => shift_register[4].ACLR
+rst => shift_register[5].ACLR
+rst => shift_register[6].ACLR
+rst => shift_register[7].ACLR
+shift_en => shift_register[7].ENA
+shift_en => shift_register[6].ENA
+shift_en => shift_register[5].ENA
+shift_en => shift_register[4].ENA
+shift_en => shift_register[3].ENA
+shift_en => shift_register[2].ENA
+shift_en => shift_register[1].ENA
+shift_en => shift_register[0].ENA
+data_in => shift_register[7].DATAIN
+data_out[0] <= shift_register[0].DB_MAX_OUTPUT_PORT_TYPE
+data_out[1] <= shift_register[1].DB_MAX_OUTPUT_PORT_TYPE
+data_out[2] <= shift_register[2].DB_MAX_OUTPUT_PORT_TYPE
+data_out[3] <= shift_register[3].DB_MAX_OUTPUT_PORT_TYPE
+data_out[4] <= shift_register[4].DB_MAX_OUTPUT_PORT_TYPE
+data_out[5] <= shift_register[5].DB_MAX_OUTPUT_PORT_TYPE
+data_out[6] <= shift_register[6].DB_MAX_OUTPUT_PORT_TYPE
+data_out[7] <= shift_register[7].DB_MAX_OUTPUT_PORT_TYPE
+
+

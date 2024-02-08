@@ -1,0 +1,16 @@
+Fitter Status : Successful - Thu Feb  8 22:32:24 2024
+Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+Revision Name : TopModule
+Top-level Entity Name : TopModule
+Family : Cyclone IV E
+Device : EP4CE6E22C8
+Timing Models : Final
+Total logic elements : 70 / 6,272 ( 1 % )
+    Total combinational functions : 61 / 6,272 ( < 1 % )
+    Dedicated logic registers : 57 / 6,272 ( < 1 % )
+Total registers : 57
+Total pins : 4 / 92 ( 4 % )
+Total virtual pins : 0
+Total memory bits : 0 / 276,480 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )
