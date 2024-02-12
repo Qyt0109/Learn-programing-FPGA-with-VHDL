@@ -1,0 +1,244 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA/18.1
+Edecoder
+Z0 w1707757469
+Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z2 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z3 d//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/Encoder_Decoder/ModelSimProjects
+Z4 8\\Mac\AllFiles\Applications\CODESTUFF\FPGA_VHDL\ASIC_WORLD\VHDL\Encoder_Decoder\Decoder.vhd
+Z5 F\\Mac\AllFiles\Applications\CODESTUFF\FPGA_VHDL\ASIC_WORLD\VHDL\Encoder_Decoder\Decoder.vhd
+l0
+L4
+V?1GUkc;PN_bcBEOmeC^<S1
+!s100 e=fEeiEdUmc=zALR4<hNE1
+Z6 OV;C;10.5b;63
+32
+Z7 !s110 1707758009
+!i10b 1
+Z8 !s108 1707758009.000000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|\\Mac\AllFiles\Applications\CODESTUFF\FPGA_VHDL\ASIC_WORLD\VHDL\Encoder_Decoder\Decoder.vhd|
+Z10 !s107 \\Mac\AllFiles\Applications\CODESTUFF\FPGA_VHDL\ASIC_WORLD\VHDL\Encoder_Decoder\Decoder.vhd|
+!i113 1
+Z11 o-work work -2002 -explicit
+Z12 tExplicit 1 CvgOpt 0
+Artl
+R1
+R2
+DEx4 work 7 decoder 0 22 ?1GUkc;PN_bcBEOmeC^<S1
+l14
+L12
+VL9WlNjZ9gGzM_IlF8]Q9h2
+!s100 07EeO_<QH@_i_=KYU0LNP0
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Edecoder_tb
+Z13 w1707757933
+R1
+R2
+R3
+Z14 8//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/Encoder_Decoder/Decoder_tb.vhd
+Z15 F//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/Encoder_Decoder/Decoder_tb.vhd
+l0
+L4
+VF]cmGBk3aBcznSTd<RTm61
+!s100 Z;m]EYn@NikggXjGed[hm0
+R6
+32
+R7
+!i10b 1
+R8
+Z16 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/Encoder_Decoder/Decoder_tb.vhd|
+Z17 !s107 //Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/Encoder_Decoder/Decoder_tb.vhd|
+!i113 1
+R11
+R12
+Artl
+R1
+R2
+DEx4 work 10 decoder_tb 0 22 F]cmGBk3aBcznSTd<RTm61
+l20
+L7
+VoUY7=IG]HL?I>PI_[JBIM3
+!s100 `NJYYiojaWFHnAo`Q=PTh2
+R6
+32
+R7
+!i10b 1
+R8
+R16
+R17
+!i113 1
+R11
+R12
+Eencoder
+Z18 w1707755624
+R1
+R2
+R3
+Z19 8//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/Encoder_Decoder/Encoder.vhd
+Z20 F//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/Encoder_Decoder/Encoder.vhd
+l0
+L4
+VoDL^fEQcLgG_=XaO1@ONN3
+!s100 o=gzT7OZCALTE38dTnSa70
+R6
+32
+Z21 !s110 1707758556
+!i10b 1
+Z22 !s108 1707758556.000000
+Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/Encoder_Decoder/Encoder.vhd|
+Z24 !s107 //Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/Encoder_Decoder/Encoder.vhd|
+!i113 1
+R11
+R12
+Artl
+R1
+R2
+DEx4 work 7 encoder 0 22 oDL^fEQcLgG_=XaO1@ONN3
+l14
+L12
+VWRI>ek3TNX<AGl3SkWnI51
+!s100 a5eK>hKH`=gY4oCKkGLa<2
+R6
+32
+R21
+!i10b 1
+R22
+R23
+R24
+!i113 1
+R11
+R12
+Eencoder_tb
+Z25 w1707758545
+R1
+R2
+R3
+Z26 8//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/Encoder_Decoder/Encoder_tb.vhd
+Z27 F//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/Encoder_Decoder/Encoder_tb.vhd
+l0
+L4
+V7PL1S_l<i0ZJ>c3aFULo12
+!s100 nfg>;?djG9Az2l^dmUnUX0
+R6
+32
+R21
+!i10b 1
+R22
+Z28 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/Encoder_Decoder/Encoder_tb.vhd|
+Z29 !s107 //Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/Encoder_Decoder/Encoder_tb.vhd|
+!i113 1
+R11
+R12
+Artl
+R1
+R2
+DEx4 work 10 encoder_tb 0 22 7PL1S_l<i0ZJ>c3aFULo12
+l20
+L7
+ViY`W]1RzMC`@7ci7P44Ro1
+!s100 02^;XTQEh2[fimQALz^F;2
+R6
+32
+R21
+!i10b 1
+R22
+R28
+R29
+!i113 1
+R11
+R12
+Etopmodule
+Z30 w1707756292
+R1
+R2
+R3
+Z31 8//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/Encoder_Decoder/TopModule.vhd
+Z32 F//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/Encoder_Decoder/TopModule.vhd
+l0
+L4
+Vo7C686EMeIA6Gk4PmmkHh0
+!s100 ^T?M?bm0jOlnVG_nD1z_93
+R6
+32
+Z33 !s110 1707758931
+!i10b 1
+Z34 !s108 1707758931.000000
+Z35 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/Encoder_Decoder/TopModule.vhd|
+Z36 !s107 //Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/Encoder_Decoder/TopModule.vhd|
+!i113 1
+R11
+R12
+Artl
+R1
+R2
+DEx4 work 9 topmodule 0 22 o7C686EMeIA6Gk4PmmkHh0
+l32
+L14
+VfW1QVYA:V0G:i76:Q=P<H1
+!s100 ^N[l;3DCHE6zldegcVmM_0
+R6
+32
+R33
+!i10b 1
+R34
+R35
+R36
+!i113 1
+R11
+R12
+Etopmodule_tb
+Z37 w1707758927
+R1
+R2
+R3
+Z38 8//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/Encoder_Decoder/TopModule_tb.vhd
+Z39 F//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/Encoder_Decoder/TopModule_tb.vhd
+l0
+L4
+Vlb`NJ0Be86L;Z?0zoDPgB1
+!s100 zj3Y4KNT1i9AZkh_nGCkX0
+R6
+32
+R33
+!i10b 1
+R34
+Z40 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/Encoder_Decoder/TopModule_tb.vhd|
+Z41 !s107 //Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/Encoder_Decoder/TopModule_tb.vhd|
+!i113 1
+R11
+R12
+Artl
+R1
+R2
+DEx4 work 12 topmodule_tb 0 22 lb`NJ0Be86L;Z?0zoDPgB1
+l22
+L7
+VHc@>XhQC8]Og:ZSSBl5S<1
+!s100 of:zRl1Z[D`oL4d:n:4^>0
+R6
+32
+R33
+!i10b 1
+R34
+R40
+R41
+!i113 1
+R11
+R12

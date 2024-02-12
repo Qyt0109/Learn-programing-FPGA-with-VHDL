@@ -1,0 +1,1 @@
+<a href="http://asic-world.com/index.html">ASIC WORLD<a>
