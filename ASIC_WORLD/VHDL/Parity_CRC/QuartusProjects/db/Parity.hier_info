@@ -1,0 +1,8 @@
+|Parity
+data[0] => parity_out.IN0
+data[1] => parity_out.IN1
+data[2] => parity_out.IN1
+data[3] => parity_out.IN1
+parity <= parity_out.DB_MAX_OUTPUT_PORT_TYPE
+
+

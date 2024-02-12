@@ -1,0 +1,88 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA/18.1
+Easyncresetdff
+Z0 w1707764294
+Z1 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z2 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z3 d//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/FlipFlop/ModelSimProjects
+Z4 8//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/FlipFlop/AsyncResetDFF.vhd
+Z5 F//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/FlipFlop/AsyncResetDFF.vhd
+l0
+L4
+V<BDhe>gLO?]oTN=TKj69:0
+!s100 c50R=AaKKnc=APg`O`2LK3
+Z6 OV;C;10.5b;63
+32
+Z7 !s110 1707692746
+!i10b 1
+Z8 !s108 1707692746.000000
+Z9 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/FlipFlop/AsyncResetDFF.vhd|
+Z10 !s107 //Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/FlipFlop/AsyncResetDFF.vhd|
+!i113 1
+Z11 o-work work -2002 -explicit
+Z12 tExplicit 1 CvgOpt 0
+Artl
+R1
+R2
+Z13 DEx4 work 13 asyncresetdff 0 22 <BDhe>gLO?]oTN=TKj69:0
+l18
+L16
+Z14 Vi7_X`XcWVVj[RbYIGjE:]0
+Z15 !s100 SIVDeV01BF7ILf`dUL:>L1
+R6
+32
+R7
+!i10b 1
+R8
+R9
+R10
+!i113 1
+R11
+R12
+Easyncresetdff_tb
+Z16 w1707764387
+R1
+R2
+R3
+Z17 8//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/FlipFlop/AsyncResetDFF_tb.vhd
+Z18 F//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/FlipFlop/AsyncResetDFF_tb.vhd
+l0
+L3
+V4C21ziY[8QCY2[1WM0X]E1
+!s100 cHl1KUWMDo;cXM<eM[4ok1
+R6
+32
+R7
+!i10b 1
+R8
+Z19 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|//Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/FlipFlop/AsyncResetDFF_tb.vhd|
+Z20 !s107 //Mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/ASIC_WORLD/VHDL/FlipFlop/AsyncResetDFF_tb.vhd|
+!i113 1
+R11
+R12
+Artl
+R1
+R2
+DEx4 work 16 asyncresetdff_tb 0 22 4C21ziY[8QCY2[1WM0X]E1
+l22
+L6
+V_1J=6WLY^hn1az0z=kUc33
+!s100 :M[Ho<600R_XddN[LRmRa0
+R6
+32
+R7
+!i10b 1
+R8
+R19
+R20
+!i113 1
+R11
+R12

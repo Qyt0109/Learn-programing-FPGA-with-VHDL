@@ -1,0 +1,47 @@
+|TopModule
+en => Encoder:Encoder_inst.en
+en => Decoder:Decoder_inst.en
+i[0] => Encoder:Encoder_inst.i[0]
+i[1] => Encoder:Encoder_inst.i[1]
+i[2] => Encoder:Encoder_inst.i[2]
+i[3] => Encoder:Encoder_inst.i[3]
+o[0] <= Decoder:Decoder_inst.o[0]
+o[1] <= Decoder:Decoder_inst.o[1]
+o[2] <= Decoder:Decoder_inst.o[2]
+o[3] <= Decoder:Decoder_inst.o[3]
+
+
+|TopModule|Encoder:Encoder_inst
+en => o[0]$latch.LATCH_ENABLE
+en => o[1]$latch.LATCH_ENABLE
+i[0] => Mux0.IN19
+i[0] => Mux1.IN19
+i[1] => Mux0.IN18
+i[1] => Mux1.IN18
+i[2] => Mux0.IN17
+i[2] => Mux1.IN17
+i[3] => Mux0.IN16
+i[3] => Mux1.IN16
+o[0] <= o[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+o[1] <= o[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|TopModule|Decoder:Decoder_inst
+en => o[0]$latch.LATCH_ENABLE
+en => o[1]$latch.LATCH_ENABLE
+en => o[2]$latch.LATCH_ENABLE
+en => o[3]$latch.LATCH_ENABLE
+i[0] => Mux0.IN5
+i[0] => Mux1.IN5
+i[0] => Mux2.IN5
+i[0] => Mux3.IN5
+i[1] => Mux0.IN4
+i[1] => Mux1.IN4
+i[1] => Mux2.IN4
+i[1] => Mux3.IN4
+o[0] <= o[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+o[1] <= o[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+o[2] <= o[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+o[3] <= o[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
