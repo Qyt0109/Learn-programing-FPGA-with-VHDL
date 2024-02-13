@@ -1,0 +1,22 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+
+ENTITY ShiftRows IS
+    PORT (
+        input_state : IN STD_LOGIC_VECTOR(127 DOWNTO 0);
+        output_state : OUT STD_LOGIC_VECTOR(127 DOWNTO 0)
+    );
+END ENTITY;
+
+ARCHITECTURE rtl OF ShiftRows IS
+BEGIN
+    processShiftRows : PROCESS (input_state)
+        VARIABLE current_row : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    BEGIN
+        FOR row_index IN 0 TO 3 LOOP
+            current_row := input_state((row_index + 1) * 32 - 1 DOWNTO row_index * 32);
+            current_row := current_row(31 - row_index * 8 - 1 downto 0) & current_row(31 downto row_index * 8);
+            output_state((row_index + 1) * 32 - 1 DOWNTO row_index * 32) <= current_row;
+        END LOOP;
+    END PROCESS;
+END ARCHITECTURE;
