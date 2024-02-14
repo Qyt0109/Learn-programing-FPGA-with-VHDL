@@ -17,11 +17,11 @@ ARCHITECTURE rtl OF SubByte IS
         );
     END COMPONENT;
 BEGIN
-    processGenerateSBoxes : FOR i IN 0 TO 15 GENERATE
+    generateSBoxes : FOR byte_index IN 0 TO 15 GENERATE
         SBox_inst : SBox
         PORT MAP(
-            input_byte => input_state((i + 1) * 8 - 1 DOWNTO i * 8),
-            output_byte => output_state((i + 1) * 8 - 1 DOWNTO i * 8)
+            input_byte => input_state((byte_index + 1) * 8 - 1 DOWNTO byte_index * 8),
+            output_byte => output_state((byte_index + 1) * 8 - 1 DOWNTO byte_index * 8)
         );
     END GENERATE;
 END ARCHITECTURE;

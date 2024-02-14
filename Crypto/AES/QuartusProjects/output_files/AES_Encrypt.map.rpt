@@ -1,5 +1,5 @@
 Analysis & Synthesis report for AES_Encrypt
-Tue Feb 13 15:51:59 2024
+Wed Feb 14 11:49:43 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -43,14 +43,14 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue Feb 13 15:51:58 2024          ;
+; Analysis & Synthesis Status     ; Successful - Wed Feb 14 11:49:43 2024          ;
 ; Quartus Prime Version           ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                   ; AES_Encrypt                                    ;
-; Top-level Entity Name           ; ShiftRows                                      ;
+; Top-level Entity Name           ; ComputeColumn                                  ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
 ; Total registers                 ; 0                                              ;
-; Total pins                      ; 256                                            ;
+; Total pins                      ; 64                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0                                              ;
 ; Total DSP Blocks                ; 0                                              ;
@@ -69,7 +69,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                          ; 5CSXFC6D6F31I7ES   ;                    ;
-; Top-level entity name                                                           ; ShiftRows          ; AES_Encrypt        ;
+; Top-level entity name                                                           ; ComputeColumn      ; AES_Encrypt        ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
@@ -166,49 +166,51 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                            ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                     ; Library ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
-; ../Encrypt/ShiftRows.vhd         ; yes             ; User VHDL File  ; //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/ShiftRows.vhd ;         ;
-+----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                 ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                          ; Library ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
+; ../Encrypt/GF2MultiplyBy3.vhd    ; yes             ; User VHDL File  ; //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/GF2MultiplyBy3.vhd ;         ;
+; ../Encrypt/GF2MultiplyBy2.vhd    ; yes             ; User VHDL File  ; //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/GF2MultiplyBy2.vhd ;         ;
+; ../Encrypt/ComputeColumn.vhd     ; yes             ; User VHDL File  ; //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/ComputeColumn.vhd  ;         ;
++----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
 
 
-+----------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                          ;
-+---------------------------------------------+------------------------+
-; Resource                                    ; Usage                  ;
-+---------------------------------------------+------------------------+
-; Estimate of Logic utilization (ALMs needed) ; 0                      ;
-;                                             ;                        ;
-; Combinational ALUT usage for logic          ; 0                      ;
-;     -- 7 input functions                    ; 0                      ;
-;     -- 6 input functions                    ; 0                      ;
-;     -- 5 input functions                    ; 0                      ;
-;     -- 4 input functions                    ; 0                      ;
-;     -- <=3 input functions                  ; 0                      ;
-;                                             ;                        ;
-; Dedicated logic registers                   ; 0                      ;
-;                                             ;                        ;
-; I/O pins                                    ; 256                    ;
-;                                             ;                        ;
-; Total DSP Blocks                            ; 0                      ;
-;                                             ;                        ;
-; Maximum fan-out node                        ; output_state[0]~output ;
-; Maximum fan-out                             ; 1                      ;
-; Total fan-out                               ; 384                    ;
-; Average fan-out                             ; 0.75                   ;
-+---------------------------------------------+------------------------+
++---------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                         ;
++---------------------------------------------+-----------------------+
+; Resource                                    ; Usage                 ;
++---------------------------------------------+-----------------------+
+; Estimate of Logic utilization (ALMs needed) ; 20                    ;
+;                                             ;                       ;
+; Combinational ALUT usage for logic          ; 39                    ;
+;     -- 7 input functions                    ; 0                     ;
+;     -- 6 input functions                    ; 0                     ;
+;     -- 5 input functions                    ; 26                    ;
+;     -- 4 input functions                    ; 9                     ;
+;     -- <=3 input functions                  ; 4                     ;
+;                                             ;                       ;
+; Dedicated logic registers                   ; 0                     ;
+;                                             ;                       ;
+; I/O pins                                    ; 64                    ;
+;                                             ;                       ;
+; Total DSP Blocks                            ; 0                     ;
+;                                             ;                       ;
+; Maximum fan-out node                        ; input_column[7]~input ;
+; Maximum fan-out                             ; 11                    ;
+; Total fan-out                               ; 274                   ;
+; Average fan-out                             ; 1.64                  ;
++---------------------------------------------+-----------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
-; |ShiftRows                 ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 256  ; 0            ; |ShiftRows          ; ShiftRows   ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+---------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name   ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+---------------+--------------+
+; |ComputeColumn             ; 39 (39)             ; 0 (0)                     ; 0                 ; 0          ; 64   ; 0            ; |ComputeColumn      ; ComputeColumn ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -229,14 +231,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
-+-------------------+---------------------------------+
-; Type              ; Count                           ;
-+-------------------+---------------------------------+
-; boundary_port     ; 256                             ;
-;                   ;                                 ;
-; Max LUT depth     ; 0.00                            ;
-; Average LUT depth ; 0.00                            ;
-+-------------------+---------------------------------+
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_lcell_comb     ; 39                          ;
+;     normal            ; 39                          ;
+;         3 data inputs ; 4                           ;
+;         4 data inputs ; 9                           ;
+;         5 data inputs ; 26                          ;
+; boundary_port         ; 64                          ;
+;                       ;                             ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 1.52                        ;
++-----------------------+-----------------------------+
 
 
 +-------------------------------+
@@ -254,24 +261,34 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Tue Feb 13 15:51:37 2024
+    Info: Processing started: Wed Feb 14 11:49:19 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off AES_Encrypt -c AES_Encrypt
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/fpga_vhdl/crypto/aes/encrypt/shiftrows.vhd
-    Info (12022): Found design unit 1: ShiftRows-rtl File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/ShiftRows.vhd Line: 11
-    Info (12023): Found entity 1: ShiftRows File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/ShiftRows.vhd Line: 4
-Info (12127): Elaborating entity "ShiftRows" for the top level hierarchy
-Warning (10445): VHDL Subtype or Type Declaration warning at ShiftRows.vhd(18): subtype or type has null range File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/ShiftRows.vhd Line: 18
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/fpga_vhdl/crypto/aes/encrypt/gf2multiplyby3.vhd
+    Info (12022): Found design unit 1: GF2MultiplyBy3-rtl File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/GF2MultiplyBy3.vhd Line: 20
+    Info (12023): Found entity 1: GF2MultiplyBy3 File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/GF2MultiplyBy3.vhd Line: 13
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/fpga_vhdl/crypto/aes/encrypt/gf2multiplyby2.vhd
+    Info (12022): Found design unit 1: GF2MultiplyBy2-rtl File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/GF2MultiplyBy2.vhd Line: 16
+    Info (12023): Found entity 1: GF2MultiplyBy2 File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/GF2MultiplyBy2.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/fpga_vhdl/crypto/aes/encrypt/computecolumn.vhd
+    Info (12022): Found design unit 1: ComputeColumn-rtl File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/ComputeColumn.vhd Line: 12
+    Info (12023): Found entity 1: ComputeColumn File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/ComputeColumn.vhd Line: 5
+Info (12127): Elaborating entity "ComputeColumn" for the top level hierarchy
+Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "cells_mul" into its bus
+Info (12128): Elaborating entity "GF2MultiplyBy2" for hierarchy "GF2MultiplyBy2:\generateCellsMul2Mul3:0:GF2MultiplyBy2_inst" File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/ComputeColumn.vhd Line: 32
+Info (12128): Elaborating entity "GF2MultiplyBy3" for hierarchy "GF2MultiplyBy3:\generateCellsMul2Mul3:0:GF2MultiplyBy3_inst" File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/ComputeColumn.vhd Line: 37
+Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 256 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 128 input pins
-    Info (21059): Implemented 128 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 13363 megabytes
-    Info: Processing ended: Tue Feb 13 15:51:59 2024
-    Info: Elapsed time: 00:00:22
-    Info: Total CPU time (on all processors): 00:00:43
+Info (21057): Implemented 103 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 32 input pins
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 39 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 13372 megabytes
+    Info: Processing ended: Wed Feb 14 11:49:43 2024
+    Info: Elapsed time: 00:00:24
+    Info: Total CPU time (on all processors): 00:00:50
 
 
