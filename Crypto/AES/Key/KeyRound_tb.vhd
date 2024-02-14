@@ -24,7 +24,7 @@ BEGIN
     processTest : process
     begin
         -- 01 02 04 08 10 20 40 80 1B 36
-        input_round_key <= (others => '0');
+        input_round_key <= x"09cf4f3cabf7158828aed2a62b7e1516";
         round_rcon <= x"01000000";
         wait for 10 ns;
         input_round_key <= output_round_key;
