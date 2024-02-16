@@ -1,4 +1,4 @@
--- RotWord is quite simple. It takes a 4-byte word ABCD and returns BCDA
+-- RotWord is quite simple. It takes a 4-byte word byte3 byte2 byte1 byte0 and returns byte2 byte1 byte0 byte3
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;

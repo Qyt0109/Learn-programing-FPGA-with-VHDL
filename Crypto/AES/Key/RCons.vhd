@@ -3,19 +3,11 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
-
-PACKAGE pkg_rcon IS
-    TYPE type_round_rcons IS ARRAY(1 TO 10) OF STD_LOGIC_VECTOR(31 DOWNTO 0);
-END PACKAGE;
-
-USE work.pkg_rcon.type_round_rcons;
-LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
-USE ieee.numeric_std.ALL;
+use work.aes_data_types.word_vector;
 
 ENTITY RCons IS
     PORT (
-        round_rcons : OUT type_round_rcons
+        round_rcons : OUT word_vector(1 to 10)
     );
 END ENTITY;
 

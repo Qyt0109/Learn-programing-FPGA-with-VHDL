@@ -18,15 +18,9 @@ ENTITY GF2MultiplyBy3 IS
 END ENTITY;
 
 ARCHITECTURE rtl OF GF2MultiplyBy3 IS
-    COMPONENT GF2MultiplyBy2 IS
-        PORT (
-            input_byte : IN STD_LOGIC_VECTOR(7 DOWNTO 0);
-            output_byte : OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
-        );
-    END COMPONENT;
     SIGNAL input_byte_mul2 : STD_LOGIC_VECTOR(7 DOWNTO 0);
 BEGIN
-    GF2MultiplyBy2_inst : GF2MultiplyBy2
+    GF2MultiplyBy2_inst : entity work.GF2MultiplyBy2
     PORT MAP(
         input_byte => input_byte,
         output_byte => input_byte_mul2

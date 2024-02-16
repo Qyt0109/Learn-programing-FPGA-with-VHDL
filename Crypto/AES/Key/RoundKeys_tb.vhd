@@ -1,21 +1,15 @@
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
-USE work.pkg_round_keys.type_round_keys;
+USE work.aes_data_types.all;
 
 ENTITY RoundKeys_tb IS
 END ENTITY;
 
 ARCHITECTURE rtl OF RoundKeys_tb IS
-    COMPONENT RoundKeys IS
-        PORT (
-            key : IN STD_LOGIC_VECTOR(127 DOWNTO 0);
-            round_keys : OUT type_round_keys
-        );
-    END COMPONENT;
     SIGNAL key : STD_LOGIC_VECTOR(127 DOWNTO 0);
-    SIGNAL round_keys : type_round_keys;
+    SIGNAL round_keys : word_vector(1 to 10);
 begin
-    RoundKeys_inst : RoundKeys
+    RoundKeys_inst : entity work.RoundKeys
     port map (
         key => key,
         round_keys => round_keys
