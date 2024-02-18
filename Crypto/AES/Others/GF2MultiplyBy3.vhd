@@ -20,10 +20,10 @@ END ENTITY;
 ARCHITECTURE rtl OF GF2MultiplyBy3 IS
     SIGNAL input_byte_mul2 : STD_LOGIC_VECTOR(7 DOWNTO 0);
 BEGIN
-    GF2MultiplyBy2_inst : entity work.GF2MultiplyBy2
-    PORT MAP(
-        input_byte => input_byte,
-        output_byte => input_byte_mul2
-    );
+    GF2MultiplyBy2_inst : ENTITY work.GF2MultiplyBy2
+        PORT MAP(
+            input_byte => input_byte,
+            output_byte => input_byte_mul2
+        );
     output_byte <= input_byte_mul2 XOR input_byte;
 END ARCHITECTURE;

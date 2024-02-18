@@ -10,7 +10,7 @@ ENTITY RotWord IS
     );
 END ENTITY;
 
-architecture rtl of RotWord is
-begin
-    output_word <= input_word(23 downto 0) & input_word(31 downto 24);
-end architecture;
+ARCHITECTURE rtl OF RotWord IS
+BEGIN
+    output_word <= input_word(23 DOWNTO 0) & input_word(31 DOWNTO 24);
+END ARCHITECTURE;
