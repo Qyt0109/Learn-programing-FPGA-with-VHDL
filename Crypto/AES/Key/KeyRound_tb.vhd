@@ -2,21 +2,31 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 
 ENTITY KeyRound_tb IS
+    GENERIC (
+        MIN_ROUND_INDEX : NATURAL := 0;
+        MAX_ROUND_INDEX : POSITIVE := 10
+    );
 END ENTITY;
 
 ARCHITECTURE rtl OF KeyRound_tb IS
     SIGNAL clk : STD_LOGIC := '0';
     SIGNAL input_round_key, output_round_key : STD_LOGIC_VECTOR(127 DOWNTO 0);
-    SIGNAL round_rcon : STD_LOGIC_VECTOR(31 DOWNTO 0);
+    SIGNAL round_index : INTEGER RANGE MIN_ROUND_INDEX TO MAX_ROUND_INDEX;
+
+    CONSTANT CLK_PERIOD : TIME := 10 ns;
 BEGIN
     KeyRound_inst : ENTITY work.KeyRound
+        GENERIC MAP(
+            MIN_ROUND_INDEX => MIN_ROUND_INDEX,
+            MAX_ROUND_INDEX => MAX_ROUND_INDEX
+        )
         PORT MAP(
             clk => clk,
             input_round_key => input_round_key,
-            round_rcon => round_rcon,
+            round_index => round_index,
             output_round_key => output_round_key
         );
-    clk <= NOT clk AFTER 5 ns;
+    clk <= NOT clk AFTER CLK_PERIOD / 2;
     processTest : PROCESS
     BEGIN
         -- Round 0: 54 68 61 74 73 20 6D 79 20 4B 75 6E 67 20 46 75
@@ -31,34 +41,13 @@ BEGIN
         -- Round 9: BF E2 BF 90 45 59 FA B2 A1 64 80 B4 F7 F1 CB D8
         -- Round 10: 28 FD DE F8 6D A4 24 4A CC C0 A4 FE 3B 31 6F 26
         input_round_key <= x"5468617473206D79204B756E67204675";
-        round_rcon <= x"01000000";
-        WAIT FOR 10 ns;
-        input_round_key <= output_round_key;
-        round_rcon <= x"02000000";
-        WAIT FOR 10 ns;
-        input_round_key <= output_round_key;
-        round_rcon <= x"04000000";
-        WAIT FOR 10 ns;
-        input_round_key <= output_round_key;
-        round_rcon <= x"08000000";
-        WAIT FOR 10 ns;
-        input_round_key <= output_round_key;
-        round_rcon <= x"10000000";
-        WAIT FOR 10 ns;
-        input_round_key <= output_round_key;
-        round_rcon <= x"20000000";
-        WAIT FOR 10 ns;
-        input_round_key <= output_round_key;
-        round_rcon <= x"40000000";
-        WAIT FOR 10 ns;
-        input_round_key <= output_round_key;
-        round_rcon <= x"80000000";
-        WAIT FOR 10 ns;
-        input_round_key <= output_round_key;
-        round_rcon <= x"1B000000";
-        WAIT FOR 10 ns;
-        input_round_key <= output_round_key;
-        round_rcon <= x"36000000";
+        round_index <= 1;
+        WAIT FOR CLK_PERIOD;
+        loopTest : FOR r_index IN 2 TO 10 LOOP
+            input_round_key <= output_round_key;
+            round_index <= r_index;
+            WAIT FOR CLK_PERIOD;
+        END LOOP;
         WAIT;
     END PROCESS;
 END ARCHITECTURE;

@@ -5,7 +5,7 @@ USE ieee.std_logic_1164.ALL;
 
 ENTITY RoundConstant IS
     PORT (
-        round_index : IN NATURAL;
+        round_index : IN integer;
         round_constant_word : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
     );
 END ENTITY;

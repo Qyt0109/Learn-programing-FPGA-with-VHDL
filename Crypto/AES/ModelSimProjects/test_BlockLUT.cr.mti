@@ -13,10 +13,10 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
+-- Compiling entity BlockLUT_tb
+-- Compiling architecture testbench of BlockLUT_tb
 -- Loading package NUMERIC_STD
 -- Loading package aes_data_types
--- Compiling entity BlockLUT_tb
--- Compiling architecture rtl of BlockLUT_tb
 -- Loading entity BlockLUT
 
 } {} {}}

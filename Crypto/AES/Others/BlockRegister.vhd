@@ -8,30 +8,28 @@ ENTITY BlockRegister IS
         MAX_BLOCK_INDEX : POSITIVE
     );
     PORT (
-        clk, rst, shift : IN STD_LOGIC;
-        input_block : IN STD_LOGIC_VECTOR(127 DOWNTO 0);
-        output_blocks : OUT block_vector(MIN_BLOCK_INDEX TO MAX_BLOCK_INDEX)
+        clk : IN STD_LOGIC;
+        rst : IN STD_LOGIC;
+        shift_enable : IN STD_LOGIC;
+        input_block_data : IN STD_LOGIC_VECTOR(127 DOWNTO 0);
+        output_data_blocks : OUT block_vector(MIN_BLOCK_INDEX TO MAX_BLOCK_INDEX)
     );
 END ENTITY BlockRegister;
 
 ARCHITECTURE rtl OF BlockRegister IS
-    SIGNAL internal_block_registers : block_vector(MIN_BLOCK_INDEX TO MAX_BLOCK_INDEX);
+    SIGNAL data_blocks : block_vector(MIN_BLOCK_INDEX TO MAX_BLOCK_INDEX);
 BEGIN
-    PROCESS (clk, rst)
+    processStoreData : PROCESS (clk, rst)
     BEGIN
         IF rst = '1' THEN
             -- Reset the register
-            internal_block_registers <= (OTHERS => (OTHERS => '0'));
+            data_blocks <= (OTHERS => (OTHERS => '0'));
         ELSIF rising_edge(clk) THEN
             -- Shift the data if shift_enable is '1'
-            IF shift = '1' THEN
-                -- Shift right
-                FOR i IN MAX_BLOCK_INDEX DOWNTO MIN_BLOCK_INDEX + 1 LOOP
-                    internal_block_registers(i) <= internal_block_registers(i - 1);
-                END LOOP;
-                internal_block_registers(MIN_BLOCK_INDEX) <= input_block;
+            IF shift_enable = '1' then
+                data_blocks <= data_blocks(MIN_BLOCK_INDEX + 1 to MAX_BLOCK_INDEX) & input_block_data;
             END IF;
         END IF;
     END PROCESS;
-    output_blocks <= internal_block_registers;
+    output_data_blocks <= data_blocks;
 END ARCHITECTURE rtl;
