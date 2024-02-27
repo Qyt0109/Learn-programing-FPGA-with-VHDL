@@ -48,3 +48,11 @@ It typically includes logic for sending data bits serially, optionally generatin
 ### TopModule:
 The TopModule is the overarching module that combines and connects the various UART modules together to create a complete UART communication system.
 <img src="https://github.com/Qyt0109/Learn-programing-FPGA-with-VHDL/blob/main/47_UART/ModuleRTLViews/TopModule.png">
+
+
+## AES Modules
+
+### Test KeyController:
+This module generates all the round keys required and stores them as a LUT for each AES encryption, decryption round.
+<img src="https://github.com/Qyt0109/Learn-programing-FPGA-with-VHDL/blob/main/Crypto/AES/RTL%20view%20and%20test/KeyTest0.png">
+<img src="https://github.com/Qyt0109/Learn-programing-FPGA-with-VHDL/blob/main/Crypto/AES/RTL%20view%20and%20test/KeyTest1.png">
