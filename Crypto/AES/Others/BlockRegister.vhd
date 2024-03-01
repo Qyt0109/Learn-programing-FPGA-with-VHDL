@@ -26,8 +26,9 @@ BEGIN
             data_blocks <= (OTHERS => (OTHERS => '0'));
         ELSIF rising_edge(clk) THEN
             -- Shift the data if shift_enable is '1'
-            IF shift_enable = '1' then
-                data_blocks <= data_blocks(MIN_BLOCK_INDEX + 1 to MAX_BLOCK_INDEX) & input_block_data;
+            IF shift_enable = '1' THEN
+                data_blocks(MIN_BLOCK_INDEX TO MAX_BLOCK_INDEX - 1) <= data_blocks(MIN_BLOCK_INDEX + 1 TO MAX_BLOCK_INDEX);
+                data_blocks(MAX_BLOCK_INDEX) <= input_block_data;
             END IF;
         END IF;
     END PROCESS;

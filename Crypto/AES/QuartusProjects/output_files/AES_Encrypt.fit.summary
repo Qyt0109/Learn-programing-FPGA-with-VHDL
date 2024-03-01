@@ -1,20 +1,20 @@
-Fitter Status : Successful - Wed Feb 14 11:51:17 2024
+Fitter Status : Successful - Thu Feb 29 02:19:36 2024
 Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 Revision Name : AES_Encrypt
-Top-level Entity Name : ComputeColumn
+Top-level Entity Name : AESEncrypt
 Family : Cyclone V
-Device : 5CSXFC6D6F31I7ES
-Timing Models : Preliminary
-Logic utilization (in ALMs) : 20 / 41,910 ( < 1 % )
-Total registers : 0
-Total pins : 64 / 499 ( 13 % )
+Device : 5CGTFD9E5F35C7
+Timing Models : Final
+Logic utilization (in ALMs) : 1,877 / 113,560 ( 2 % )
+Total registers : 3973
+Total pins : 388 / 616 ( 63 % )
 Total virtual pins : 0
-Total block memory bits : 0 / 5,662,720 ( 0 % )
-Total RAM Blocks : 0 / 553 ( 0 % )
-Total DSP Blocks : 0 / 112 ( 0 % )
-Total HSSI RX PCSs : 0 / 9 ( 0 % )
-Total HSSI PMA RX Deserializers : 0 / 9 ( 0 % )
-Total HSSI TX PCSs : 0 / 9 ( 0 % )
-Total HSSI PMA TX Serializers : 0 / 9 ( 0 % )
-Total PLLs : 0 / 15 ( 0 % )
+Total block memory bits : 0 / 12,492,800 ( 0 % )
+Total RAM Blocks : 0 / 1,220 ( 0 % )
+Total DSP Blocks : 0 / 342 ( 0 % )
+Total HSSI RX PCSs : 0 / 12 ( 0 % )
+Total HSSI PMA RX Deserializers : 0 / 12 ( 0 % )
+Total HSSI TX PCSs : 0 / 12 ( 0 % )
+Total HSSI PMA TX Serializers : 0 / 12 ( 0 % )
+Total PLLs : 0 / 20 ( 0 % )
 Total DLLs : 0 / 4 ( 0 % )

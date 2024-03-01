@@ -2,4 +2,244 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Slow 1100mV 85C Model Setup 'index[0]'
+Slack : -7.676
+TNS   : -807.356
+
+Type  : Slow 1100mV 85C Model Setup 'clk'
+Slack : -6.230
+TNS   : -2313.409
+
+Type  : Slow 1100mV 85C Model Setup 'KeyController:KeyController_inst|shift_clk'
+Slack : -4.682
+TNS   : -2491.672
+
+Type  : Slow 1100mV 85C Model Setup 'KeyController:KeyController_inst|gen_key_clk'
+Slack : -4.179
+TNS   : -434.153
+
+Type  : Slow 1100mV 85C Model Setup 'KeyController:KeyController_inst|ready~reg0'
+Slack : -3.170
+TNS   : -2109.269
+
+Type  : Slow 1100mV 85C Model Hold 'clk'
+Slack : -4.525
+TNS   : -1029.352
+
+Type  : Slow 1100mV 85C Model Hold 'KeyController:KeyController_inst|ready~reg0'
+Slack : -1.239
+TNS   : -135.337
+
+Type  : Slow 1100mV 85C Model Hold 'KeyController:KeyController_inst|shift_clk'
+Slack : -0.533
+TNS   : -0.811
+
+Type  : Slow 1100mV 85C Model Hold 'KeyController:KeyController_inst|gen_key_clk'
+Slack : 2.017
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'index[0]'
+Slack : 2.836
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -0.638
+TNS   : -422.553
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'KeyController:KeyController_inst|shift_clk'
+Slack : -0.624
+TNS   : -1802.740
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'KeyController:KeyController_inst|ready~reg0'
+Slack : -0.617
+TNS   : -1291.667
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'KeyController:KeyController_inst|gen_key_clk'
+Slack : -0.538
+TNS   : -121.987
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'index[0]'
+Slack : -0.035
+TNS   : -0.035
+
+Type  : Slow 1100mV 0C Model Setup 'index[0]'
+Slack : -7.675
+TNS   : -828.747
+
+Type  : Slow 1100mV 0C Model Setup 'clk'
+Slack : -6.074
+TNS   : -2227.871
+
+Type  : Slow 1100mV 0C Model Setup 'KeyController:KeyController_inst|shift_clk'
+Slack : -4.759
+TNS   : -2504.363
+
+Type  : Slow 1100mV 0C Model Setup 'KeyController:KeyController_inst|gen_key_clk'
+Slack : -4.343
+TNS   : -460.783
+
+Type  : Slow 1100mV 0C Model Setup 'KeyController:KeyController_inst|ready~reg0'
+Slack : -3.029
+TNS   : -2006.089
+
+Type  : Slow 1100mV 0C Model Hold 'clk'
+Slack : -4.245
+TNS   : -1088.005
+
+Type  : Slow 1100mV 0C Model Hold 'KeyController:KeyController_inst|ready~reg0'
+Slack : -1.178
+TNS   : -120.983
+
+Type  : Slow 1100mV 0C Model Hold 'KeyController:KeyController_inst|shift_clk'
+Slack : -0.471
+TNS   : -0.773
+
+Type  : Slow 1100mV 0C Model Hold 'KeyController:KeyController_inst|gen_key_clk'
+Slack : 2.244
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'index[0]'
+Slack : 2.898
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -0.711
+TNS   : -452.484
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'KeyController:KeyController_inst|shift_clk'
+Slack : -0.598
+TNS   : -1767.170
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'KeyController:KeyController_inst|ready~reg0'
+Slack : -0.583
+TNS   : -1282.393
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'KeyController:KeyController_inst|gen_key_clk'
+Slack : -0.538
+TNS   : -119.091
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'index[0]'
+Slack : 0.011
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'index[0]'
+Slack : -3.616
+TNS   : -351.614
+
+Type  : Fast 1100mV 85C Model Setup 'clk'
+Slack : -3.312
+TNS   : -1090.927
+
+Type  : Fast 1100mV 85C Model Setup 'KeyController:KeyController_inst|shift_clk'
+Slack : -2.181
+TNS   : -813.431
+
+Type  : Fast 1100mV 85C Model Setup 'KeyController:KeyController_inst|gen_key_clk'
+Slack : -1.850
+TNS   : -167.708
+
+Type  : Fast 1100mV 85C Model Setup 'KeyController:KeyController_inst|ready~reg0'
+Slack : -1.693
+TNS   : -835.399
+
+Type  : Fast 1100mV 85C Model Hold 'clk'
+Slack : -2.357
+TNS   : -529.419
+
+Type  : Fast 1100mV 85C Model Hold 'KeyController:KeyController_inst|ready~reg0'
+Slack : -0.911
+TNS   : -161.482
+
+Type  : Fast 1100mV 85C Model Hold 'KeyController:KeyController_inst|shift_clk'
+Slack : -0.364
+TNS   : -1.134
+
+Type  : Fast 1100mV 85C Model Hold 'KeyController:KeyController_inst|gen_key_clk'
+Slack : 0.750
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'index[0]'
+Slack : 1.350
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -0.592
+TNS   : -30.387
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'KeyController:KeyController_inst|ready~reg0'
+Slack : -0.258
+TNS   : -140.401
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'KeyController:KeyController_inst|shift_clk'
+Slack : -0.241
+TNS   : -157.074
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'KeyController:KeyController_inst|gen_key_clk'
+Slack : -0.119
+TNS   : -6.779
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'index[0]'
+Slack : 0.077
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'index[0]'
+Slack : -3.350
+TNS   : -335.309
+
+Type  : Fast 1100mV 0C Model Setup 'clk'
+Slack : -3.033
+TNS   : -908.757
+
+Type  : Fast 1100mV 0C Model Setup 'KeyController:KeyController_inst|shift_clk'
+Slack : -2.047
+TNS   : -675.090
+
+Type  : Fast 1100mV 0C Model Setup 'KeyController:KeyController_inst|gen_key_clk'
+Slack : -1.763
+TNS   : -166.607
+
+Type  : Fast 1100mV 0C Model Setup 'KeyController:KeyController_inst|ready~reg0'
+Slack : -1.504
+TNS   : -763.909
+
+Type  : Fast 1100mV 0C Model Hold 'clk'
+Slack : -2.114
+TNS   : -543.115
+
+Type  : Fast 1100mV 0C Model Hold 'KeyController:KeyController_inst|ready~reg0'
+Slack : -0.771
+TNS   : -116.595
+
+Type  : Fast 1100mV 0C Model Hold 'KeyController:KeyController_inst|shift_clk'
+Slack : -0.329
+TNS   : -0.959
+
+Type  : Fast 1100mV 0C Model Hold 'KeyController:KeyController_inst|gen_key_clk'
+Slack : 0.812
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'index[0]'
+Slack : 1.424
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -0.586
+TNS   : -32.812
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'KeyController:KeyController_inst|ready~reg0'
+Slack : -0.188
+TNS   : -83.311
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'KeyController:KeyController_inst|shift_clk'
+Slack : -0.161
+TNS   : -76.821
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'KeyController:KeyController_inst|gen_key_clk'
+Slack : -0.061
+TNS   : -2.088
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'index[0]'
+Slack : 0.162
+TNS   : 0.000
+
 ------------------------------------------------------------

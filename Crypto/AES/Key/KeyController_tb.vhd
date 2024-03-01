@@ -12,10 +12,9 @@ END ENTITY;
 ARCHITECTURE rtl OF KeyController_tb IS
     SIGNAL clk : STD_LOGIC := '0';
     SIGNAL rst, start, ready : STD_LOGIC;
-    SIGNAL input_round_key : STD_LOGIC_VECTOR(127 DOWNTO 0);
-    SIGNAL output_round_keys : block_vector(0 TO 10);
-
-    constant CLK_PERIOD: time := 10 ns;
+    SIGNAL input_round_key, output_round_key : STD_LOGIC_VECTOR(127 DOWNTO 0);
+    SIGNAL index : INTEGER RANGE MIN_ROUND_INDEX TO MAX_ROUND_INDEX;
+    CONSTANT CLK_PERIOD : TIME := 10 ns;
 BEGIN
     clk <= NOT clk AFTER CLK_PERIOD / 2;
     keycontroller_inst : ENTITY work.KeyController
@@ -29,7 +28,8 @@ BEGIN
             start => start,
             input_round_key => input_round_key,
             ready => ready,
-            output_round_keys => output_round_keys
+            index => index,
+            output_round_key => output_round_key
         );
     processTest : PROCESS
     BEGIN
@@ -44,10 +44,17 @@ BEGIN
         WAIT FOR CLK_PERIOD;
         start <= '0';
 
+        WAIT UNTIL rising_edge(ready);
+        -- Read all keys
+        readRoundKeys : for idx in 0 to 10 loop
+            index <= idx;
+            wait for CLK_PERIOD;
+        end loop;
+        
+        
         -- NEW KEY GEN
-        wait until rising_edge(ready);
         input_round_key <= x"00000000000000000000000000000000";
-        wait for CLK_PERIOD;
+        WAIT FOR CLK_PERIOD;
         start <= '1';
         WAIT FOR CLK_PERIOD;
         start <= '0';

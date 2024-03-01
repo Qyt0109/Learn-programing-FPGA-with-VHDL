@@ -1,5 +1,5 @@
 Analysis & Synthesis report for AES_Encrypt
-Wed Feb 14 11:49:43 2024
+Thu Feb 29 02:02:26 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -13,10 +13,22 @@ Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. General Register Statistics
-  9. Post-Synthesis Netlist Statistics for Top Partition
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
+  8. State Machine - |AESEncrypt|state
+  9. State Machine - |AESEncrypt|KeyController:KeyController_inst|state
+ 10. User-Specified and Inferred Latches
+ 11. Registers Removed During Synthesis
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for User Entity Instance: Top-level Entity: |AESEncrypt
+ 16. Parameter Settings for User Entity Instance: KeyController:KeyController_inst
+ 17. Parameter Settings for User Entity Instance: KeyController:KeyController_inst|KeyRound:KeyRound_inst
+ 18. Parameter Settings for User Entity Instance: KeyController:KeyController_inst|BlockRegister:BlockRegister_inst
+ 19. Parameter Settings for User Entity Instance: KeyController:KeyController_inst|BlockLUT:BlockLUT_inst
+ 20. Port Connectivity Checks: "KeyController:KeyController_inst|BlockRegister:BlockRegister_inst"
+ 21. Post-Synthesis Netlist Statistics for Top Partition
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
 
 
 
@@ -43,14 +55,14 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed Feb 14 11:49:43 2024          ;
+; Analysis & Synthesis Status     ; Successful - Thu Feb 29 02:02:26 2024          ;
 ; Quartus Prime Version           ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                   ; AES_Encrypt                                    ;
-; Top-level Entity Name           ; ComputeColumn                                  ;
+; Top-level Entity Name           ; AESEncrypt                                     ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 0                                              ;
-; Total pins                      ; 64                                             ;
+; Total registers                 ; 3485                                           ;
+; Total pins                      ; 388                                            ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0                                              ;
 ; Total DSP Blocks                ; 0                                              ;
@@ -68,9 +80,11 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                                          ; Setting            ; Default Value      ;
 +---------------------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                                          ; 5CSXFC6D6F31I7ES   ;                    ;
-; Top-level entity name                                                           ; ComputeColumn      ; AES_Encrypt        ;
+; Device                                                                          ; 5CGTFD9E5F35C7     ;                    ;
+; Top-level entity name                                                           ; AESEncrypt         ; AES_Encrypt        ;
 ; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; VHDL Show LMF Mapping Messages                                                  ; Off                ;                    ;
+; VHDL Version                                                                    ; VHDL_2008          ; VHDL_1993          ;
 ; Use smart compilation                                                           ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
 ; Enable compact report table                                                     ; Off                ; Off                ;
@@ -80,7 +94,6 @@ https://fpgasoftware.intel.com/eula.
 ; Preserve fewer node names                                                       ; On                 ; On                 ;
 ; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
 ; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
-; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
 ; State Machine Processing                                                        ; Auto               ; Auto               ;
 ; Safe State Machine                                                              ; Off                ; Off                ;
 ; Extract Verilog State Machines                                                  ; On                 ; On                 ;
@@ -158,60 +171,261 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.4%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                 ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                          ; Library ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
-; ../Encrypt/GF2MultiplyBy3.vhd    ; yes             ; User VHDL File  ; //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/GF2MultiplyBy3.vhd ;         ;
-; ../Encrypt/GF2MultiplyBy2.vhd    ; yes             ; User VHDL File  ; //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/GF2MultiplyBy2.vhd ;         ;
-; ../Encrypt/ComputeColumn.vhd     ; yes             ; User VHDL File  ; //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/ComputeColumn.vhd  ;         ;
-+----------------------------------+-----------------+-----------------+---------------------------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                         ; Library ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------+---------+
+; ../Others/SBox.vhd               ; yes             ; User VHDL File  ; //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/SBox.vhd           ;         ;
+; ../Others/GF2MultiplyBy3.vhd     ; yes             ; User VHDL File  ; //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/GF2MultiplyBy3.vhd ;         ;
+; ../Others/GF2MultiplyBy2.vhd     ; yes             ; User VHDL File  ; //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/GF2MultiplyBy2.vhd ;         ;
+; ../Others/BlockRegister.vhd      ; yes             ; User VHDL File  ; //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/BlockRegister.vhd  ;         ;
+; ../Others/BlockLUT.vhd           ; yes             ; User VHDL File  ; //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/BlockLUT.vhd       ;         ;
+; ../Others/AESPackages.vhd        ; yes             ; User VHDL File  ; //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/AESPackages.vhd    ;         ;
+; ../Key/SubWord.vhd               ; yes             ; User VHDL File  ; //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Key/SubWord.vhd           ;         ;
+; ../Key/RoundConstant.vhd         ; yes             ; User VHDL File  ; //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Key/RoundConstant.vhd     ;         ;
+; ../Key/RotWord.vhd               ; yes             ; User VHDL File  ; //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Key/RotWord.vhd           ;         ;
+; ../Key/KeyRound.vhd              ; yes             ; User VHDL File  ; //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Key/KeyRound.vhd          ;         ;
+; ../Key/KeyController.vhd         ; yes             ; User VHDL File  ; //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Key/KeyController.vhd     ;         ;
+; ../Encrypt/SubByte.vhd           ; yes             ; User VHDL File  ; //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/SubByte.vhd       ;         ;
+; ../Encrypt/ShiftRows.vhd         ; yes             ; User VHDL File  ; //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/ShiftRows.vhd     ;         ;
+; ../Encrypt/MixColumns.vhd        ; yes             ; User VHDL File  ; //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/MixColumns.vhd    ;         ;
+; ../Encrypt/EncryptRound.vhd      ; yes             ; User VHDL File  ; //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd  ;         ;
+; ../Encrypt/ComputeColumn.vhd     ; yes             ; User VHDL File  ; //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/ComputeColumn.vhd ;         ;
+; ../Encrypt/AESEncrypt.vhd        ; yes             ; User VHDL File  ; //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/AESEncrypt.vhd    ;         ;
+; ../Encrypt/AddRoundKey.vhd       ; yes             ; User VHDL File  ; //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/AddRoundKey.vhd   ;         ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                         ;
-+---------------------------------------------+-----------------------+
-; Resource                                    ; Usage                 ;
-+---------------------------------------------+-----------------------+
-; Estimate of Logic utilization (ALMs needed) ; 20                    ;
-;                                             ;                       ;
-; Combinational ALUT usage for logic          ; 39                    ;
-;     -- 7 input functions                    ; 0                     ;
-;     -- 6 input functions                    ; 0                     ;
-;     -- 5 input functions                    ; 26                    ;
-;     -- 4 input functions                    ; 9                     ;
-;     -- <=3 input functions                  ; 4                     ;
-;                                             ;                       ;
-; Dedicated logic registers                   ; 0                     ;
-;                                             ;                       ;
-; I/O pins                                    ; 64                    ;
-;                                             ;                       ;
-; Total DSP Blocks                            ; 0                     ;
-;                                             ;                       ;
-; Maximum fan-out node                        ; input_column[7]~input ;
-; Maximum fan-out                             ; 11                    ;
-; Total fan-out                               ; 274                   ;
-; Average fan-out                             ; 1.64                  ;
-+---------------------------------------------+-----------------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 2532      ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 2066      ;
+;     -- 7 input functions                    ; 49        ;
+;     -- 6 input functions                    ; 1192      ;
+;     -- 5 input functions                    ; 449       ;
+;     -- 4 input functions                    ; 158       ;
+;     -- <=3 input functions                  ; 218       ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 3485      ;
+;                                             ;           ;
+; I/O pins                                    ; 388       ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; rst~input ;
+; Maximum fan-out                             ; 3352      ;
+; Total fan-out                               ; 22851     ;
+; Average fan-out                             ; 3.61      ;
++---------------------------------------------+-----------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                      ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+---------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name   ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+---------------+--------------+
-; |ComputeColumn             ; 39 (39)             ; 0 (0)                     ; 0                 ; 0          ; 64   ; 0            ; |ComputeColumn      ; ComputeColumn ; work         ;
-+----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+---------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                              ;
++-----------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------+---------------+--------------+
+; Compilation Hierarchy Node                                            ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                              ; Entity Name   ; Library Name ;
++-----------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------+---------------+--------------+
+; |AESEncrypt                                                           ; 2066 (198)          ; 3485 (396)                ; 0                 ; 0          ; 388  ; 0            ; |AESEncrypt                                                                                                                      ; AESEncrypt    ; work         ;
+;    |EncryptRound:EncryptRound_inst|                                   ; 1048 (128)          ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst                                                                                       ; EncryptRound  ; work         ;
+;       |AddRoundKey:AddRoundKey_inst|                                  ; 128 (128)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|AddRoundKey:AddRoundKey_inst                                                          ; AddRoundKey   ; work         ;
+;       |MixColumns:MixColumns_inst|                                    ; 152 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|MixColumns:MixColumns_inst                                                            ; MixColumns    ; work         ;
+;          |ComputeColumn:\generateComputeColumns:0:ComputeColumn_inst| ; 38 (38)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|MixColumns:MixColumns_inst|ComputeColumn:\generateComputeColumns:0:ComputeColumn_inst ; ComputeColumn ; work         ;
+;          |ComputeColumn:\generateComputeColumns:1:ComputeColumn_inst| ; 38 (38)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|MixColumns:MixColumns_inst|ComputeColumn:\generateComputeColumns:1:ComputeColumn_inst ; ComputeColumn ; work         ;
+;          |ComputeColumn:\generateComputeColumns:2:ComputeColumn_inst| ; 38 (38)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|MixColumns:MixColumns_inst|ComputeColumn:\generateComputeColumns:2:ComputeColumn_inst ; ComputeColumn ; work         ;
+;          |ComputeColumn:\generateComputeColumns:3:ComputeColumn_inst| ; 38 (38)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|MixColumns:MixColumns_inst|ComputeColumn:\generateComputeColumns:3:ComputeColumn_inst ; ComputeColumn ; work         ;
+;       |SubByte:SubByte_inst|                                          ; 640 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|SubByte:SubByte_inst                                                                  ; SubByte       ; work         ;
+;          |SBox:\generateSBoxes:0:SBox_inst|                           ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|SubByte:SubByte_inst|SBox:\generateSBoxes:0:SBox_inst                                 ; SBox          ; work         ;
+;          |SBox:\generateSBoxes:10:SBox_inst|                          ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|SubByte:SubByte_inst|SBox:\generateSBoxes:10:SBox_inst                                ; SBox          ; work         ;
+;          |SBox:\generateSBoxes:11:SBox_inst|                          ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|SubByte:SubByte_inst|SBox:\generateSBoxes:11:SBox_inst                                ; SBox          ; work         ;
+;          |SBox:\generateSBoxes:12:SBox_inst|                          ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|SubByte:SubByte_inst|SBox:\generateSBoxes:12:SBox_inst                                ; SBox          ; work         ;
+;          |SBox:\generateSBoxes:13:SBox_inst|                          ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|SubByte:SubByte_inst|SBox:\generateSBoxes:13:SBox_inst                                ; SBox          ; work         ;
+;          |SBox:\generateSBoxes:14:SBox_inst|                          ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|SubByte:SubByte_inst|SBox:\generateSBoxes:14:SBox_inst                                ; SBox          ; work         ;
+;          |SBox:\generateSBoxes:15:SBox_inst|                          ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|SubByte:SubByte_inst|SBox:\generateSBoxes:15:SBox_inst                                ; SBox          ; work         ;
+;          |SBox:\generateSBoxes:1:SBox_inst|                           ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|SubByte:SubByte_inst|SBox:\generateSBoxes:1:SBox_inst                                 ; SBox          ; work         ;
+;          |SBox:\generateSBoxes:2:SBox_inst|                           ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|SubByte:SubByte_inst|SBox:\generateSBoxes:2:SBox_inst                                 ; SBox          ; work         ;
+;          |SBox:\generateSBoxes:3:SBox_inst|                           ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|SubByte:SubByte_inst|SBox:\generateSBoxes:3:SBox_inst                                 ; SBox          ; work         ;
+;          |SBox:\generateSBoxes:4:SBox_inst|                           ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|SubByte:SubByte_inst|SBox:\generateSBoxes:4:SBox_inst                                 ; SBox          ; work         ;
+;          |SBox:\generateSBoxes:5:SBox_inst|                           ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|SubByte:SubByte_inst|SBox:\generateSBoxes:5:SBox_inst                                 ; SBox          ; work         ;
+;          |SBox:\generateSBoxes:6:SBox_inst|                           ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|SubByte:SubByte_inst|SBox:\generateSBoxes:6:SBox_inst                                 ; SBox          ; work         ;
+;          |SBox:\generateSBoxes:7:SBox_inst|                           ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|SubByte:SubByte_inst|SBox:\generateSBoxes:7:SBox_inst                                 ; SBox          ; work         ;
+;          |SBox:\generateSBoxes:8:SBox_inst|                           ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|SubByte:SubByte_inst|SBox:\generateSBoxes:8:SBox_inst                                 ; SBox          ; work         ;
+;          |SBox:\generateSBoxes:9:SBox_inst|                           ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|SubByte:SubByte_inst|SBox:\generateSBoxes:9:SBox_inst                                 ; SBox          ; work         ;
+;    |KeyController:KeyController_inst|                                 ; 820 (12)            ; 3089 (140)                ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|KeyController:KeyController_inst                                                                                     ; KeyController ; work         ;
+;       |BlockLUT:BlockLUT_inst|                                        ; 512 (512)           ; 1408 (1408)               ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|KeyController:KeyController_inst|BlockLUT:BlockLUT_inst                                                              ; BlockLUT      ; work         ;
+;       |BlockRegister:BlockRegister_inst|                              ; 0 (0)               ; 1408 (1408)               ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|KeyController:KeyController_inst|BlockRegister:BlockRegister_inst                                                    ; BlockRegister ; work         ;
+;       |KeyRound:KeyRound_inst|                                        ; 296 (129)           ; 133 (133)                 ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|KeyController:KeyController_inst|KeyRound:KeyRound_inst                                                              ; KeyRound      ; work         ;
+;          |RoundConstant:roundconstant_inst|                           ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|KeyController:KeyController_inst|KeyRound:KeyRound_inst|RoundConstant:roundconstant_inst                             ; RoundConstant ; work         ;
+;          |SubWord:SubWord_inst|                                       ; 160 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|KeyController:KeyController_inst|KeyRound:KeyRound_inst|SubWord:SubWord_inst                                         ; SubWord       ; work         ;
+;             |SBox:\generateSBoxes:0:SBox_inst|                        ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|KeyController:KeyController_inst|KeyRound:KeyRound_inst|SubWord:SubWord_inst|SBox:\generateSBoxes:0:SBox_inst        ; SBox          ; work         ;
+;             |SBox:\generateSBoxes:1:SBox_inst|                        ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|KeyController:KeyController_inst|KeyRound:KeyRound_inst|SubWord:SubWord_inst|SBox:\generateSBoxes:1:SBox_inst        ; SBox          ; work         ;
+;             |SBox:\generateSBoxes:2:SBox_inst|                        ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|KeyController:KeyController_inst|KeyRound:KeyRound_inst|SubWord:SubWord_inst|SBox:\generateSBoxes:2:SBox_inst        ; SBox          ; work         ;
+;             |SBox:\generateSBoxes:3:SBox_inst|                        ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|KeyController:KeyController_inst|KeyRound:KeyRound_inst|SubWord:SubWord_inst|SBox:\generateSBoxes:3:SBox_inst        ; SBox          ; work         ;
++-----------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------+
+; State Machine - |AESEncrypt|state                                                                                ;
++-----------------+----------------+--------------+---------------+-----------------+-----------------+------------+
+; Name            ; state.GEN_KEYS ; state.CHANGE ; state.PREPARE ; state.NEW_START ; state.KEYS_DONE ; state.DONE ;
++-----------------+----------------+--------------+---------------+-----------------+-----------------+------------+
+; state.DONE      ; 0              ; 0            ; 0             ; 0               ; 0               ; 0          ;
+; state.KEYS_DONE ; 0              ; 0            ; 0             ; 0               ; 1               ; 1          ;
+; state.NEW_START ; 0              ; 0            ; 0             ; 1               ; 0               ; 1          ;
+; state.PREPARE   ; 0              ; 0            ; 1             ; 0               ; 0               ; 1          ;
+; state.CHANGE    ; 0              ; 1            ; 0             ; 0               ; 0               ; 1          ;
+; state.GEN_KEYS  ; 1              ; 0            ; 0             ; 0               ; 0               ; 1          ;
++-----------------+----------------+--------------+---------------+-----------------+-----------------+------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------+
+; State Machine - |AESEncrypt|KeyController:KeyController_inst|state                          ;
++-----------------+-----------------+-------------+--------------+---------------+------------+
+; Name            ; state.NEW_START ; state.STORE ; state.CHANGE ; state.PREPARE ; state.DONE ;
++-----------------+-----------------+-------------+--------------+---------------+------------+
+; state.DONE      ; 0               ; 0           ; 0            ; 0             ; 0          ;
+; state.PREPARE   ; 0               ; 0           ; 0            ; 1             ; 1          ;
+; state.CHANGE    ; 0               ; 0           ; 1            ; 0             ; 1          ;
+; state.STORE     ; 0               ; 1           ; 0            ; 0             ; 1          ;
+; state.NEW_START ; 1               ; 0           ; 0            ; 0             ; 1          ;
++-----------------+-----------------+-------------+--------------+---------------+------------+
+
+
++-----------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                 ;
++------------------------------------------------------+---------------------+------------------------+
+; Latch Name                                           ; Latch Enable Signal ; Free of Timing Hazards ;
++------------------------------------------------------+---------------------+------------------------+
+; EncryptRound:EncryptRound_inst|mix_columns_in[7]     ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[8]     ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[16]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[24]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[31]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[9]     ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[17]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[25]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[0]     ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[1]     ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[10]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[18]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[26]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[2]     ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[11]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[19]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[27]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[3]     ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[12]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[20]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[28]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[4]     ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[13]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[21]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[29]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[5]     ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[14]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[22]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[30]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[6]     ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[15]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[23]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[39]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[40]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[48]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[56]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[63]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[32]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[41]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[49]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[57]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[33]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[42]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[50]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[58]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[34]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[43]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[51]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[59]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[35]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[44]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[52]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[60]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[36]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[45]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[53]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[61]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[37]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[46]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[54]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[62]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[38]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[47]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[55]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[71]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[72]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[80]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[88]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[95]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[64]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[73]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[81]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[89]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[65]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[74]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[82]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[90]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[66]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[75]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[83]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[91]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[67]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[76]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[84]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[92]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[68]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[77]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[85]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[93]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[69]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[78]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[86]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[94]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[70]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[79]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[87]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[103]   ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[104]   ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[112]   ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[120]   ; Equal1              ; yes                    ;
+; Number of user-specified and inferred latches = 128  ;                     ;                        ;
++------------------------------------------------------+---------------------+------------------------+
+Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                         ;
++-----------------------------------------------------------------------------------+----------------------------------------+
+; Register name                                                                     ; Reason for Removal                     ;
++-----------------------------------------------------------------------------------+----------------------------------------+
+; KeyController:KeyController_inst|KeyRound:KeyRound_inst|round_index_signal[4..30] ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 27                                            ;                                        ;
++-----------------------------------------------------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -219,14 +433,102 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 3485  ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Synchronous Load   ; 256   ;
+; Number of registers using Asynchronous Clear ; 3344  ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 521   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------+
+; Inverted Register Statistics                                                             ;
++--------------------------------------------------------------------------------+---------+
+; Inverted Register                                                              ; Fan out ;
++--------------------------------------------------------------------------------+---------+
+; ready~reg0                                                                     ; 1       ;
+; KeyController:KeyController_inst|ready~reg0                                    ; 1411    ;
+; KeyController:KeyController_inst|KeyRound:KeyRound_inst|round_index_signal[31] ; 8       ;
+; Total number of inverted registers = 3                                         ;         ;
++--------------------------------------------------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------+
+; 3:1                ; 128 bits  ; 256 LEs       ; 0 LEs                ; 256 LEs                ; Yes        ; |AESEncrypt|KeyController:KeyController_inst|current_round_key[7]          ;
+; 6:1                ; 128 bits  ; 512 LEs       ; 256 LEs              ; 256 LEs                ; Yes        ; |AESEncrypt|current_state[102]                                             ;
+; 11:1               ; 128 bits  ; 896 LEs       ; 896 LEs              ; 0 LEs                  ; No         ; |AESEncrypt|KeyController:KeyController_inst|BlockLUT:BlockLUT_inst|Mux116 ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |AESEncrypt|Selector4                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |AESEncrypt ;
++-----------------+-------+--------------------------------------------------+
+; Parameter Name  ; Value ; Type                                             ;
++-----------------+-------+--------------------------------------------------+
+; MIN_ROUND_INDEX ; 0     ; Signed Integer                                   ;
+; MAX_ROUND_INDEX ; 10    ; Signed Integer                                   ;
++-----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: KeyController:KeyController_inst ;
++-----------------+-------+-----------------------------------------------------+
+; Parameter Name  ; Value ; Type                                                ;
++-----------------+-------+-----------------------------------------------------+
+; min_round_index ; 0     ; Signed Integer                                      ;
+; max_round_index ; 10    ; Signed Integer                                      ;
++-----------------+-------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: KeyController:KeyController_inst|KeyRound:KeyRound_inst ;
++-----------------+-------+----------------------------------------------------------------------------+
+; Parameter Name  ; Value ; Type                                                                       ;
++-----------------+-------+----------------------------------------------------------------------------+
+; min_round_index ; 0     ; Signed Integer                                                             ;
+; max_round_index ; 10    ; Signed Integer                                                             ;
++-----------------+-------+----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: KeyController:KeyController_inst|BlockRegister:BlockRegister_inst ;
++-----------------+-------+--------------------------------------------------------------------------------------+
+; Parameter Name  ; Value ; Type                                                                                 ;
++-----------------+-------+--------------------------------------------------------------------------------------+
+; min_block_index ; 0     ; Signed Integer                                                                       ;
+; max_block_index ; 10    ; Signed Integer                                                                       ;
++-----------------+-------+--------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: KeyController:KeyController_inst|BlockLUT:BlockLUT_inst ;
++-----------------+-------+----------------------------------------------------------------------------+
+; Parameter Name  ; Value ; Type                                                                       ;
++-----------------+-------+----------------------------------------------------------------------------+
+; min_block_index ; 0     ; Signed Integer                                                             ;
+; max_block_index ; 10    ; Signed Integer                                                             ;
++-----------------+-------+----------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "KeyController:KeyController_inst|BlockRegister:BlockRegister_inst" ;
++--------------+-------+----------+-------------------------------------------------------------+
+; Port         ; Type  ; Severity ; Details                                                     ;
++--------------+-------+----------+-------------------------------------------------------------+
+; shift_enable ; Input ; Info     ; Stuck at VCC                                                ;
++--------------+-------+----------+-------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -234,15 +536,26 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_lcell_comb     ; 39                          ;
-;     normal            ; 39                          ;
-;         3 data inputs ; 4                           ;
-;         4 data inputs ; 9                           ;
-;         5 data inputs ; 26                          ;
-; boundary_port         ; 64                          ;
+; arriav_ff             ; 3485                        ;
+;     CLR               ; 2831                        ;
+;     ENA               ; 8                           ;
+;     ENA CLR           ; 257                         ;
+;     ENA CLR SLD       ; 256                         ;
+;     plain             ; 133                         ;
+; arriav_lcell_comb     ; 2067                        ;
+;     extend            ; 49                          ;
+;         7 data inputs ; 49                          ;
+;     normal            ; 2018                        ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 38                          ;
+;         3 data inputs ; 180                         ;
+;         4 data inputs ; 158                         ;
+;         5 data inputs ; 449                         ;
+;         6 data inputs ; 1192                        ;
+; boundary_port         ; 388                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 2.00                        ;
-; Average LUT depth     ; 1.52                        ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 2.03                        ;
 +-----------------------+-----------------------------+
 
 
@@ -251,7 +564,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:21     ;
 +----------------+--------------+
 
 
@@ -261,34 +574,223 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Wed Feb 14 11:49:19 2024
+    Info: Processing started: Thu Feb 29 02:01:34 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off AES_Encrypt -c AES_Encrypt
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/fpga_vhdl/crypto/aes/encrypt/gf2multiplyby3.vhd
-    Info (12022): Found design unit 1: GF2MultiplyBy3-rtl File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/GF2MultiplyBy3.vhd Line: 20
-    Info (12023): Found entity 1: GF2MultiplyBy3 File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/GF2MultiplyBy3.vhd Line: 13
-Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/fpga_vhdl/crypto/aes/encrypt/gf2multiplyby2.vhd
-    Info (12022): Found design unit 1: GF2MultiplyBy2-rtl File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/GF2MultiplyBy2.vhd Line: 16
-    Info (12023): Found entity 1: GF2MultiplyBy2 File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/GF2MultiplyBy2.vhd Line: 9
-Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/fpga_vhdl/crypto/aes/encrypt/computecolumn.vhd
-    Info (12022): Found design unit 1: ComputeColumn-rtl File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/ComputeColumn.vhd Line: 12
-    Info (12023): Found entity 1: ComputeColumn File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/ComputeColumn.vhd Line: 5
-Info (12127): Elaborating entity "ComputeColumn" for the top level hierarchy
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/encrypt/aesencrypttop.vhd
+    Info (12022): Found design unit 1: AESEncryptTop-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/AESEncryptTop.vhd Line: 10
+    Info (12023): Found entity 1: AESEncryptTop File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/AESEncryptTop.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/others/sbox.vhd
+    Info (12022): Found design unit 1: SBox-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/SBox.vhd Line: 12
+    Info (12023): Found entity 1: SBox File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/SBox.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/others/gf2multiplyby3.vhd
+    Info (12022): Found design unit 1: GF2MultiplyBy3-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/GF2MultiplyBy3.vhd Line: 20
+    Info (12023): Found entity 1: GF2MultiplyBy3 File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/GF2MultiplyBy3.vhd Line: 13
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/others/gf2multiplyby2.vhd
+    Info (12022): Found design unit 1: GF2MultiplyBy2-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/GF2MultiplyBy2.vhd Line: 16
+    Info (12023): Found entity 1: GF2MultiplyBy2 File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/GF2MultiplyBy2.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/others/blockregister.vhd
+    Info (12022): Found design unit 1: BlockRegister-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/BlockRegister.vhd Line: 19
+    Info (12023): Found entity 1: BlockRegister File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/BlockRegister.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/others/blocklut.vhd
+    Info (12022): Found design unit 1: BlockLUT-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/BlockLUT.vhd Line: 19
+    Info (12023): Found entity 1: BlockLUT File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/BlockLUT.vhd Line: 5
+Info (12021): Found 1 design units, including 0 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/others/aespackages.vhd
+    Info (12022): Found design unit 1: aes_data_types File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/AESPackages.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/key/subword.vhd
+    Info (12022): Found design unit 1: SubWord-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Key/SubWord.vhd Line: 13
+    Info (12023): Found entity 1: SubWord File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Key/SubWord.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/key/roundconstant.vhd
+    Info (12022): Found design unit 1: RoundConstant-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Key/RoundConstant.vhd Line: 13
+    Info (12023): Found entity 1: RoundConstant File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Key/RoundConstant.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/key/rotword.vhd
+    Info (12022): Found design unit 1: RotWord-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Key/RotWord.vhd Line: 13
+    Info (12023): Found entity 1: RotWord File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Key/RotWord.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/key/keyround.vhd
+    Info (12022): Found design unit 1: KeyRound-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Key/KeyRound.vhd Line: 18
+    Info (12023): Found entity 1: KeyRound File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Key/KeyRound.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/key/keycontroller.vhd
+    Info (12022): Found design unit 1: KeyController-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Key/KeyController.vhd Line: 21
+    Info (12023): Found entity 1: KeyController File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Key/KeyController.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/encrypt/subbyte.vhd
+    Info (12022): Found design unit 1: SubByte-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/SubByte.vhd Line: 11
+    Info (12023): Found entity 1: SubByte File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/SubByte.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/encrypt/shiftrows.vhd
+    Info (12022): Found design unit 1: ShiftRows-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/ShiftRows.vhd Line: 11
+    Info (12023): Found entity 1: ShiftRows File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/ShiftRows.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/encrypt/mixcolumns.vhd
+    Info (12022): Found design unit 1: MixColumns-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/MixColumns.vhd Line: 11
+    Info (12023): Found entity 1: MixColumns File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/MixColumns.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/encrypt/encryptround.vhd
+    Info (12022): Found design unit 1: EncryptRound-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 13
+    Info (12023): Found entity 1: EncryptRound File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/encrypt/computecolumn.vhd
+    Info (12022): Found design unit 1: ComputeColumn-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/ComputeColumn.vhd Line: 12
+    Info (12023): Found entity 1: ComputeColumn File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/ComputeColumn.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/encrypt/aesencrypt.vhd
+    Info (12022): Found design unit 1: AESEncrypt-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/AESEncrypt.vhd Line: 19
+    Info (12023): Found entity 1: AESEncrypt File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/AESEncrypt.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/encrypt/addroundkey.vhd
+    Info (12022): Found design unit 1: AddRoundKey-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/AddRoundKey.vhd Line: 12
+    Info (12023): Found entity 1: AddRoundKey File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/AddRoundKey.vhd Line: 4
+Info (12127): Elaborating entity "AESEncrypt" for the top level hierarchy
+Info (12128): Elaborating entity "KeyController" for hierarchy "KeyController:KeyController_inst" File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/AESEncrypt.vhd Line: 28
+Info (12128): Elaborating entity "KeyRound" for hierarchy "KeyController:KeyController_inst|KeyRound:KeyRound_inst" File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Key/KeyController.vhd Line: 31
+Info (12128): Elaborating entity "RoundConstant" for hierarchy "KeyController:KeyController_inst|KeyRound:KeyRound_inst|RoundConstant:roundconstant_inst" File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Key/KeyRound.vhd Line: 32
+Info (12128): Elaborating entity "RotWord" for hierarchy "KeyController:KeyController_inst|KeyRound:KeyRound_inst|RotWord:RotWord_inst" File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Key/KeyRound.vhd Line: 37
+Info (12128): Elaborating entity "SubWord" for hierarchy "KeyController:KeyController_inst|KeyRound:KeyRound_inst|SubWord:SubWord_inst" File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Key/KeyRound.vhd Line: 42
+Info (12128): Elaborating entity "SBox" for hierarchy "KeyController:KeyController_inst|KeyRound:KeyRound_inst|SubWord:SubWord_inst|SBox:\generateSBoxes:0:SBox_inst" File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Key/SubWord.vhd Line: 16
+Info (12128): Elaborating entity "BlockRegister" for hierarchy "KeyController:KeyController_inst|BlockRegister:BlockRegister_inst" File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Key/KeyController.vhd Line: 42
+Info (12128): Elaborating entity "BlockLUT" for hierarchy "KeyController:KeyController_inst|BlockLUT:BlockLUT_inst" File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Key/KeyController.vhd Line: 54
+Info (12128): Elaborating entity "EncryptRound" for hierarchy "EncryptRound:EncryptRound_inst" File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/AESEncrypt.vhd Line: 42
+Info (10041): Inferred latch for "mix_columns_in[0]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[1]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[2]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[3]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[4]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[5]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[6]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[7]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[8]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[9]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[10]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[11]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[12]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[13]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[14]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[15]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[16]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[17]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[18]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[19]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[20]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[21]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[22]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[23]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[24]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[25]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[26]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[27]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[28]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[29]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[30]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[31]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[32]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[33]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[34]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[35]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[36]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[37]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[38]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[39]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[40]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[41]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[42]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[43]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[44]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[45]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[46]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[47]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[48]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[49]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[50]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[51]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[52]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[53]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[54]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[55]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[56]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[57]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[58]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[59]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[60]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[61]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[62]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[63]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[64]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[65]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[66]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[67]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[68]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[69]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[70]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[71]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[72]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[73]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[74]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[75]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[76]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[77]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[78]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[79]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[80]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[81]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[82]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[83]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[84]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[85]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[86]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[87]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[88]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[89]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[90]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[91]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[92]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[93]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[94]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[95]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[96]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[97]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[98]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[99]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[100]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[101]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[102]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[103]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[104]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[105]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[106]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[107]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[108]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[109]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[110]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[111]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[112]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[113]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[114]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[115]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[116]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[117]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[118]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[119]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[120]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[121]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[122]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[123]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[124]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[125]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[126]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (10041): Inferred latch for "mix_columns_in[127]" at EncryptRound.vhd(39) File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 39
+Info (12128): Elaborating entity "SubByte" for hierarchy "EncryptRound:EncryptRound_inst|SubByte:SubByte_inst" File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 16
+Info (12128): Elaborating entity "ShiftRows" for hierarchy "EncryptRound:EncryptRound_inst|ShiftRows:ShiftRows_imst" File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 21
+Info (12128): Elaborating entity "MixColumns" for hierarchy "EncryptRound:EncryptRound_inst|MixColumns:MixColumns_inst" File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 26
+Info (12128): Elaborating entity "ComputeColumn" for hierarchy "EncryptRound:EncryptRound_inst|MixColumns:MixColumns_inst|ComputeColumn:\generateComputeColumns:0:ComputeColumn_inst" File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/MixColumns.vhd Line: 15
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "cells_mul" into its bus
-Info (12128): Elaborating entity "GF2MultiplyBy2" for hierarchy "GF2MultiplyBy2:\generateCellsMul2Mul3:0:GF2MultiplyBy2_inst" File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/ComputeColumn.vhd Line: 32
-Info (12128): Elaborating entity "GF2MultiplyBy3" for hierarchy "GF2MultiplyBy3:\generateCellsMul2Mul3:0:GF2MultiplyBy3_inst" File: //mac/AllFiles/Applications/CODESTUFF/FPGA_VHDL/Crypto/AES/Encrypt/ComputeColumn.vhd Line: 37
+Info (12128): Elaborating entity "GF2MultiplyBy2" for hierarchy "EncryptRound:EncryptRound_inst|MixColumns:MixColumns_inst|ComputeColumn:\generateComputeColumns:0:ComputeColumn_inst|GF2MultiplyBy2:\generateCellsMul2Mul3:0:GF2MultiplyBy2_inst" File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/ComputeColumn.vhd Line: 19
+Info (12128): Elaborating entity "GF2MultiplyBy3" for hierarchy "EncryptRound:EncryptRound_inst|MixColumns:MixColumns_inst|ComputeColumn:\generateComputeColumns:0:ComputeColumn_inst|GF2MultiplyBy3:\generateCellsMul2Mul3:0:GF2MultiplyBy3_inst" File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/ComputeColumn.vhd Line: 24
+Info (12128): Elaborating entity "AddRoundKey" for hierarchy "EncryptRound:EncryptRound_inst|AddRoundKey:AddRoundKey_inst" File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 31
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 103 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 32 input pins
-    Info (21059): Implemented 32 output pins
-    Info (21061): Implemented 39 logic cells
+Info (21057): Implemented 5536 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 259 input pins
+    Info (21059): Implemented 129 output pins
+    Info (21061): Implemented 5148 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 13372 megabytes
-    Info: Processing ended: Wed Feb 14 11:49:43 2024
-    Info: Elapsed time: 00:00:24
-    Info: Total CPU time (on all processors): 00:00:50
+    Info: Peak virtual memory: 13435 megabytes
+    Info: Processing ended: Thu Feb 29 02:02:26 2024
+    Info: Elapsed time: 00:00:52
+    Info: Total CPU time (on all processors): 00:01:15
 
 

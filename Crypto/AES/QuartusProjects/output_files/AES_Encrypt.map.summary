@@ -1,11 +1,11 @@
-Analysis & Synthesis Status : Successful - Wed Feb 14 11:49:43 2024
+Analysis & Synthesis Status : Successful - Thu Feb 29 02:02:26 2024
 Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 Revision Name : AES_Encrypt
-Top-level Entity Name : ComputeColumn
+Top-level Entity Name : AESEncrypt
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 0
-Total pins : 64
+Total registers : 3485
+Total pins : 388
 Total virtual pins : 0
 Total block memory bits : 0
 Total DSP Blocks : 0

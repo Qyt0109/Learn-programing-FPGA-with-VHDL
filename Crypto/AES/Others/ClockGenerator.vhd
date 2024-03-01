@@ -29,7 +29,6 @@ BEGIN
             baud_clk <= '0';
             bit_counter <= 0;
         ELSIF rising_edge(clk) THEN
-            IF clk_index <= MAX_INDEX THEN
                 IF bit_counter = BIT_PERIOD THEN
                     baud_clk <= '1';
                     bit_counter <= 0;
