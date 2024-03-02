@@ -1,7 +1,7 @@
-start_full_compilation:s:00:24:26
+start_full_compilation:s:01:25:25
 start_analysis_synthesis:s:00:00:54-start_full_compilation
 start_analysis_elaboration:s-start_full_compilation
-start_fitter:s:00:17:17-start_full_compilation
-start_assembler:s:00:00:42-start_full_compilation
-start_timing_analyzer:s:00:05:26-start_full_compilation
+start_fitter:s:00:15:28-start_full_compilation
+start_assembler:s:00:00:50-start_full_compilation
+start_timing_analyzer:s:01:08:06-start_full_compilation
 start_eda_netlist_writer:s:00:00:07-start_full_compilation

@@ -1,0 +1,93 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dZ:/Applications/CODESTUFF/StudyVHDL/Crypto/AES/ModelSimProjects
+Egiaima7thanh
+Z0 w1709402256
+Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z4 dZ:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/SevenSegmentLed/ModelSim
+Z5 8Z:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/SevenSegmentLed/giaima7thanh.vhd
+Z6 FZ:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/SevenSegmentLed/giaima7thanh.vhd
+l0
+L5
+Vz@5]hIz`z;=Dl2j>N9[0j1
+!s100 azDlml>SzAhQCe5PKa?eM3
+Z7 OV;C;10.5b;63
+32
+Z8 !s110 1709402328
+!i10b 1
+Z9 !s108 1709402328.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/SevenSegmentLed/giaima7thanh.vhd|
+Z11 !s107 Z:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/SevenSegmentLed/giaima7thanh.vhd|
+!i113 1
+Z12 o-work work -2002 -explicit
+Z13 tExplicit 1 CvgOpt 0
+Artl
+R1
+R2
+R3
+Z14 DEx4 work 12 giaima7thanh 0 22 z@5]hIz`z;=Dl2j>N9[0j1
+l13
+L12
+Z15 VY<HTMLhdIlBZHFC<dzkS:0
+Z16 !s100 KMWMadRdb`5OQ=fjOdgJl0
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Egiaima7thanh_tb
+Z17 w1709402319
+R1
+R2
+R3
+R4
+Z18 8Z:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/SevenSegmentLed/giaima7thanh_tb.vhd
+Z19 FZ:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/SevenSegmentLed/giaima7thanh_tb.vhd
+l0
+L5
+Vld74dI@6F_0mo4;OUN<iB1
+!s100 =aY@Ih_VFK`Gi4CkoaMZ<3
+R7
+32
+R8
+!i10b 1
+R9
+Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/SevenSegmentLed/giaima7thanh_tb.vhd|
+Z21 !s107 Z:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/SevenSegmentLed/giaima7thanh_tb.vhd|
+!i113 1
+R12
+R13
+Artl
+R14
+R1
+R2
+R3
+DEx4 work 15 giaima7thanh_tb 0 22 ld74dI@6F_0mo4;OUN<iB1
+l12
+L8
+VBPoB<M8QV`m1O2<g<dRnf3
+!s100 QG<1AK=T<mf`5Ei3?9Df62
+R7
+32
+R8
+!i10b 1
+R9
+R20
+R21
+!i113 1
+R12
+R13

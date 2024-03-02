@@ -1,0 +1,20 @@
+Z:/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/InvSBox.vhd {1 {vcom -work work -2002 -explicit -stats=none Z:/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/InvSBox.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity InvSBox
+-- Compiling architecture rtl of InvSBox
+
+} {} {}} Z:/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/InvSBox_tb.vhd {1 {vcom -work work -2002 -explicit -stats=none Z:/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/InvSBox_tb.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity InvSBox_tb
+-- Compiling architecture rtl of InvSBox_tb
+-- Loading entity InvSBox
+
+} {} {}}

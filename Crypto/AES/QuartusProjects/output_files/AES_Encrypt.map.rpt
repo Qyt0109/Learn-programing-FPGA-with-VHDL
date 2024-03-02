@@ -1,5 +1,5 @@
 Analysis & Synthesis report for AES_Encrypt
-Thu Feb 29 02:02:26 2024
+Sat Mar  2 10:51:08 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -55,7 +55,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Feb 29 02:02:26 2024          ;
+; Analysis & Synthesis Status     ; Successful - Sat Mar  2 10:51:08 2024          ;
 ; Quartus Prime Version           ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                   ; AES_Encrypt                                    ;
 ; Top-level Entity Name           ; AESEncrypt                                     ;
@@ -171,14 +171,14 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 4           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.01        ;
+; Average used               ; 1.00        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.4%      ;
-;     Processor 3            ;   0.1%      ;
-;     Processor 4            ;   0.1%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -188,7 +188,6 @@ https://fpgasoftware.intel.com/eula.
 ; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                         ; Library ;
 +----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------+---------+
 ; ../Others/SBox.vhd               ; yes             ; User VHDL File  ; //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/SBox.vhd           ;         ;
-; ../Others/GF2MultiplyBy3.vhd     ; yes             ; User VHDL File  ; //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/GF2MultiplyBy3.vhd ;         ;
 ; ../Others/GF2MultiplyBy2.vhd     ; yes             ; User VHDL File  ; //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/GF2MultiplyBy2.vhd ;         ;
 ; ../Others/BlockRegister.vhd      ; yes             ; User VHDL File  ; //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/BlockRegister.vhd  ;         ;
 ; ../Others/BlockLUT.vhd           ; yes             ; User VHDL File  ; //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/BlockLUT.vhd       ;         ;
@@ -213,14 +212,14 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 2532      ;
+; Estimate of Logic utilization (ALMs needed) ; 2527      ;
 ;                                             ;           ;
-; Combinational ALUT usage for logic          ; 2066      ;
+; Combinational ALUT usage for logic          ; 2063      ;
 ;     -- 7 input functions                    ; 49        ;
-;     -- 6 input functions                    ; 1192      ;
-;     -- 5 input functions                    ; 449       ;
-;     -- 4 input functions                    ; 158       ;
-;     -- <=3 input functions                  ; 218       ;
+;     -- 6 input functions                    ; 1194      ;
+;     -- 5 input functions                    ; 432       ;
+;     -- 4 input functions                    ; 149       ;
+;     -- <=3 input functions                  ; 239       ;
 ;                                             ;           ;
 ; Dedicated logic registers                   ; 3485      ;
 ;                                             ;           ;
@@ -230,7 +229,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;           ;
 ; Maximum fan-out node                        ; rst~input ;
 ; Maximum fan-out                             ; 3352      ;
-; Total fan-out                               ; 22851     ;
+; Total fan-out                               ; 22814     ;
 ; Average fan-out                             ; 3.61      ;
 +---------------------------------------------+-----------+
 
@@ -240,7 +239,7 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------+---------------+--------------+
 ; Compilation Hierarchy Node                                            ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                              ; Entity Name   ; Library Name ;
 +-----------------------------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------+---------------+--------------+
-; |AESEncrypt                                                           ; 2066 (198)          ; 3485 (396)                ; 0                 ; 0          ; 388  ; 0            ; |AESEncrypt                                                                                                                      ; AESEncrypt    ; work         ;
+; |AESEncrypt                                                           ; 2063 (195)          ; 3485 (396)                ; 0                 ; 0          ; 388  ; 0            ; |AESEncrypt                                                                                                                      ; AESEncrypt    ; work         ;
 ;    |EncryptRound:EncryptRound_inst|                                   ; 1048 (128)          ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst                                                                                       ; EncryptRound  ; work         ;
 ;       |AddRoundKey:AddRoundKey_inst|                                  ; 128 (128)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|AddRoundKey:AddRoundKey_inst                                                          ; AddRoundKey   ; work         ;
 ;       |MixColumns:MixColumns_inst|                                    ; 152 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AESEncrypt|EncryptRound:EncryptRound_inst|MixColumns:MixColumns_inst                                                            ; MixColumns    ; work         ;
@@ -326,14 +325,14 @@ Encoding Type:  One-Hot
 ; EncryptRound:EncryptRound_inst|mix_columns_in[10]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[18]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[26]    ; Equal1              ; yes                    ;
-; EncryptRound:EncryptRound_inst|mix_columns_in[2]     ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[11]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[19]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[27]    ; Equal1              ; yes                    ;
-; EncryptRound:EncryptRound_inst|mix_columns_in[3]     ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[2]     ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[12]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[20]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[28]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[3]     ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[4]     ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[13]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[21]    ; Equal1              ; yes                    ;
@@ -350,22 +349,22 @@ Encoding Type:  One-Hot
 ; EncryptRound:EncryptRound_inst|mix_columns_in[48]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[56]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[63]    ; Equal1              ; yes                    ;
-; EncryptRound:EncryptRound_inst|mix_columns_in[32]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[41]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[49]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[57]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[32]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[33]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[42]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[50]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[58]    ; Equal1              ; yes                    ;
-; EncryptRound:EncryptRound_inst|mix_columns_in[34]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[43]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[51]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[59]    ; Equal1              ; yes                    ;
-; EncryptRound:EncryptRound_inst|mix_columns_in[35]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[34]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[44]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[52]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[60]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[35]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[36]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[45]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[53]    ; Equal1              ; yes                    ;
@@ -382,22 +381,22 @@ Encoding Type:  One-Hot
 ; EncryptRound:EncryptRound_inst|mix_columns_in[80]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[88]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[95]    ; Equal1              ; yes                    ;
-; EncryptRound:EncryptRound_inst|mix_columns_in[64]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[73]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[81]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[89]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[64]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[65]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[74]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[82]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[90]    ; Equal1              ; yes                    ;
-; EncryptRound:EncryptRound_inst|mix_columns_in[66]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[75]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[83]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[91]    ; Equal1              ; yes                    ;
-; EncryptRound:EncryptRound_inst|mix_columns_in[67]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[66]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[76]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[84]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[92]    ; Equal1              ; yes                    ;
+; EncryptRound:EncryptRound_inst|mix_columns_in[67]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[68]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[77]    ; Equal1              ; yes                    ;
 ; EncryptRound:EncryptRound_inst|mix_columns_in[85]    ; Equal1              ; yes                    ;
@@ -542,20 +541,20 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA CLR           ; 257                         ;
 ;     ENA CLR SLD       ; 256                         ;
 ;     plain             ; 133                         ;
-; arriav_lcell_comb     ; 2067                        ;
+; arriav_lcell_comb     ; 2064                        ;
 ;     extend            ; 49                          ;
 ;         7 data inputs ; 49                          ;
-;     normal            ; 2018                        ;
+;     normal            ; 2015                        ;
 ;         1 data inputs ; 1                           ;
-;         2 data inputs ; 38                          ;
-;         3 data inputs ; 180                         ;
-;         4 data inputs ; 158                         ;
-;         5 data inputs ; 449                         ;
-;         6 data inputs ; 1192                        ;
+;         2 data inputs ; 29                          ;
+;         3 data inputs ; 210                         ;
+;         4 data inputs ; 149                         ;
+;         5 data inputs ; 432                         ;
+;         6 data inputs ; 1194                        ;
 ; boundary_port         ; 388                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 2.03                        ;
+; Average LUT depth     ; 2.05                        ;
 +-----------------------+-----------------------------+
 
 
@@ -564,7 +563,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:21     ;
+; Top            ; 00:00:17     ;
 +----------------+--------------+
 
 
@@ -574,19 +573,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Thu Feb 29 02:01:34 2024
+    Info: Processing started: Sat Mar  2 10:50:18 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off AES_Encrypt -c AES_Encrypt
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/encrypt/aesencrypttop.vhd
-    Info (12022): Found design unit 1: AESEncryptTop-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/AESEncryptTop.vhd Line: 10
-    Info (12023): Found entity 1: AESEncryptTop File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/AESEncryptTop.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/others/sbox.vhd
     Info (12022): Found design unit 1: SBox-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/SBox.vhd Line: 12
     Info (12023): Found entity 1: SBox File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/SBox.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/others/gf2multiplyby3.vhd
-    Info (12022): Found design unit 1: GF2MultiplyBy3-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/GF2MultiplyBy3.vhd Line: 20
-    Info (12023): Found entity 1: GF2MultiplyBy3 File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/GF2MultiplyBy3.vhd Line: 13
 Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/others/gf2multiplyby2.vhd
     Info (12022): Found design unit 1: GF2MultiplyBy2-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/GF2MultiplyBy2.vhd Line: 16
     Info (12023): Found entity 1: GF2MultiplyBy2 File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Others/GF2MultiplyBy2.vhd Line: 9
@@ -626,7 +619,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file //mac/a
     Info (12022): Found design unit 1: EncryptRound-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 13
     Info (12023): Found entity 1: EncryptRound File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/encrypt/computecolumn.vhd
-    Info (12022): Found design unit 1: ComputeColumn-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/ComputeColumn.vhd Line: 12
+    Info (12022): Found design unit 1: ComputeColumn-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/ComputeColumn.vhd Line: 17
     Info (12023): Found entity 1: ComputeColumn File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/ComputeColumn.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/crypto/aes/encrypt/aesencrypt.vhd
     Info (12022): Found design unit 1: AESEncrypt-rtl File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/AESEncrypt.vhd Line: 19
@@ -777,20 +770,19 @@ Info (12128): Elaborating entity "ShiftRows" for hierarchy "EncryptRound:Encrypt
 Info (12128): Elaborating entity "MixColumns" for hierarchy "EncryptRound:EncryptRound_inst|MixColumns:MixColumns_inst" File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 26
 Info (12128): Elaborating entity "ComputeColumn" for hierarchy "EncryptRound:EncryptRound_inst|MixColumns:MixColumns_inst|ComputeColumn:\generateComputeColumns:0:ComputeColumn_inst" File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/MixColumns.vhd Line: 15
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "cells_mul" into its bus
-Info (12128): Elaborating entity "GF2MultiplyBy2" for hierarchy "EncryptRound:EncryptRound_inst|MixColumns:MixColumns_inst|ComputeColumn:\generateComputeColumns:0:ComputeColumn_inst|GF2MultiplyBy2:\generateCellsMul2Mul3:0:GF2MultiplyBy2_inst" File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/ComputeColumn.vhd Line: 19
-Info (12128): Elaborating entity "GF2MultiplyBy3" for hierarchy "EncryptRound:EncryptRound_inst|MixColumns:MixColumns_inst|ComputeColumn:\generateComputeColumns:0:ComputeColumn_inst|GF2MultiplyBy3:\generateCellsMul2Mul3:0:GF2MultiplyBy3_inst" File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/ComputeColumn.vhd Line: 24
+Info (12128): Elaborating entity "GF2MultiplyBy2" for hierarchy "EncryptRound:EncryptRound_inst|MixColumns:MixColumns_inst|ComputeColumn:\generateComputeColumns:0:ComputeColumn_inst|GF2MultiplyBy2:\generateCellMuls:0:GF2MultiplyBy2_inst" File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/ComputeColumn.vhd Line: 24
 Info (12128): Elaborating entity "AddRoundKey" for hierarchy "EncryptRound:EncryptRound_inst|AddRoundKey:AddRoundKey_inst" File: //Mac/AllFiles/Applications/CODESTUFF/StudyVHDL/Crypto/AES/Encrypt/EncryptRound.vhd Line: 31
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 5536 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 5533 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 259 input pins
     Info (21059): Implemented 129 output pins
-    Info (21061): Implemented 5148 logic cells
+    Info (21061): Implemented 5145 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 13435 megabytes
-    Info: Processing ended: Thu Feb 29 02:02:26 2024
-    Info: Elapsed time: 00:00:52
-    Info: Total CPU time (on all processors): 00:01:15
+    Info: Peak virtual memory: 13436 megabytes
+    Info: Processing ended: Sat Mar  2 10:51:08 2024
+    Info: Elapsed time: 00:00:50
+    Info: Total CPU time (on all processors): 00:01:06
 
 
