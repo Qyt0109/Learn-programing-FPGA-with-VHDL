@@ -4,8 +4,8 @@ USE ieee.numeric_std.ALL;
 
 ENTITY giaima7thanh IS
     PORT (
-        input : IN STD_LOGIC_VECTOR(3 DOWNTO 0); -- ABCD
-        output : OUT STD_LOGIC_VECTOR(6 DOWNTO 0) -- abcdefg
+        input : IN STD_LOGIC_VECTOR(3 DOWNTO 0); -- abcd
+        output : OUT STD_LOGIC_VECTOR(6 DOWNTO 0) -- GFEDCBA
     );
 END ENTITY;
 

@@ -20,13 +20,13 @@ Theo datasheet (<a href="https://www.alldatasheet.com/datasheet-pdf/pdf/487677/A
     <thead>
         <tr>
             <th>abcd</th>
-            <th>ABCDEF</th>
+            <th>GFEDCBA</th>
             <th>abcd</th>
-            <th>ABCDEF</th>
+            <th>GFEDCBA</th>
             <th>abcd</th>
-            <th>ABCDEF</th>
+            <th>GFEDCBA</th>
             <th>abcd</th>
-            <th>ABCDEF</th>
+            <th>GFEDCBA</th>
         </tr>
     </thead>
     <tbody>
@@ -88,8 +88,8 @@ USE ieee.numeric_std.ALL;
 
 ENTITY giaima7thanh IS
     PORT (
-        input : IN STD_LOGIC_VECTOR(3 DOWNTO 0); -- ABCD
-        output : OUT STD_LOGIC_VECTOR(6 DOWNTO 0) -- abcdefg
+        input : IN STD_LOGIC_VECTOR(3 DOWNTO 0); -- abcd
+        output : OUT STD_LOGIC_VECTOR(6 DOWNTO 0) -- GFEDCBA
     );
 END ENTITY;
 
