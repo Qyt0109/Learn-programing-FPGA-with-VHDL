@@ -1,5 +1,5 @@
 Assembler report for SevenSegLed
-Sun Mar  3 01:06:39 2024
+Fri Mar  8 18:36:51 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -38,11 +38,11 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Sun Mar  3 01:06:39 2024 ;
+; Assembler Status      ; Successful - Fri Mar  8 18:36:51 2024 ;
 ; Revision Name         ; SevenSegLed                           ;
 ; Top-level Entity Name ; giaima7thanh_topmodule                ;
-; Family                ; Cyclone V                             ;
-; Device                ; 5CGXFC7C7F23C8                        ;
+; Family                ; Cyclone IV E                          ;
+; Device                ; EP4CE115F29C7                         ;
 +-----------------------+---------------------------------------+
 
 
@@ -67,8 +67,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------+----------------------------------------------------------------------------------------------------------------+
 ; Option         ; Setting                                                                                                        ;
 +----------------+----------------------------------------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x00ECC1FC                                                                                                     ;
-; Checksum       ; 0x00ECC1FC                                                                                                     ;
+; JTAG usercode  ; 0x0056C327                                                                                                     ;
+; Checksum       ; 0x0056C327                                                                                                     ;
 +----------------+----------------------------------------------------------------------------------------------------------------+
 
 
@@ -78,14 +78,15 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Sun Mar  3 01:06:20 2024
+    Info: Processing started: Fri Mar  8 18:36:43 2024
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off SevenSegLed -c SevenSegLed
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 13815 megabytes
-    Info: Processing ended: Sun Mar  3 01:06:39 2024
-    Info: Elapsed time: 00:00:19
-    Info: Total CPU time (on all processors): 00:00:18
+    Info: Peak virtual memory: 13453 megabytes
+    Info: Processing ended: Fri Mar  8 18:36:52 2024
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:08
 
 

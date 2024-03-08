@@ -15,37 +15,37 @@ BEGIN
     BEGIN
         CASE (input) IS
             WHEN "0000" =>
-                output <= "1111110";
+                output <= "1000000";
             WHEN "0001" =>
-                output <= "0110000";
-            WHEN "0010" =>
-                output <= "1101101";
-            WHEN "0011" =>
                 output <= "1111001";
+            WHEN "0010" =>
+                output <= "0100100";
+            WHEN "0011" =>
+                output <= "0110000";
             WHEN "0100" =>
-                output <= "0110011";
+                output <= "0011001";
             WHEN "0101" =>
-                output <= "1011111";
+                output <= "0010010";
             WHEN "0110" =>
-                output <= "1011111";
+                output <= "0000010";
             WHEN "0111" =>
-                output <= "1110000";
+                output <= "1111000";
             WHEN "1000" =>
-                output <= "1111111";
+                output <= "0000000";
             WHEN "1001" =>
-                output <= "1111011";
+                output <= "0010000";
             WHEN "1010" =>
-                output <= "1110111";
+                output <= "0001000";
             WHEN "1011" =>
-                output <= "0011111";
+                output <= "0000011";
             WHEN "1100" =>
-                output <= "1001110";
+                output <= "1000110";
             WHEN "1101" =>
-                output <= "0111101";
+                output <= "0100001";
             WHEN "1110" =>
-                output <= "1001111";
+                output <= "0000110";
             WHEN "1111" =>
-                output <= "1000111";
+                output <= "0001110";
             WHEN OTHERS =>
                 output <= (OTHERS => '0');
         END CASE;

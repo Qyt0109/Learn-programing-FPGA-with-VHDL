@@ -1,17 +1,14 @@
-Analysis & Synthesis Status : Successful - Sun Mar  3 01:05:00 2024
+Analysis & Synthesis Status : Successful - Fri Mar  8 18:36:18 2024
 Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 Revision Name : SevenSegLed
 Top-level Entity Name : giaima7thanh_topmodule
-Family : Cyclone V
-Logic utilization (in ALMs) : N/A
+Family : Cyclone IV E
+Total logic elements : 28
+    Total combinational functions : 28
+    Dedicated logic registers : 0
 Total registers : 0
-Total pins : 44
+Total pins : 60
 Total virtual pins : 0
-Total block memory bits : 0
-Total DSP Blocks : 0
-Total HSSI RX PCSs : 0
-Total HSSI PMA RX Deserializers : 0
-Total HSSI TX PCSs : 0
-Total HSSI PMA TX Serializers : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
 Total PLLs : 0
-Total DLLs : 0

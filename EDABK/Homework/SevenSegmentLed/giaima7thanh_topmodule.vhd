@@ -8,12 +8,14 @@ ENTITY giaima7thanh_topmodule IS
   );
   PORT (
     input : IN STD_LOGIC_VECTOR(NUMBER_OF_LED * 4 - 1 DOWNTO 0);
+    input_leds : OUT STD_LOGIC_VECTOR(NUMBER_OF_LED * 4 - 1 DOWNTO 0);
     output : OUT STD_LOGIC_VECTOR(NUMBER_OF_LED * 7 - 1 DOWNTO 0)
   );
 END ENTITY;
 
 ARCHITECTURE rtl OF giaima7thanh_topmodule IS
 BEGIN
+  input_leds <= input;
   generate7SegLed : FOR led_index IN 0 TO NUMBER_OF_LED - 1 GENERATE
     giaima7thanh_inst : ENTITY work.giaima7thanh
       PORT MAP(

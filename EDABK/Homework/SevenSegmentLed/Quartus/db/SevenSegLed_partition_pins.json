@@ -4,6 +4,70 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "input_leds[0]",
+					"strict" : false
+				},
+				{
+					"name" : "input_leds[1]",
+					"strict" : false
+				},
+				{
+					"name" : "input_leds[2]",
+					"strict" : false
+				},
+				{
+					"name" : "input_leds[3]",
+					"strict" : false
+				},
+				{
+					"name" : "input_leds[4]",
+					"strict" : false
+				},
+				{
+					"name" : "input_leds[5]",
+					"strict" : false
+				},
+				{
+					"name" : "input_leds[6]",
+					"strict" : false
+				},
+				{
+					"name" : "input_leds[7]",
+					"strict" : false
+				},
+				{
+					"name" : "input_leds[8]",
+					"strict" : false
+				},
+				{
+					"name" : "input_leds[9]",
+					"strict" : false
+				},
+				{
+					"name" : "input_leds[10]",
+					"strict" : false
+				},
+				{
+					"name" : "input_leds[11]",
+					"strict" : false
+				},
+				{
+					"name" : "input_leds[12]",
+					"strict" : false
+				},
+				{
+					"name" : "input_leds[13]",
+					"strict" : false
+				},
+				{
+					"name" : "input_leds[14]",
+					"strict" : false
+				},
+				{
+					"name" : "input_leds[15]",
+					"strict" : false
+				},
+				{
 					"name" : "output[0]",
 					"strict" : false
 				},
