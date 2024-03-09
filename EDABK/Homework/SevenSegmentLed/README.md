@@ -81,7 +81,7 @@ Ngoài các inputs, outputs như đã đề cập, tôi bổ sung thêm output �
 
 ### 2.3. Code
 - Module <b>giaima7thanh</b>:
-``` verilog
+``` vhdl
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;
@@ -137,7 +137,7 @@ BEGIN
 END ARCHITECTURE;
 ```
 - Top module <b>giaima7thanh_topmodule</b>:
-``` verilog
+``` vhdl
 LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 USE ieee.numeric_std.ALL;

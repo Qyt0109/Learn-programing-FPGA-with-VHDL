@@ -1,0 +1,225 @@
+// Copyright (C) 2023  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and any partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details, at
+// https://fpgasoftware.intel.com/eula.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus Prime"
+// VERSION "Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition"
+
+// DATE "03/09/2024 11:03:07"
+
+// 
+// Device: Altera EP4CE115F23C7 Package FBGA484
+// 
+
+// 
+// This Verilog file should be used for Questa Intel FPGA (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module majority (
+	x,
+	f);
+input 	[4:0] x;
+output 	f;
+
+// Design Ports Information
+// f	=>  Location: PIN_E8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// x[0]	=>  Location: PIN_C8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// x[2]	=>  Location: PIN_A5,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// x[3]	=>  Location: PIN_D8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// x[4]	=>  Location: PIN_C7,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// x[1]	=>  Location: PIN_E9,	 I/O Standard: 2.5 V,	 Current Strength: Default
+
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+wire \f~output_o ;
+wire \x[4]~input_o ;
+wire \x[3]~input_o ;
+wire \x[1]~input_o ;
+wire \LessThan0~1_combout ;
+wire \LessThan0~0_combout ;
+wire \x[2]~input_o ;
+wire \x[0]~input_o ;
+wire \LessThan0~2_combout ;
+
+
+hard_block auto_generated_inst(
+	.devpor(devpor),
+	.devclrn(devclrn),
+	.devoe(devoe));
+
+// Location: IOOBUF_X31_Y73_N9
+cycloneive_io_obuf \f~output (
+	.i(\LessThan0~2_combout ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\f~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \f~output .bus_hold = "false";
+defparam \f~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X33_Y73_N8
+cycloneive_io_ibuf \x[4]~input (
+	.i(x[4]),
+	.ibar(gnd),
+	.o(\x[4]~input_o ));
+// synopsys translate_off
+defparam \x[4]~input .bus_hold = "false";
+defparam \x[4]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X31_Y73_N1
+cycloneive_io_ibuf \x[3]~input (
+	.i(x[3]),
+	.ibar(gnd),
+	.o(\x[3]~input_o ));
+// synopsys translate_off
+defparam \x[3]~input .bus_hold = "false";
+defparam \x[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X35_Y73_N15
+cycloneive_io_ibuf \x[1]~input (
+	.i(x[1]),
+	.ibar(gnd),
+	.o(\x[1]~input_o ));
+// synopsys translate_off
+defparam \x[1]~input .bus_hold = "false";
+defparam \x[1]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X32_Y72_N10
+cycloneive_lcell_comb \LessThan0~1 (
+// Equation(s):
+// \LessThan0~1_combout  = (\x[4]~input_o  & ((\x[3]~input_o ) # (\x[1]~input_o ))) # (!\x[4]~input_o  & (\x[3]~input_o  & \x[1]~input_o ))
+
+	.dataa(\x[4]~input_o ),
+	.datab(gnd),
+	.datac(\x[3]~input_o ),
+	.datad(\x[1]~input_o ),
+	.cin(gnd),
+	.combout(\LessThan0~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \LessThan0~1 .lut_mask = 16'hFAA0;
+defparam \LessThan0~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X32_Y72_N24
+cycloneive_lcell_comb \LessThan0~0 (
+// Equation(s):
+// \LessThan0~0_combout  = \x[4]~input_o  $ (\x[3]~input_o  $ (\x[1]~input_o ))
+
+	.dataa(\x[4]~input_o ),
+	.datab(gnd),
+	.datac(\x[3]~input_o ),
+	.datad(\x[1]~input_o ),
+	.cin(gnd),
+	.combout(\LessThan0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \LessThan0~0 .lut_mask = 16'hA55A;
+defparam \LessThan0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: IOIBUF_X29_Y73_N8
+cycloneive_io_ibuf \x[2]~input (
+	.i(x[2]),
+	.ibar(gnd),
+	.o(\x[2]~input_o ));
+// synopsys translate_off
+defparam \x[2]~input .bus_hold = "false";
+defparam \x[2]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: IOIBUF_X33_Y73_N1
+cycloneive_io_ibuf \x[0]~input (
+	.i(x[0]),
+	.ibar(gnd),
+	.o(\x[0]~input_o ));
+// synopsys translate_off
+defparam \x[0]~input .bus_hold = "false";
+defparam \x[0]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X32_Y72_N12
+cycloneive_lcell_comb \LessThan0~2 (
+// Equation(s):
+// \LessThan0~2_combout  = (\LessThan0~1_combout  & ((\LessThan0~0_combout ) # ((\x[2]~input_o ) # (\x[0]~input_o )))) # (!\LessThan0~1_combout  & (\LessThan0~0_combout  & (\x[2]~input_o  & \x[0]~input_o )))
+
+	.dataa(\LessThan0~1_combout ),
+	.datab(\LessThan0~0_combout ),
+	.datac(\x[2]~input_o ),
+	.datad(\x[0]~input_o ),
+	.cin(gnd),
+	.combout(\LessThan0~2_combout ),
+	.cout());
+// synopsys translate_off
+defparam \LessThan0~2 .lut_mask = 16'hEAA8;
+defparam \LessThan0~2 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+assign f = \f~output_o ;
+
+endmodule
+
+module hard_block (
+
+	devpor,
+	devclrn,
+	devoe);
+
+// Design Ports Information
+// ~ALTERA_ASDO_DATA1~	=>  Location: PIN_D1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_FLASH_nCE_nCSO~	=>  Location: PIN_E2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_DCLK~	=>  Location: PIN_K2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_DATA0~	=>  Location: PIN_K1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_nCEO~	=>  Location: PIN_K22,	 I/O Standard: 2.5 V,	 Current Strength: 8mA
+
+input 	devpor;
+input 	devclrn;
+input 	devoe;
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+wire \~ALTERA_ASDO_DATA1~~padout ;
+wire \~ALTERA_FLASH_nCE_nCSO~~padout ;
+wire \~ALTERA_DATA0~~padout ;
+wire \~ALTERA_ASDO_DATA1~~ibuf_o ;
+wire \~ALTERA_FLASH_nCE_nCSO~~ibuf_o ;
+wire \~ALTERA_DATA0~~ibuf_o ;
+
+
+endmodule
