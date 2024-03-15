@@ -4,59 +4,63 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "y[0]",
+					"name" : "OUTPUT_F[0]",
 					"strict" : false
 				},
 				{
-					"name" : "y[1]",
+					"name" : "OUTPUT_F[1]",
 					"strict" : false
 				},
 				{
-					"name" : "y[2]",
+					"name" : "OUTPUT_F[2]",
 					"strict" : false
 				},
 				{
-					"name" : "y[3]",
+					"name" : "OUTPUT_F[3]",
 					"strict" : false
 				},
 				{
-					"name" : "b[1]",
+					"name" : "INPUT_A[0]",
 					"strict" : false
 				},
 				{
-					"name" : "s1",
+					"name" : "INPUT_B[3]",
 					"strict" : false
 				},
 				{
-					"name" : "b[0]",
+					"name" : "INPUT_B[0]",
 					"strict" : false
 				},
 				{
-					"name" : "a[0]",
+					"name" : "INPUT_B[1]",
 					"strict" : false
 				},
 				{
-					"name" : "s2",
+					"name" : "INPUT_B[2]",
 					"strict" : false
 				},
 				{
-					"name" : "a[1]",
+					"name" : "INPUT_A[3]",
 					"strict" : false
 				},
 				{
-					"name" : "b[3]",
+					"name" : "INPUT_A[1]",
 					"strict" : false
 				},
 				{
-					"name" : "b[2]",
+					"name" : "INPUT_A[2]",
 					"strict" : false
 				},
 				{
-					"name" : "a[2]",
+					"name" : "SELECT_S[1]",
 					"strict" : false
 				},
 				{
-					"name" : "a[3]",
+					"name" : "SELECT_S[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SELECT_S[0]",
 					"strict" : false
 				}
 			]

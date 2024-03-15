@@ -1,5 +1,5 @@
 Analysis & Synthesis report for IfElseProject
-Sat Mar  9 10:12:30 2024
+Fri Mar 15 20:32:26 2024
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -14,11 +14,12 @@ Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0
- 10. lpm_mult Parameter Settings by Entity Instance
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Parameter Settings for User Entity Instance: Top-level Entity: |ALU_NestedIfElse2
+ 11. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 12. Post-Synthesis Netlist Statistics for Top Partition
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
 
 
 
@@ -45,16 +46,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Mar  9 10:12:30 2024          ;
+; Analysis & Synthesis Status        ; Successful - Fri Mar 15 20:32:26 2024          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; IfElseProject                                  ;
-; Top-level Entity Name              ; if_else_long_nhau                              ;
+; Top-level Entity Name              ; ALU_NestedIfElse2                              ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 28                                             ;
-;     Total combinational functions  ; 28                                             ;
+; Total logic elements               ; 67                                             ;
+;     Total combinational functions  ; 67                                             ;
 ;     Dedicated logic registers      ; 0                                              ;
 ; Total registers                    ; 0                                              ;
-; Total pins                         ; 14                                             ;
+; Total pins                         ; 15                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -68,7 +69,7 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                           ; EP4CE115F23C7      ;                    ;
-; Top-level entity name                                            ; if_else_long_nhau  ; IfElseProject      ;
+; Top-level entity name                                            ; ALU_NestedIfElse2  ; IfElseProject      ;
 ; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -164,63 +165,71 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                           ;
-+----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                       ; Library ;
-+----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------------------+---------+
-; ../if_else_long_nhau.vhd         ; yes             ; User VHDL File               ; //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/if_else_long_nhau.vhd   ;         ;
-; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/lpm_mult.tdf                             ;         ;
-; aglobal221.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/aglobal221.inc                           ;         ;
-; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/lpm_add_sub.inc                          ;         ;
-; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/multcore.inc                             ;         ;
-; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/bypassff.inc                             ;         ;
-; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/altshift.inc                             ;         ;
-; db/mult_g1t.tdf                  ; yes             ; Auto-Generated Megafunction  ; //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/Quartus/db/mult_g1t.tdf ;         ;
-+----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                  ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                              ; Library ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------+---------+
+; ../ALU_NestedIfElse2.vhd         ; yes             ; User VHDL File               ; //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_NestedIfElse2.vhd          ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/lpm_divide.tdf                                  ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/abs_divider.inc                                 ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/sign_div_unsign.inc                             ;         ;
+; aglobal221.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/22.1std/quartus/libraries/megafunctions/aglobal221.inc                                  ;         ;
+; db/lpm_divide_ano.tdf            ; yes             ; Auto-Generated Megafunction  ; //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/Quartus/db/lpm_divide_ano.tdf  ;         ;
+; db/abs_divider_2ag.tdf           ; yes             ; Auto-Generated Megafunction  ; //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/Quartus/db/abs_divider_2ag.tdf ;         ;
+; db/alt_u_div_24f.tdf             ; yes             ; Auto-Generated Megafunction  ; //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/Quartus/db/alt_u_div_24f.tdf   ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/Quartus/db/add_sub_7pc.tdf     ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/Quartus/db/add_sub_8pc.tdf     ;         ;
+; db/lpm_abs_1v9.tdf               ; yes             ; Auto-Generated Megafunction  ; //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/Quartus/db/lpm_abs_1v9.tdf     ;         ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------+---------+
 
 
-+----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary              ;
-+---------------------------------------------+------------+
-; Resource                                    ; Usage      ;
-+---------------------------------------------+------------+
-; Estimated Total logic elements              ; 28         ;
-;                                             ;            ;
-; Total combinational functions               ; 28         ;
-; Logic element usage by number of LUT inputs ;            ;
-;     -- 4 input functions                    ; 10         ;
-;     -- 3 input functions                    ; 8          ;
-;     -- <=2 input functions                  ; 10         ;
-;                                             ;            ;
-; Logic elements by mode                      ;            ;
-;     -- normal mode                          ; 20         ;
-;     -- arithmetic mode                      ; 8          ;
-;                                             ;            ;
-; Total registers                             ; 0          ;
-;     -- Dedicated logic registers            ; 0          ;
-;     -- I/O registers                        ; 0          ;
-;                                             ;            ;
-; I/O pins                                    ; 14         ;
-;                                             ;            ;
-; Embedded Multiplier 9-bit elements          ; 0          ;
-;                                             ;            ;
-; Maximum fan-out node                        ; b[1]~input ;
-; Maximum fan-out                             ; 9          ;
-; Total fan-out                               ; 101        ;
-; Average fan-out                             ; 1.80       ;
-+---------------------------------------------+------------+
++----------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                    ;
++---------------------------------------------+------------------+
+; Resource                                    ; Usage            ;
++---------------------------------------------+------------------+
+; Estimated Total logic elements              ; 67               ;
+;                                             ;                  ;
+; Total combinational functions               ; 67               ;
+; Logic element usage by number of LUT inputs ;                  ;
+;     -- 4 input functions                    ; 27               ;
+;     -- 3 input functions                    ; 26               ;
+;     -- <=2 input functions                  ; 14               ;
+;                                             ;                  ;
+; Logic elements by mode                      ;                  ;
+;     -- normal mode                          ; 54               ;
+;     -- arithmetic mode                      ; 13               ;
+;                                             ;                  ;
+; Total registers                             ; 0                ;
+;     -- Dedicated logic registers            ; 0                ;
+;     -- I/O registers                        ; 0                ;
+;                                             ;                  ;
+; I/O pins                                    ; 15               ;
+;                                             ;                  ;
+; Embedded Multiplier 9-bit elements          ; 0                ;
+;                                             ;                  ;
+; Maximum fan-out node                        ; INPUT_B[0]~input ;
+; Maximum fan-out                             ; 11               ;
+; Total fan-out                               ; 229              ;
+; Average fan-out                             ; 2.36             ;
++---------------------------------------------+------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                       ;
-+---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+-------------------+--------------+
-; Compilation Hierarchy Node      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                       ; Entity Name       ; Library Name ;
-+---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+-------------------+--------------+
-; |if_else_long_nhau              ; 28 (13)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 14   ; 0            ; |if_else_long_nhau                                        ; if_else_long_nhau ; work         ;
-;    |lpm_mult:Mult0|             ; 15 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |if_else_long_nhau|lpm_mult:Mult0                         ; lpm_mult          ; work         ;
-;       |mult_g1t:auto_generated| ; 15 (15)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |if_else_long_nhau|lpm_mult:Mult0|mult_g1t:auto_generated ; mult_g1t          ; work         ;
-+---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------+-------------------+--------------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                         ;
++----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
+; Compilation Hierarchy Node             ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                  ; Entity Name       ; Library Name ;
++----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
+; |ALU_NestedIfElse2                     ; 67 (27)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 15   ; 0            ; |ALU_NestedIfElse2                                                                                                                   ; ALU_NestedIfElse2 ; work         ;
+;    |lpm_divide:Mod0|                   ; 40 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU_NestedIfElse2|lpm_divide:Mod0                                                                                                   ; lpm_divide        ; work         ;
+;       |lpm_divide_ano:auto_generated|  ; 40 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU_NestedIfElse2|lpm_divide:Mod0|lpm_divide_ano:auto_generated                                                                     ; lpm_divide_ano    ; work         ;
+;          |abs_divider_2ag:divider|     ; 40 (8)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU_NestedIfElse2|lpm_divide:Mod0|lpm_divide_ano:auto_generated|abs_divider_2ag:divider                                             ; abs_divider_2ag   ; work         ;
+;             |alt_u_div_24f:divider|    ; 27 (26)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU_NestedIfElse2|lpm_divide:Mod0|lpm_divide_ano:auto_generated|abs_divider_2ag:divider|alt_u_div_24f:divider                       ; alt_u_div_24f     ; work         ;
+;                |add_sub_8pc:add_sub_1| ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU_NestedIfElse2|lpm_divide:Mod0|lpm_divide_ano:auto_generated|abs_divider_2ag:divider|alt_u_div_24f:divider|add_sub_8pc:add_sub_1 ; add_sub_8pc       ; work         ;
+;             |lpm_abs_1v9:my_abs_den|   ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU_NestedIfElse2|lpm_divide:Mod0|lpm_divide_ano:auto_generated|abs_divider_2ag:divider|lpm_abs_1v9:my_abs_den                      ; lpm_abs_1v9       ; work         ;
+;             |lpm_abs_1v9:my_abs_num|   ; 2 (2)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |ALU_NestedIfElse2|lpm_divide:Mod0|lpm_divide_ano:auto_generated|abs_divider_2ag:divider|lpm_abs_1v9:my_abs_num                      ; lpm_abs_1v9       ; work         ;
++----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------------+-------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -239,59 +248,46 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 
 
-+-------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0                     ;
-+------------------------------------------------+--------------+---------------------+
-; Parameter Name                                 ; Value        ; Type                ;
-+------------------------------------------------+--------------+---------------------+
-; AUTO_CARRY_CHAINS                              ; ON           ; AUTO_CARRY          ;
-; IGNORE_CARRY_BUFFERS                           ; OFF          ; IGNORE_CARRY        ;
-; AUTO_CASCADE_CHAINS                            ; ON           ; AUTO_CASCADE        ;
-; IGNORE_CASCADE_BUFFERS                         ; OFF          ; IGNORE_CASCADE      ;
-; LPM_WIDTHA                                     ; 4            ; Untyped             ;
-; LPM_WIDTHB                                     ; 4            ; Untyped             ;
-; LPM_WIDTHP                                     ; 8            ; Untyped             ;
-; LPM_WIDTHR                                     ; 8            ; Untyped             ;
-; LPM_WIDTHS                                     ; 1            ; Untyped             ;
-; LPM_REPRESENTATION                             ; SIGNED       ; Untyped             ;
-; LPM_PIPELINE                                   ; 0            ; Untyped             ;
-; LATENCY                                        ; 0            ; Untyped             ;
-; INPUT_A_IS_CONSTANT                            ; NO           ; Untyped             ;
-; INPUT_B_IS_CONSTANT                            ; NO           ; Untyped             ;
-; USE_EAB                                        ; OFF          ; Untyped             ;
-; MAXIMIZE_SPEED                                 ; 5            ; Untyped             ;
-; DEVICE_FAMILY                                  ; Cyclone IV E ; Untyped             ;
-; CARRY_CHAIN                                    ; MANUAL       ; Untyped             ;
-; APEX20K_TECHNOLOGY_MAPPER                      ; LUT          ; TECH_MAPPER_APEX20K ;
-; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO         ; Untyped             ;
-; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0            ; Untyped             ;
-; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0            ; Untyped             ;
-; CBXI_PARAMETER                                 ; mult_g1t     ; Untyped             ;
-; INPUT_A_FIXED_VALUE                            ; Bx           ; Untyped             ;
-; INPUT_B_FIXED_VALUE                            ; Bx           ; Untyped             ;
-; USE_AHDL_IMPLEMENTATION                        ; OFF          ; Untyped             ;
-+------------------------------------------------+--------------+---------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
+; 6:1                ; 4 bits    ; 16 LEs        ; 12 LEs               ; 4 LEs                  ; No         ; |ALU_NestedIfElse2|OUTPUT_F ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------+
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |ALU_NestedIfElse2 ;
++----------------+-------+----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                     ;
++----------------+-------+----------------------------------------------------------+
+; NUMBER_OF_BIT  ; 4     ; Signed Integer                                           ;
++----------------+-------+----------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+--------------------------------------------------------+
-; lpm_mult Parameter Settings by Entity Instance         ;
-+---------------------------------------+----------------+
-; Name                                  ; Value          ;
-+---------------------------------------+----------------+
-; Number of entity instances            ; 1              ;
-; Entity Instance                       ; lpm_mult:Mult0 ;
-;     -- LPM_WIDTHA                     ; 4              ;
-;     -- LPM_WIDTHB                     ; 4              ;
-;     -- LPM_WIDTHP                     ; 8              ;
-;     -- LPM_REPRESENTATION             ; SIGNED         ;
-;     -- INPUT_A_IS_CONSTANT            ; NO             ;
-;     -- INPUT_B_IS_CONSTANT            ; NO             ;
-;     -- USE_EAB                        ; OFF            ;
-;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO           ;
-;     -- INPUT_A_FIXED_VALUE            ; Bx             ;
-;     -- INPUT_B_FIXED_VALUE            ; Bx             ;
-+---------------------------------------+----------------+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 4              ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_ano ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-----------------------------------------------------+
@@ -299,19 +295,18 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 14                          ;
-; cycloneiii_lcell_comb ; 28                          ;
-;     arith             ; 8                           ;
-;         2 data inputs ; 2                           ;
-;         3 data inputs ; 6                           ;
-;     normal            ; 20                          ;
-;         1 data inputs ; 1                           ;
-;         2 data inputs ; 7                           ;
-;         3 data inputs ; 2                           ;
-;         4 data inputs ; 10                          ;
+; boundary_port         ; 15                          ;
+; cycloneiii_lcell_comb ; 67                          ;
+;     arith             ; 13                          ;
+;         3 data inputs ; 13                          ;
+;     normal            ; 54                          ;
+;         0 data inputs ; 2                           ;
+;         2 data inputs ; 12                          ;
+;         3 data inputs ; 13                          ;
+;         4 data inputs ; 27                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.10                        ;
-; Average LUT depth     ; 3.57                        ;
+; Max LUT depth         ; 14.80                       ;
+; Average LUT depth     ; 12.88                       ;
 +-----------------------+-----------------------------+
 
 
@@ -320,7 +315,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -330,54 +325,61 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Sat Mar  9 10:12:07 2024
+    Info: Processing started: Fri Mar 15 20:31:58 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off IfElseProject -c IfElseProject
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/edabk/homework/ifelsecases/if_else_long_nhau.vhd
-    Info (12022): Found design unit 1: if_else_long_nhau-rtl File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/if_else_long_nhau.vhd Line: 16
-    Info (12023): Found entity 1: if_else_long_nhau File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/if_else_long_nhau.vhd Line: 8
-Info (12127): Elaborating entity "if_else_long_nhau" for the top level hierarchy
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/edabk/homework/ifelsecases/alu_nestedifelse2.vhd
+    Info (12022): Found design unit 1: ALU_NestedIfElse2-rtl File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_NestedIfElse2.vhd Line: 16
+    Info (12023): Found entity 1: ALU_NestedIfElse2 File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_NestedIfElse2.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/edabk/homework/ifelsecases/alu_caseifelse2.vhd
+    Info (12022): Found design unit 1: ALU_CaseIfElse2-rtl File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_CaseIfElse2.vhd Line: 16
+    Info (12023): Found entity 1: ALU_CaseIfElse2 File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_CaseIfElse2.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/edabk/homework/ifelsecases/alu_nestedifelse.vhd
+    Info (12022): Found design unit 1: ALU_NestedIfElse-rtl File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_NestedIfElse.vhd Line: 16
+    Info (12023): Found entity 1: ALU_NestedIfElse File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_NestedIfElse.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/edabk/homework/ifelsecases/alu_ifelse.vhd
+    Info (12022): Found design unit 1: ALU_IfElse-rtl File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_IfElse.vhd Line: 16
+    Info (12023): Found entity 1: ALU_IfElse File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_IfElse.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/edabk/homework/ifelsecases/alu_caseifelse.vhd
+    Info (12022): Found design unit 1: ALU_CaseIfElse-rtl File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_CaseIfElse.vhd Line: 16
+    Info (12023): Found entity 1: ALU_CaseIfElse File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_CaseIfElse.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file //mac/allfiles/applications/codestuff/studyvhdl/edabk/homework/ifelsecases/alu_case1.vhd
+    Info (12022): Found design unit 1: ALU_Case1-rtl File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_Case1.vhd Line: 16
+    Info (12023): Found entity 1: ALU_Case1 File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_Case1.vhd Line: 5
+Info (12127): Elaborating entity "ALU_NestedIfElse2" for the top level hierarchy
 Info (278001): Inferred 1 megafunctions from design logic
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "Mult0" File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/if_else_long_nhau.vhd Line: 25
-Info (12130): Elaborated megafunction instantiation "lpm_mult:Mult0" File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/if_else_long_nhau.vhd Line: 25
-Info (12133): Instantiated megafunction "lpm_mult:Mult0" with the following parameter: File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/if_else_long_nhau.vhd Line: 25
-    Info (12134): Parameter "LPM_WIDTHA" = "4"
-    Info (12134): Parameter "LPM_WIDTHB" = "4"
-    Info (12134): Parameter "LPM_WIDTHP" = "8"
-    Info (12134): Parameter "LPM_WIDTHR" = "8"
-    Info (12134): Parameter "LPM_WIDTHS" = "1"
-    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
-    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
-    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
-    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
-Info (12021): Found 1 design units, including 1 entities, in source file db/mult_g1t.tdf
-    Info (12023): Found entity 1: mult_g1t File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/Quartus/db/mult_g1t.tdf Line: 29
-Warning (14284): Synthesized away the following node(s):
-    Warning (14285): Synthesized away the following LCELL buffer node(s):
-        Warning (14320): Synthesized away node "lpm_mult:Mult0|mult_g1t:auto_generated|le2a[4]" File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/Quartus/db/mult_g1t.tdf Line: 40
-        Warning (14320): Synthesized away node "lpm_mult:Mult0|mult_g1t:auto_generated|le2a[3]" File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/Quartus/db/mult_g1t.tdf Line: 40
-        Warning (14320): Synthesized away node "lpm_mult:Mult0|mult_g1t:auto_generated|le2a[2]" File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/Quartus/db/mult_g1t.tdf Line: 40
-        Warning (14320): Synthesized away node "lpm_mult:Mult0|mult_g1t:auto_generated|le4a[4]" File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/Quartus/db/mult_g1t.tdf Line: 41
-        Warning (14320): Synthesized away node "lpm_mult:Mult0|mult_g1t:auto_generated|le4a[3]" File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/Quartus/db/mult_g1t.tdf Line: 41
-        Warning (14320): Synthesized away node "lpm_mult:Mult0|mult_g1t:auto_generated|le4a[2]" File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/Quartus/db/mult_g1t.tdf Line: 41
-Warning (14284): Synthesized away the following node(s):
-    Warning (14285): Synthesized away the following LCELL buffer node(s):
-        Warning (14320): Synthesized away node "lpm_mult:Mult0|mult_g1t:auto_generated|le5a[4]" File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/Quartus/db/mult_g1t.tdf Line: 42
-Info (13014): Ignored 18 buffer(s)
-    Info (13016): Ignored 2 CARRY_SUM buffer(s)
-    Info (13019): Ignored 16 SOFT buffer(s)
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_NestedIfElse2.vhd Line: 26
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_NestedIfElse2.vhd Line: 26
+Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_NestedIfElse2.vhd Line: 26
+    Info (12134): Parameter "LPM_WIDTHN" = "4"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ano.tdf
+    Info (12023): Found entity 1: lpm_divide_ano File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/Quartus/db/lpm_divide_ano.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_2ag.tdf
+    Info (12023): Found entity 1: abs_divider_2ag File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/Quartus/db/abs_divider_2ag.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_24f.tdf
+    Info (12023): Found entity 1: alt_u_div_24f File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/Quartus/db/alt_u_div_24f.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/Quartus/db/add_sub_7pc.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/Quartus/db/add_sub_8pc.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_1v9.tdf
+    Info (12023): Found entity 1: lpm_abs_1v9 File: //mac/AllFiles/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/Quartus/db/lpm_abs_1v9.tdf Line: 23
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 42 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 10 input pins
+Info (21057): Implemented 82 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 11 input pins
     Info (21059): Implemented 4 output pins
-    Info (21061): Implemented 28 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 12 warnings
-    Info: Peak virtual memory: 13327 megabytes
-    Info: Processing ended: Sat Mar  9 10:12:30 2024
-    Info: Elapsed time: 00:00:23
-    Info: Total CPU time (on all processors): 00:00:45
+    Info (21061): Implemented 67 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 13321 megabytes
+    Info: Processing ended: Fri Mar 15 20:32:26 2024
+    Info: Elapsed time: 00:00:28
+    Info: Total CPU time (on all processors): 00:00:55
 
 

@@ -1,6 +1,91 @@
-# Mạch số lớn (Majority)
+# Mạch số đông (Majority)
 
 ## 1) Spec:
+```
+          ┌──────────────┐     
+     A ───┤              │     
+          │              │     
+     B ───┤  Majority 3  ├─── F
+          │              │     
+     C ───┤              │     
+          └──────────────┘     
+```
+- Majority là một loại mạch điện tử được sử dụng để xác định giá trị đa số của một tập hợp các tín hiệu đầu vào. Trong mạch majority, giá trị của đầu ra được quyết định bởi tín hiệu đầu vào nào chiếm đa số.
+- Ví dụ bảng chân lý với số lượng bit đầu vào bằng 3:
+<table>
+    <thead>
+        <th>
+            ABC
+        </th>
+        <th>
+            F
+        </th>
+        <th>
+            ABC
+        </th>
+        <th>
+            F
+        </th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                000
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                100
+            </td>
+            <td>
+                0
+            </td>
+        </tr>
+        <tr>
+            <td>
+                001
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                101
+            </td>
+            <td>
+                1
+            </td>
+        </tr>
+        <tr>
+            <td>
+                010
+            </td>
+            <td>
+                0
+            </td>
+            <td>
+                110
+            </td>
+            <td>
+                1
+            </td>
+        </tr>
+        <tr>
+            <td>
+                011
+            </td>
+            <td>
+                1
+            </td>
+            <td>
+                111
+            </td>
+            <td>
+                1
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 ## 2) Thực hiện:
 ### 2.1. Code
@@ -73,7 +158,7 @@ BEGIN
     END PROCESS;
 END ARCHITECTURE;
 ```
-## 2.2. Demo
+### 2.2. Demo
 - RTL view:
     - Số lượng bit đầu vào (NUMBER_OF_BITS) = 3:
     <img src="./imgs/rtl3.png">
@@ -86,3 +171,21 @@ END ARCHITECTURE;
     <img src="./imgs/3bit.png">
     - Test với số lượng bit đầu vào (NUMBER_OF_BITS) = 5:
     <img src="./imgs/5bit.png">
+
+## 3) Kết luận
+- Mạch số đông hoạt động đúng chức năng, khi số lượng bit 1 chiếm đa số trong tập đầu vào thì đầu ra sẽ báo hiệu bằng bit 1.
+- Số lượng bộ MUX cần sử dụng = số lượng bit đầu vào - 1
+- Thông qua bài tập đã áp dụng được việc sử dụng biến tạm <b>count</b> để xử lý logic trong process:
+    ``` VHDL
+    count := 0;
+    loopCount : FOR bit_index IN 0 TO NUMBER_OF_BITS - 1 LOOP
+        IF (x(bit_index) = '1') THEN
+            count := count + 1;
+        END IF;
+    END LOOP;
+    IF count > NUMBER_OF_BITS / 2 THEN
+        f <= '1';
+    ELSE
+        f <= '0';
+    END IF;
+    ```

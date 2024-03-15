@@ -1,0 +1,175 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dZ:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/Majority/ModelSim
+Ealu_case1
+Z0 w1710508379
+Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z4 dZ:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ModelSim
+Z5 8Z:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_Case1.vhd
+Z6 FZ:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_Case1.vhd
+l0
+L5
+V_3TefagTeDWc>OjhObLX;0
+!s100 T`Nc@HeN>=1]4dBPB969Z2
+Z7 OV;C;10.5b;63
+32
+Z8 !s110 1710508683
+!i10b 1
+Z9 !s108 1710508682.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_Case1.vhd|
+Z11 !s107 Z:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_Case1.vhd|
+!i113 1
+Z12 o-work work -2002 -explicit
+Z13 tExplicit 1 CvgOpt 0
+Artl
+R1
+R2
+R3
+DEx4 work 9 alu_case1 0 22 _3TefagTeDWc>OjhObLX;0
+l17
+L16
+V;ZV[MhD;Ok<mgmFV3@_NV2
+!s100 ;Z^JfAXf0UC?cAO9g`k5E0
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Ealu_caseifelse
+Z14 w1710506252
+R1
+R2
+R3
+R4
+Z15 8Z:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_CaseIfElse.vhd
+Z16 FZ:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_CaseIfElse.vhd
+l0
+L5
+V7zh^2AK<?OOlIZU@ND?RG0
+!s100 Q5gcbj1NMlM1E>i@kR^Jf0
+R7
+32
+R8
+!i10b 1
+Z17 !s108 1710508683.000000
+Z18 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_CaseIfElse.vhd|
+Z19 !s107 Z:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_CaseIfElse.vhd|
+!i113 1
+R12
+R13
+Artl
+R1
+R2
+R3
+DEx4 work 14 alu_caseifelse 0 22 7zh^2AK<?OOlIZU@ND?RG0
+l17
+L16
+ViibEC<:`^L4@VkFU;fB9z2
+!s100 5]7W5RPnZzF;7dR;a<DG@0
+R7
+32
+R8
+!i10b 1
+R17
+R18
+R19
+!i113 1
+R12
+R13
+Ealu_nestedifelse
+Z20 w1710508592
+R1
+R2
+R3
+R4
+Z21 8Z:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_NestedIfElse.vhd
+Z22 FZ:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_NestedIfElse.vhd
+l0
+L5
+VBKXf2n5Xd23`hK9B?CZ=d3
+!s100 MOB5@jNjC1e[CUa]KdhVN3
+R7
+32
+R8
+!i10b 1
+R17
+Z23 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_NestedIfElse.vhd|
+Z24 !s107 Z:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_NestedIfElse.vhd|
+!i113 1
+R12
+R13
+Artl
+R1
+R2
+R3
+Z25 DEx4 work 16 alu_nestedifelse 0 22 BKXf2n5Xd23`hK9B?CZ=d3
+l17
+L16
+Z26 Vjm=B0diA`9zaWz`3bJ4ld3
+Z27 !s100 ]WLd2Q1h7@1gKIonjDSCC3
+R7
+32
+R8
+!i10b 1
+R17
+R23
+R24
+!i113 1
+R12
+R13
+Ealu_tb
+Z28 w1710508664
+R1
+R2
+R3
+R4
+Z29 8Z:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_tb.vhd
+Z30 FZ:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_tb.vhd
+l0
+L5
+Veg571zPc8[>13DAamNOal1
+!s100 oeH0PAic106lZLo<:B58K1
+R7
+32
+R8
+!i10b 1
+R17
+Z31 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|Z:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_tb.vhd|
+Z32 !s107 Z:/Applications/CODESTUFF/StudyVHDL/EDABK/Homework/IfElseCases/ALU_tb.vhd|
+!i113 1
+R12
+R13
+Artl
+R25
+R1
+R2
+R3
+DEx4 work 6 alu_tb 0 22 eg571zPc8[>13DAamNOal1
+l16
+L11
+VKL6VeB8XfV]0Ghb;PAk6^1
+!s100 XHz52FH??bQWZk2eXX6I81
+R7
+32
+R8
+!i10b 1
+R17
+R31
+R32
+!i113 1
+R12
+R13

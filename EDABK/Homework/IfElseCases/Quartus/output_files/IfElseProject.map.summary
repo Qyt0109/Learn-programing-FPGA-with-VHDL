@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Sat Mar  9 10:12:30 2024
+Analysis & Synthesis Status : Successful - Fri Mar 15 20:32:26 2024
 Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 Revision Name : IfElseProject
-Top-level Entity Name : if_else_long_nhau
+Top-level Entity Name : ALU_NestedIfElse2
 Family : Cyclone IV E
-Total logic elements : 28
-    Total combinational functions : 28
+Total logic elements : 67
+    Total combinational functions : 67
     Dedicated logic registers : 0
 Total registers : 0
-Total pins : 14
+Total pins : 15
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0
