@@ -169,6 +169,7 @@ END ARCHITECTURE;
 - Simulation:
     - Test với số lượng bit đầu vào (NUMBER_OF_BITS) = 3:
     <img src="./imgs/3bit.png">
+    
     - Test với số lượng bit đầu vào (NUMBER_OF_BITS) = 5:
     <img src="./imgs/5bit.png">
 
