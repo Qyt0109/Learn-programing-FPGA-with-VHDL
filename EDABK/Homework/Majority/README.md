@@ -96,7 +96,7 @@ USE ieee.std_logic_1164.ALL;
 
 ENTITY majority IS
     GENERIC (
-        NUMBER_OF_BITS : NATURAL := 3
+        NUMBER_OF_BITS : POSITIVE := 3
     );
     PORT (
         x : IN STD_LOGIC_VECTOR(NUMBER_OF_BITS - 1 DOWNTO 0);

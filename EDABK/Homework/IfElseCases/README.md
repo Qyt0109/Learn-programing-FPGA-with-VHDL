@@ -53,12 +53,12 @@ else
     - Đầu ra:
       - <b>OUTPUT_F</b> (4 bit): Cụm biểu diễn một số nguyên có dấu với khoảng giá trị từ -8 đến 7 hoặc dãy 4 bit tuỳ vào chế độ tính toán số học hay logic.
 - Các trường hợp thiết kế:
-  - if else lồng nhau
-  - if else không lồng
-  - chỉ if không else
-  - lồng không lồng
-  - không lồng trong có lồng
-  - switch case thay if else
+  - if else
+  - if else lồng nhau, vòng ngoài SELECT_S(1 DOWNTO 0), vòng trong SELECT_S(2)
+  - if else lồng nhau, vòng ngoài SELECT_S(2), vòng trong SELECT_S(1 DOWNTO 0)
+  - case
+  - case SELECT_S(1 DOWNTO 0) lồng if else SELECT_S(2)
+  - case SELECT_S(2) lồng if else SELECT_S(1 DOWNTO 0)
 ### 2.2. Thiết kế khung module
 #### 2.2.1. Module structure:
 ``` VHDL
@@ -357,6 +357,46 @@ Total logic elements: 67
 Test chính xác
 
 ## 3) Nhận xét:
--
--
--
+- Với If else, mức độ ưu tiên của tín hiệu đầu ra sẽ theo từng vòng lồng ghép. Ưu tiên cao nhất với điều kiện vòng ngoài cùng. Vậy nên trong trường hợp <b>2.3.1.a) If else thông thường</b>, khối kiểm tra điều kiện if đầu tiên sẽ là bộ MUX nằm gần đầu ra nhất. Nối theo sau đó là một loạt các điều kiện theo sau và tương ứng là các bộ MUX có mức ưu tiên thấp hơn.
+  ```
+                               ┌┐        
+                        C1 TRUE│└─┐      
+                     ┌┐      ──┤  └┐     
+              C2 TRUE│└─┐      │   └┐    
+           ┌┐      ──┤  └┐     │    ├── F
+    C3 TRUE│└─┐      │   └┐    │   ┌┘    
+         ──┤  └┐     │    ├────┤  ┌┘     
+           │   └┐    │   ┌┘    │┌┬┘      
+           │    ├────┤  ┌┘     └┘│       
+   C3 FALSE│   ┌┘    │┌┬┘        │       
+         ──┤  ┌┘     └┘│         │       
+           │┌┬┘        │         │       
+           └┘│         │    Condition 1  
+             │         │                 
+             │    Condition 2            
+             │                           
+        Condition 3                      
+  ```
+- Với Case, mức độ ưu tiên là như nhau, các trường hợp When đều có vị trí đặt bộ MUX gần đầu ra, gần như tương đương với một bộ MUX lớn thay vì chia tách thành các lớp MUX nối tiếp. Có thể đối chiếu qua RTL View của trường hợp <b>2.3.2.a) Case thông thường</b>
+  ```
+                   ┌┐        
+                   │└─┐      
+          WHEN 1 ──┤  └┐     
+                   │   └┐    
+          WHEN 1 ──┤    │    
+                   │    │    
+          WHEN 1 ──┤    │    
+                   │    ├── F
+                 . │    │    
+                 . │    │    
+                 . │    │   
+                   │   ┌┘    
+          WHEN 1 ──┤  ┌┘     
+                   │┌┬┘      
+                   └┘│╱      
+                     ╳       
+                    ╱│       
+                     │       
+                Case encoder 
+  ```
+- Việc kết hợp sử dụng If else, Case cũng cần lưu ý tới mức độ phức tạp của mạch, đôi khi có những trường hợp không thể sử lý tối ưu được logic sẽ khiến cho số lượng phần tử logic (Total logic elements - TLEs) tiêu hao nhiều hơn. Ví dụ như <b>2.3.2.a) Case thông thường</b> chỉ tốn <b style="color:red;">44 TLEs</b> do xử lý tối ưu được logic bài toán đã đặt ra, trong khi <b>2.3.1.b) Nested If else theo SELECT_S(1 DOWNTO 0)</b> tốn tới <b style="color:red;">78 TLEs</b> do việc xử lý lặp lại một số trường hợp logic bên trong vòng lồng ghép if else, dẫn tới dư thừa phần tử logic trong mạch.
