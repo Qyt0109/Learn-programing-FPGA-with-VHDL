@@ -264,11 +264,11 @@ Test chính xác
 ``` VHDL
 CASE SELECT_S IS
     WHEN "000" =>
-        OUTPUT_F <= STD_LOGIC_VECTOR(unsigned(INPUT_A) + unsigned(INPUT_B));
+        OUTPUT_F <= STD_LOGIC_VECTOR(signed(INPUT_A) + signed(INPUT_B));
     WHEN "001" =>
-        OUTPUT_F <= STD_LOGIC_VECTOR(unsigned(INPUT_A) - unsigned(INPUT_B));
+        OUTPUT_F <= STD_LOGIC_VECTOR(signed(INPUT_A) - signed(INPUT_B));
     WHEN "010" =>
-        OUTPUT_F <= STD_LOGIC_VECTOR(unsigned(INPUT_A) MOD unsigned(INPUT_B));
+        OUTPUT_F <= STD_LOGIC_VECTOR(signed(INPUT_A) MOD signed(INPUT_B));
     WHEN "100" =>
         OUTPUT_F <= INPUT_A AND INPUT_B;
     WHEN "101" =>
